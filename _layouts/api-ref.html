@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+  <body>
+    {% include top-nav-api.html %}
+
+    <div class="page-wrapper mobile-box">
+      <div class="tocify-wrapper">
+        {% include toc/api-toc.html %}
+      </div>
+        <div class="dark-box"></div>
+        <div class="api">
+          {{ content }}
+        </div>
+    </div>
+    <!--{% include footer.html %}-->
+    <link rel="stylesheet" href="//cdn.materialdesignicons.com/1.6.50/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../../css/jBox.css">
+    <link rel="stylesheet" href="../../css/jquery.tocify.css"></script>
+    <!--Import jQuery before materialize.js-->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+    <script src="../../js/jquery.tocify.js"></script>
+    <script>
+    $(function() {
+      var toc = $("#toc").tocify({ selectors: "h1, h2, h3, h4" }).data("toc-tocify");
+    });
+    </script>
+    <script src="../../js/openMobileNav.js"></script>
+    <script src="../../js/init.js"></script>
+    <!--jBox Tooltips-->
+    <script src="../../js/jBox.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script type="text/javascript" src="../js/materialize.js"></script>
+  </body>
+</html>

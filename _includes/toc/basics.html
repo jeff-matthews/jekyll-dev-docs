@@ -1,0 +1,33 @@
+<li class="level1">Basics</li>
+  <div class="collapsible-body">
+    <ul>
+    {% if page.url == '/basics/overview.html' %}
+      <li class="level2 active">
+    {% else %}
+      <li class="level2" style="padding-right:30px;">
+    {% endif %}
+    <a href="../basics/overview.html">Overview</a></li>
+    {% if page.url == '/basics/account-management.html' %}
+      <li class="level2 active">
+    {% else %}
+      <li class="level2">
+    {% endif %}
+      <a href="../basics/account-management.html">Account Management</a></li>
+    {% if page.url == '/basics/tokenization.html' %}
+      <li class="level2 active">
+    {% else %}
+      <li class="level2">
+    {% endif %}
+      <a href="../basics/tokenization.html">Securing Payment Details</a></li>
+    {% if page.url == '/basics/authentication.html' %}
+      <li class="level2 active">
+    {% else %}
+      <li class="level2">
+    {% endif %}
+      <a href="../basics/authentication.html">Authentication</a></li>
+    {% if page.url == '/basics/merchant-onboarding.html' %}
+      <li class="level2 active">
+    {% else %}
+      <li class="level2">
+    {% endif %}
+    </ul>

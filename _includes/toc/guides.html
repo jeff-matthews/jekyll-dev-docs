@@ -1,0 +1,148 @@
+<li class="level1">Guides</li>
+  <div class="collapsible-body">
+    <ul>
+      <!--GETTING STARTED-->
+      <ul id="toc" class="collapsible collapsible-accordion">
+        {% if page.url == '/guides/app-dev-getting-started.html' %}
+        <li class="level2 active"><a class="collapsible-header active">Getting Started</a>
+          <div class="collapsible-body">
+        {% elsif page.url == '/guides/payment-form-getting-started.html'%}
+        <li class="level2 active"><a class="collapsible-header active">Getting Started</a>
+          <div class="collapsible-body">
+        {% else %}
+        <li class="level2"><a class="collapsible-header">Getting Started</a>
+          <div class="collapsible-body" style="display:none">
+        {% endif %}
+          <ul>
+            {% if page.url == '/guides/app-dev-getting-started.html' %}
+            <li class="level3 active">
+            {% else %}
+            <li class="level3">
+            {% endif %}
+            <a href="../guides/app-dev-getting-started.html">Applications</a></li>
+            {% if page.url == '/guides/payment-form-getting-started.html' %}
+            <li class="level3 active">
+            {% else %}
+            <li class="level3">
+            {% endif %}
+            <a href="../guides/payment-form-getting-started.html">Payment Forms</a></li>
+          </ul>
+          </div>
+        </li>
+      </ul>
+      <!--PAYMENTS-->
+      <ul id="toc" class="collapsible collapsible-accordion">
+        {% if page.url == '/guides/hosted-payment-page-link.html' %}
+        <li class="level2 active"><a class="collapsible-header active">Payments</a>
+          <div class="collapsible-body">
+        {% elsif page.url == '/guides/create-charge.html' %}
+        <li class="level2 active"><a class="collapsible-header active">Payments</a>
+          <div class="collapsible-body">
+        {% elsif page.url == '/guides/collect-payment-details.html' %}
+        <li class="level2 active"><a class="collapsible-header active">Payments</a>
+          <div class="collapsible-body">
+        {% elsif page.url == '/guides/setup-recurring-charge.html' %}
+        <li class="level2 active"><a class="collapsible-header active">Payments</a>
+          <div class="collapsible-body">
+        {% elsif page.url == '/guides/save-payment-details.html' %}
+        <li class="level2 active"><a class="collapsible-header active">Payments</a>
+          <div class="collapsible-body">
+        {% else %}
+        <li class="level2"><a class="collapsible-header" style="margin-right: 20px;">Payments</a>
+          <div class="collapsible-body" style="display:none">
+        {% endif %}
+          <ul>
+            {% if page.url == '/guides/hosted-payment-page-link.html' %}
+            <li class="level3 active">
+            {% else %}
+            <li class="level3">
+            {% endif %}
+            <a href="../guides/hosted-payment-page-link.html">Link to a Hosted Payment Page</a></li>
+            {% if page.url == '/guides/collect-payment-details.html' %}
+            <li class="level3 active">
+            {% else %}
+            <li class="level3">
+            {% endif %}
+            <a href="../guides/collect-payment-details.html">Collect Payment Details</a></li>
+            {% if page.url == '/guides/create-charge.html' %}
+            <li class="level3 active">
+            {% else %}
+            <li class="level3">
+            {% endif %}
+            <a href="../guides/create-charge.html">Create a Charge</a></li>
+            {% if page.url == '/guides/setup-recurring-charge.html' %}
+            <li class="level3 active">
+            {% else %}
+            <li class="level3">
+            {% endif %}
+            <a href="../guides/setup-recurring-charge.html">Set Up a Recurring Charge</a></li>
+            {% if page.url == '/guides/save-payment-details.html' %}
+            <li class="level3 active">
+            {% else %}
+            <li class="level3">
+            {% endif %}
+            <a href="../guides/save-payment-details.html">Save Payment Details for Future Use</a></li>
+          </ul>
+          </div>
+        </li>
+      </ul>
+      <!--MERCHANT MANAGEMENT-->
+      <ul id="toc" class="collapsible collapsible-accordion">
+        {% if page.url == '/guides/merchant-signup.html' %}
+        <li class="level2 active"><a class="collapsible-header active">Merchant Management</a>
+          <div class="collapsible-body">
+        {% elsif page.url == '/guides/deauthorization.html'%}
+        <li class="level2 active"><a class="collapsible-header active">Merchant Management</a>
+          <div class="collapsible-body">
+        {% elsif page.url == '/guides/update-merchant-account.html'%}
+        <li class="level2 active"><a class="collapsible-header active">Merchant Management</a>
+          <div class="collapsible-body">
+        {% else %}
+        <li class="level2"><a class="collapsible-header">Merchant Management</a>
+          <div class="collapsible-body" style="display:none">
+        {% endif %}
+          <ul>
+            {% if page.url == '/guides/merchant-signup.html' %}
+            <li class="level3 active">
+            {% else %}
+            <li class="level3">
+            {% endif %}
+            <a href="../guides/merchant-signup.html">White Label Sign Up</a></li>
+            {% if page.url == '/guides/deauthorization.html' %}
+            <li class="level3 active">
+            {% else %}
+            <li class="level3">
+            {% endif %}
+            <a href="../guides/deauthorization.html">Deauthorize an OAuth App</a></li>
+            {% if page.url == '/guides/update-merchant-account.html' %}
+            <li class="level3 active">
+            {% else %}
+            <li class="level3">
+            {% endif %}
+            <a href="../guides/update-merchant-account.html">Update Account Info</a></li>
+          </ul>
+          </div>
+        </li>
+      </ul>
+      <!--TESTING-->
+      <ul id="toc" class="collapsible collapsible-accordion">
+        {% if page.url == '/guides/test-web-server-oauth-flow.html' %}
+        <li class="level2 active"><a class="collapsible-header active">Testing</a>
+          <div class="collapsible-body">
+        {% else %}
+        <li class="level2"><a class="collapsible-header">Testing</a>
+          <div class="collapsible-body" style="display:none">
+        {% endif %}
+          <ul>
+            {% if page.url == '/guides/test-web-server-oauth-flow.html' %}
+            <li class="level3 active">
+            {% else %}
+            <li class="level3">
+            {% endif %}
+            <a href="../guides/test-web-server-oauth-flow.html">Test the Web Server OAuth Flow</a></li>
+          </ul>
+          </div>
+        </li>
+      </ul>
+  </ul>
+</div>

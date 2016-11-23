@@ -1,0 +1,37 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: AffiniPay
+email:
+description: > # this means to ignore newlines until "baseurl:"
+  Developer documentation for AffiniPay, LawPay, CPACharge, and MedPay integration partners and independent developers.
+#baseurl: "/docs" # the subpath of your site, e.g. /blog ===This seems to break the scrollspy functionality===
+url: "https://developer.affinipay.com" # the base hostname & protocol for your site
+
+# Google services
+google_analytics: UA-17701891-1
+
+# Build settings
+markdown: kramdown
+
+lunr_search:
+  excludes: header.html
+
+exclude:
+  - .git
+  - gulp
+  - node_modules
+  - .DS_Store
+  - .gitignore
+  - feed.xml
+  - Gemfile
+  - Gemfile.lock
+  - gulpfile.js
+  - package.json
+  - Rakefile
+  - README.md

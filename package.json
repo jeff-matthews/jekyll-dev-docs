@@ -1,0 +1,32 @@
+{
+  "name": "dev-docs",
+  "version": "1.0.0",
+  "description": "Build process for the AffiniPay ddeveloper docs site",
+  "main": "index.js",
+  "directories": {
+    "_site": "_site"
+  },
+  "scripts": {
+    "test": "test",
+    "build": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/jeff-matthews/dev-docs.git"
+  },
+  "license": {
+    "type": "MIT",
+    "url": "https://opensource.org/licenses/MIT"
+  },
+  "author": "jeff matthews",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-cheerio": "^0.6.2",
+    "gulp-clean-css": "^2.0.10",
+    "gulp-imagemin": "^2.2.0",
+    "gulp-uglify": "^1.1.0",
+    "gulp-util": "^3.0.7",
+    "imagemin-pngquant": "^5.0.0",
+    "run-sequence": "^1.2.2"
+  }
+}

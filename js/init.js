@@ -1,0 +1,1 @@
+$(document).ready(function(){$(".scrollspy").scrollSpy(),$(".dropdown-button").dropdown(),$(".parallax").parallax(),$(".button-collapse").sideNav(),$(".sidebar-module").pushpin(),$(".tooltip").jBox("Tooltip")}),function(o){o(function(){})}(jQuery);
