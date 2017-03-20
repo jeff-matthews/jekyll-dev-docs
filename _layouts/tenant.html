@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+  <body>
+    {% include top-nav.html %}
+    <div class="tocify-wrapper hide-on-med-and-down" style="padding-left: 10px;">
+      {% include toc/tenant-toc.html %}
+    </div>
+    <div class="page-wrapper mobile-box">
+      <!--<div class="scrollspy-box"></div>-->
+      <div class="main">
+        <h1>{{ page.title }}</h1>
+            {{ content }}
+            {% include footer.html %}
+      </div>
+    </div>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../js/scripts.js"></script>
+    <script type="text/javascript" src="../js/init.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script>
+    <!--Include Clipboard JS library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.0/clipboard.min.js"></script>
+    <script type="text/javascript" src="../js/tooltip.js"></script>
+  </body>
+</html>
