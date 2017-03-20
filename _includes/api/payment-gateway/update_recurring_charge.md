@@ -18,17 +18,17 @@
 
   <blockquote>Update a recurring charge amount via PUT using a saved card</blockquote>
 
-  <pre><code>curl -X PUT --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/recurring/charges/be0t6cgpSyGYz6cxCmAB1A -d '
+  <pre id="put-recur"><code class="json">curl -X PUT -H "Content-Type:application/json" --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/recurring/charges/be0t6cgpSyGYz6cxCmAB1A -d '
   {
       "amount": "5000",
       "method": "m_bla2RHSUioRDb29imFmA",
       "schedule": {
-          "start": "2014-07-01",
+          "start": "2016-07-01",
           "interval_unit": "MONTH",
           "interval_delay": 1
       }
-  }'</code>
-  </pre>
+  }'</code></pre>
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#put-recur" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
   <pre><code>{
@@ -46,28 +46,28 @@
       "schedule": {
           "interval_unit": "MONTH",
           "interval_delay": 1,
-          "start": "2014-07-01"
+          "start": "2016-07-01"
       },
       "amount": 5000,
       "currency": "USD",
       "total_occurrences": 0,
       "total_amount": 0,
-      "next_payment": "2014-07-01"
+      "next_payment": "2016-07-01"
   }</code>
   </pre>
 
 
   <blockquote>Update the payment method expiration date of a recurring charge via PATCH</blockquote>
 
-  <pre><code>curl -X PATCH --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/recurring/charges/be0t6cgpSyGYz6cxCmAB1A -d '
+  <pre id="recur-method"><code class="json">curl -X PATCH -H "Content-Type:application/json" --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/recurring/charges/be0t6cgpSyGYz6cxCmAB1A -d '
   {
       "method": {
           "type": "card",
           "exp_month": 7,
           "exp_year": 2022
       }
-  }'</code>
-  </pre>
+  }'</code></pre>
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#recur-method" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
   <pre><code>{
@@ -85,13 +85,13 @@
       "schedule": {
           "interval_unit": "MONTH",
           "interval_delay": 1,
-          "start": "2014-07-01"
+          "start": "2016-07-01"
       },
       "amount": 5000,
       "currency": "USD",
       "total_occurrences": 0,
       "total_amount": 0,
-      "next_payment": "2014-07-01"
+      "next_payment": "2016-07-01"
   }</code>
   </pre>
 </div>

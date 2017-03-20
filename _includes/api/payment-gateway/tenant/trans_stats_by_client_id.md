@@ -45,7 +45,7 @@ The following URL parameters are supported:
 
 <div class="http-example http-request-example">
   <pre class="prettyprint">
-curl --user username:password {{site.data.variables.apiurl.gateway}}/v1/stats/transactions/by_client_id?start_date=2014-05-01T00:00:00.000Z&amp;end_date=2014-06-01T00:00:00.000Z&amp;client_id=MyApp</pre>
+curl --user username:password {{site.data.variables.apiurl.gateway}}/v1/stats/transactions/by_client_id?start_date=2016-05-01T00:00:00.000Z&amp;end_date=2016-06-01T00:00:00.000Z&amp;client_id=MyApp</pre>
 </div>
 
 <div class="http-example http-response-example">
@@ -56,8 +56,8 @@ curl --user username:password {{site.data.variables.apiurl.gateway}}/v1/stats/tr
   "total_entries" : 1,
   "results" : [ {
     "client_id" : "MyApp",
-    "start_time" : "2014-05-01T00:00:00.000Z",
-    "end_time" : "2014-06-01T00:00:00.000Z",
+    "start_time" : "2016-05-01T00:00:00.000Z",
+    "end_time" : "2016-06-01T00:00:00.000Z",
     "summaries" : [ {
       "payment_type" : "CARD",
       "status" : "AUTHORIZED",

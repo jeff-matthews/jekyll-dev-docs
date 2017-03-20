@@ -2,9 +2,9 @@
   <div class="collapsible-body">
     <ul>
     {% if page.url == '/basics/overview.html' %}
-      <li class="level2 active">
+      <li class="level2 active" style="padding-right:40px;">
     {% else %}
-      <li class="level2" style="padding-right:30px;">
+      <li class="level2" style="padding-right:40px;">
     {% endif %}
     <a href="../basics/overview.html">Overview</a></li>
     {% if page.url == '/basics/account-management.html' %}
@@ -25,9 +25,34 @@
       <li class="level2">
     {% endif %}
       <a href="../basics/authentication.html">Authentication</a></li>
-    {% if page.url == '/basics/merchant-onboarding.html' %}
-      <li class="level2 active">
-    {% else %}
-      <li class="level2">
-    {% endif %}
+      <!--TESTING-->
+      <ul id="toc" class="collapsible collapsible-accordion">
+        {% if page.url == '/basics/testing-the-api.html' %}
+        <li class="level2 active" style="padding-right:40px;"><a class="collapsible-header active">Testing</a>
+          <div class="collapsible-body">
+        {% elsif page.url == '/basics/test-web-server-oauth-flow.html'%}
+        <li class="level2 active"><a class="collapsible-header active">Testing</a>
+          <div class="collapsible-body">
+        {% else %}
+        <li class="level2" style="padding-right:40px;"><a class="collapsible-header">Testing</a>
+          <div class="collapsible-body" style="display:none">
+        {% endif %}
+            <ul>
+              {% if page.url == '/basics/testing-the-api.html' %}
+              <li class="level3 active">
+              {% else %}
+              <li class="level3">
+              {% endif %}
+              <a href="../basics/testing-the-api.html">Testing the API</a></li>
+              {% if page.url == '/basics/test-web-server-oauth-flow.html' %}
+              <li class="level3 active">
+              {% else %}
+              <li class="level3">
+              {% endif %}
+              <a href="../basics/test-web-server-oauth-flow.html">Testing the Web Server OAuth Flow</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
     </ul>
+  </div>

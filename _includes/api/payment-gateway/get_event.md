@@ -10,18 +10,18 @@
   </div>
 
   <blockquote>Example request</blockquote>
-  <pre><code>curl --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/events/gUoRi3NSTvGNjmNTip6pCw</code>
-  </pre>
+  <pre id="get-event"><code class="json">curl -X GET --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/events/gUoRi3NSTvGNjmNTip6pCw</code></pre>
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#get-event" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
   <pre><code>{
       "id" : "DYEDsGU_RgWjwnY5cTPMew",
-      "created" : "2013-10-25T17:41:41.959Z",
+      "created" : "2016-10-25T17:41:41.959Z",
       "type" : "transaction.authorized",
       "data" : {
         "id" : "m7wPNJgUT4uHNRoSdUpTnA",
-        "created" : "2013-10-25T17:41:41.938Z",
-        "modified" : "2013-10-25T17:41:41.938Z",
+        "created" : "2016-10-25T17:41:41.938Z",
+        "modified" : "2016-10-25T17:41:41.938Z",
         "account_id" : "8IO47jzCEeOfvhLxg70sog",
         "status" : "AUTHORIZED",
         "amount" : 100,

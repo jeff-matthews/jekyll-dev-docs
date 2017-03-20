@@ -8,7 +8,7 @@ Engage with potential customers who aren't already AffiniPay merchants and help 
 
 ## Overview
 
-The <span class="code-green">https://secure.affinipay.com/api/v1/user/merchant_applications</span> endpoint allows you to facilitate the new merchant application process from within your application.
+The <span class="code-green">https://secure.affinipay.com/api/v1/merchant_applications</span> endpoint allows you to facilitate the new merchant application process from within your application.
 
 {{site.data.notes.note.oauth-client-credentials}}
 
@@ -41,7 +41,7 @@ You must gather information from users through your application and build a <a h
 
 ## Submit a Merchant Application
 
-After building the <a href="../reference/api.html#merchant_application" target="&#95;blank">`merchant_application`</a> JSON object, POST it to the <span class="code-green">https://secure.affinipay.com/api/v1/user/merchant_applications</span> endpoint. Click <a href="../reference/api.html#CreateaNewApplication" target="&#95;blank">here</a> to see an example.
+After building the <a href="../reference/api.html#merchant_application" target="&#95;blank">`merchant_application`</a> JSON object, <span class="api-operation">POST</span> it to the <span class="code-green">https://secure.affinipay.com/api/v1/merchant_applications</span> endpoint. Click <a href="../reference/api.html#CreateaNewApplication" target="&#95;blank">here</a> to see an example.
 
 <span class="panel-tip"><b>Tip:</b> Use <a href="https://github.com/thomasjbradley/signature-pad" target="&#95;blank">this</a> jQuery plugin to capture an applicant's signature and submit it in the merchant application JSON object. The plugin generates the value for the <span class="code-green">signature</span> parameter in the required JSON format. Refer to the plugin <a href="https://github.com/thomasjbradley/signature-pad/blob/gh-pages/documentation.md" target="&#95;blank">documentation</a> for implementation instructions.</span>
 
@@ -60,39 +60,37 @@ Send an email to the new client letting them know payments have been activated f
 
 ## Integration Testing
 
-You can add a `test` attribute to the merchant application JSON object to test your application. The `test` attribute has two possible values:
+You can add a <span class="code-green">test</span> attribute to the merchant application JSON object to test your application. The <span class="code-green">test</span> attribute has two possible values:
 <ul>
- <li> <span class="code-green">validate</span> – Upon submission, the AffiniPay system will validate the provided values and will return an **HTTP 422** if invalid along with additional validation messages. If valid, an **HTTP 200** will be returned along with a fake `merchant_application: ID` in the response body. After a short delay, a `merchant.provisioned` event will be fired with a fake <span class="code-green">authorization_code</span>.
+ <li> <span class="code-green">validate</span> – Upon submission, the AffiniPay system will validate the provided values and will return an <b>HTTP 422</b> code if invalid along with additional validation messages. If valid, an <b>HTTP 200</b> code will be returned along with a fake <span class="code-green">merchant_application: ID</span> in the response body. After a short delay, a <span class="code-green">merchant.provisioned</span> event will be fired with a fake <span class="code-green">authorization_code</span>.
 
-<div class="http-example http-request-example"><pre>
-        {
-          "merchant_application": {
-              "test": "validate",
-              "reference":""
-              "plan":"your_app_plan_id",
-              "first_name":"John",
-              "last_name":"Doe",
-              "email":"john.doe@example.com",
-        // … additional fields omitted …
-          }
-        }
-</pre></div></li>
+<pre><code class="json">{
+  "merchant_application": {
+      "test": "validate",
+      "reference":"",
+      "plan":"your_app_plan_id",
+      "first_name":"John",
+      "last_name":"Doe",
+      "email":"john.doe@example.com",
+// … additional fields omitted …
+  }
+}
+</code></pre></li>
 
- <li> <span class="code-green">fail</span> – Upon submission, the AffiniPay system will return an **HTTP 200** if validation is successful, but will fire a `merchant_application.declined` event after a short delay. This can be used to test a successful submission but a failure to underwrite.
+ <li> <span class="code-green">fail</span> – Upon submission, the AffiniPay system will return an <b>HTTP 200</b> if validation is successful, but will fire a <span class="code-green">merchant_application.declined</span> event after a short delay. This can be used to test a successful submission but a failure to underwrite.
 
-<div class="http-example http-request-example"><pre>
-        {
-           "merchant_application": {
-               "test": "fail",
-               "reference":""
-               "plan":"your_app_plan_id",
-               "first_name":"John",
-               "last_name":"Doe",
-               "email":"john.doe@example.com",
-        // … additional fields omitted …
-           }
-        }
-</pre></div></li>
+<pre><code class="json">{
+ "merchant_application": {
+     "test": "fail",
+     "reference":"",
+     "plan":"your_app_plan_id",
+     "first_name":"John",
+     "last_name":"Doe",
+     "email":"john.doe@example.com",
+// … additional fields omitted …
+ }
+}
+</code></pre></li>
 </ul>
 The short delays mentioned previously are for testing purposes only. In live deployment scenarios, these delays will be many hours (or days) long as the merchant application goes through underwriting.
 

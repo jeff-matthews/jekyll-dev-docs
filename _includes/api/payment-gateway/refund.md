@@ -15,13 +15,14 @@
     </div>
   </div>
 
-  <blockquote>Applying a Refund to a credit card Charge</blockquote>
+  <blockquote>Applying a refund to a credit card charge</blockquote>
 
-  <pre><code>curl -X POST --user secret_key: -H "Content-Type: application/json" {{site.data.variables.apiurl.gateway}}/v1/charges/wKgFnjz8GamBPPzKzIsAAA/refund -d '
+  <pre id="refund-credit"><code class="json">curl -X POST -H "Content-Type:application/json" --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/charges/wKgFnjz8GamBPPzKzIsAAA/refund -d '
   {
       "amount":"20"
-  }'</code>
-  </pre>
+  }'</code></pre>
+
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#refund-credit" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
   <pre><code>{
@@ -46,13 +47,14 @@
   </pre>
 
 
-  <blockquote>Applying a Refund to a settled bank Charge</blockquote>
+  <blockquote>Applying a refund to a settled bank charge</blockquote>
 
-  <pre><code>curl -X POST --user secret_key: -H "Content-Type: application/json" {{site.data.variables.apiurl.gateway}}/v1/charges/GflPgzrBQsGu333bcBDDeA/refund -d '
+  <pre id="refund-bank"><code class="json">curl -X POST -H "Content-Type:application/json" --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/charges/GflPgzrBQsGu333bcBDDeA/refund -d '
   {
       "amount":"135"
-  }'</code>
-  </pre>
+  }'</code></pre>
+
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#refund-bank" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
   <pre><code>{
@@ -77,13 +79,13 @@
   </pre>
 
 
-  <blockquote>Applying a Refund to an authorized (unsettled) bank Charge</blockquote>
+  <blockquote>Applying a refund to an authorized (unsettled) bank charge</blockquote>
 
-  <pre><code>curl -X POST --user secret_key: -H "Content-Type: application/json" {{site.data.variables.apiurl.gateway}}/v1/charges/TUd8PkY3TwmsXcYeqoWsEA/refund -d '
+  <pre id="refund-unsettled"><code class="json">curl -X POST -H "Content-Type:application/json" --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/charges/TUd8PkY3TwmsXcYeqoWsEA/refund -d '
   {
       "amount":"350"
-  }'</code>
-  </pre>
+  }'</code></pre>
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#refund-unsettled" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
   <pre><code>{

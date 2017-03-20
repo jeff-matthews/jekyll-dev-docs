@@ -2,7 +2,7 @@
   <div class="method-copy">
     <div class="method-copy-padding">
       <p>Provides all the details necessary to sign up a user for an AffiniPay merchant account.</p>
-
+      {{site.data.notes.note.no-encoded-values}}
       <table>
       <thead>
         <tr>
@@ -91,47 +91,47 @@
         <tr>
           <td>has_dba</td>
           <td>boolean</td>
-          <td>Indicates whether a Doing Business As (DBA) name has been registered for the business; default is false.</td>
+          <td>Indicates whether a Doing Business As (DBA) name has been registered for the business; default is false <i>(optional)</i>.</td>
         </tr>
         <tr>
           <td>dba_name</td>
           <td>string</td>
-          <td>The business&#39;s registered Doing Business As (DBA) name; optional if has_dba is false.</td>
+          <td>The business&#39;s registered Doing Business As (DBA) name <i>(optional if has_dba is false)</i>.</td>
         </tr>
         <tr>
           <td>dba_address1</td>
           <td>string</td>
-          <td>The mailing address of the business with a registered Doing Business As (DBA) name; optional if has_dba is false.</td>
+          <td>The mailing address of the business with a registered Doing Business As (DBA) name <i>(optional if has_dba is false)</i>.</td>
         </tr>
         <tr>
           <td>dba_address2</td>
           <td>string</td>
-          <td>Additional address field; optional if has_dba is false.</td>
+          <td>Additional address field <i>(optional if has_dba is false)</i>.</td>
         </tr>
         <tr>
           <td>dba_city</td>
           <td>string</td>
-          <td>The city where the business with a registered Doing Business As (DBA) name is located; optional if has_dba is false.</td>
+          <td>The city where the business with a registered Doing Business As (DBA) name is located <i>(optional if has_dba is false)</i>.</td>
         </tr>
         <tr>
           <td>dba_state</td>
           <td>string</td>
-          <td>The state where the business with a registered Doing Business As (DBA) name is located (two-letter state code); optional if has_dba is false.</td>
+          <td>The state where the business with a registered Doing Business As (DBA) name is located (two-letter state code) <i>(optional if has_dba is false)</i>.</td>
         </tr>
         <tr>
           <td>dba_zip_code</td>
           <td>string</td>
-          <td>The postal ZIP code of the business with a registered Doing Business As (DBA) name; optional if has_dba is false.</td>
+          <td>The postal ZIP code of the business with a registered Doing Business As (DBA) name <i>(optional if has_dba is false)</i>.</td>
         </tr>
         <tr>
           <td>dba_phone</td>
           <td>string</td>
-          <td>The primary contact number of the business with a registered Doing Business As (DBA) name; optional if has_dba is false.</td>
+          <td>The primary contact number of the business with a registered Doing Business As (DBA) name <i>(optional if has_dba is false)</i>.</td>
         </tr>
         <tr>
           <td>structure</td>
           <td>string</td>
-          <td>The business&#39;s structure. Accepts the following values:
+          <td>The business&#39;s structure. Accepts a 1- or 2-letter abbreviation. Only include the abbreviation in the request, not the description (e.g., SO):
             <ul>
               <li>SO – Sole Proprietor</li>
               <li>AE – Assoc / Estate / Trust</li>
@@ -151,7 +151,7 @@
         <tr>
           <td>business_type</td>
           <td>string</td>
-          <td>The type of industry in which the business engages. Accepts the following values:
+          <td>The type of industry in which the business engages. Accepts a 1-letter abbreviation. Only include the abbreviation in the request, not the description (e.g., R):
             <ul>
               <li>R – Retail</li>
               <li>I – Internet</li>
@@ -169,7 +169,7 @@
         <tr>
           <td>number_of_locations</td>
           <td>string</td>
-          <td>Number of locations where the business has operations.</td>
+          <td>Number of locations where the business has operations <i>(optional)</i>.</td>
         </tr>
         <tr>
           <td>years_in_business</td>
@@ -179,17 +179,17 @@
         <tr>
           <td>business_website</td>
           <td>string</td>
-          <td>The business&#39;s website.</td>
+          <td>The business&#39;s website <i>(optional)</i>.</td>
         </tr>
         <tr>
           <td>past_bankruptcy</td>
           <td>boolean</td>
-          <td>Indicates whether the business has been through bankruptcy proceedings in the past.</td>
+          <td>Indicates whether the business has been through bankruptcy proceedings in the past <i>(optional)</i>.</td>
         </tr>
         <tr>
           <td>bankruptcy_date</td>
           <td>date</td>
-          <td>The date the bankruptcy was finalized.</td>
+          <td>The date the bankruptcy was finalized <i>(optional)</i>.</td>
         </tr>
         <tr>
           <td>owner_first_name</td>
@@ -230,7 +230,7 @@
         <tr>
           <td>owner_percentage_of_ownership</td>
           <td>integer</td>
-          <td>The business owner&#39;s percentage of ownership.</td>
+          <td>The business owner&#39;s percentage of ownership <i>(optional, cannot be 0, defaults to 100)</i>.</td>
         </tr>
         <tr>
           <td>owner_address1</td>
@@ -295,27 +295,27 @@
         <tr>
           <td>currently_accepting_cards</td>
           <td>boolean</td>
-          <td>Indicates whether the business is currently accepting credit card payments through another processor.</td>
+          <td>Indicates whether the business is currently accepting credit card payments through another processor <i>(optional)</i>.</td>
         </tr>
         <tr>
           <td>current_card_processor</td>
           <td>string</td>
-          <td>The business&#39;s current credit card processor.</td>
+          <td>The business&#39;s current credit card processor <i>(optional)</i>.</td>
         </tr>
         <tr>
           <td>wants_to_accept_amex</td>
           <td>boolean</td>
-          <td>Indicates whether the business wants to accept American Express credit cards.</td>
+          <td>Indicates whether the business wants to accept American Express credit cards <i>(optional)</i>.</td>
         </tr>
         <tr>
           <td>current_amex_merchant_number</td>
           <td>string</td>
-          <td>The business&#39;s current American Express merchant account number.</td>
+          <td>The business&#39;s current American Express merchant account number <i>(optional)</i>.</td>
         </tr>
         <tr>
           <td>operating_account_name</td>
           <td>string</td>
-          <td>The name of the business&#39;s operating account.</td>
+          <td>The name of the business&#39;s operating account <i>(optional)</i>.</td>
         </tr>
         <tr>
           <td>operating_account_routing_number</td>
@@ -335,22 +335,22 @@
         <tr>
           <td>trust_account_name</td>
           <td>string</td>
-          <td>The name of the business&#39;s trust account.</td>
+          <td>The name of the business&#39;s trust account <i>(optional)</i>.</td>
         </tr>
         <tr>
           <td>trust_account_routing_number</td>
           <td>string</td>
-          <td>The routing number of the business&#39;s trust account; optional unless plan is a trust plan.</td>
+          <td>The routing number of the business&#39;s trust account; optional unless plan is a trust plan <i>(optional unless plan is a trust plan)</i>.</td>
         </tr>
         <tr>
           <td>trust_account_bank_name</td>
           <td>string</td>
-          <td>The name of the bank where the business holds a trust account; optional unless plan is a trust plan.</td>
+          <td>The name of the bank where the business holds a trust account; optional unless plan is a trust plan <i>(optional unless plan is a trust plan)</i>.</td>
         </tr>
         <tr>
           <td>trust_account_number</td>
           <td>string</td>
-          <td>The business&#39;s trust account number; optional unless plan is a trust plan.</td>
+          <td>The business&#39;s trust account number; optional unless plan is a trust plan <i>(optional unless plan is a trust plan)</i>.</td>
         </tr>
         <tr>
           <td>signed_by</td>

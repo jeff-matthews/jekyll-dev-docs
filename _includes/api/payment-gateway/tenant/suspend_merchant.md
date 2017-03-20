@@ -16,7 +16,7 @@ suspended Merchant can be brought back into an active state via the
 
 <div class="http-example http-request-example">
   <pre class="prettyprint">
-curl -X POST --user username:password -H "Content-Type: application/json" {{site.data.variables.apiurl.gateway}}/v1/merchants/wKgeRDynFnyBPKdn4XIAAQ/suspend</pre>
+curl -X POST --user username:password -H "Content-Type:application/json" {{site.data.variables.apiurl.gateway}}/v1/merchants/wKgeRDynFnyBPKdn4XIAAQ/suspend</pre>
 </div>
 
 <div class="http-example http-response-example">

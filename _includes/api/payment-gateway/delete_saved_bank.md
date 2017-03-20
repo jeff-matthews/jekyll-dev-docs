@@ -11,8 +11,8 @@
   </div>
 
   <blockquote>Example request</blockquote>
-  <pre><code>curl -X DELETE --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/banks/vU42KZWhTd2iiGLhjfJR6A</code>
-  </pre>
+  <pre id="del-bank"><code class="json">curl -X DELETE --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/banks/vU42KZWhTd2iiGLhjfJR6A</code></pre>
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#del-bank" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
   <pre><code>{

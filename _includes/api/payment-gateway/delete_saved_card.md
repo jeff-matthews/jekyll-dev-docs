@@ -11,8 +11,8 @@
   </div>
 
   <blockquote>Example request</blockquote>
-  <pre><code>curl -X DELETE --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/cards/RNZyuzAPTK2TSS6hPKafDA</code>
-  </pre>
+  <pre id="card-del"><code class="json">curl -X DELETE --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/cards/RNZyuzAPTK2TSS6hPKafDA</code></pre>
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#card-del" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example resonse</blockquote>
   <pre><code>{

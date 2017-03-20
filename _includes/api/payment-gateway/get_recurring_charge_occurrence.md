@@ -3,14 +3,15 @@
     <div class="method-copy-padding">
       <p><span class="api-operation">GET</span> <span class="code-green">/v1/recurring/charges/{id}/occurrences/{occurrenceId}</span></p>
 
-      <p>An individual <a href="#recurringchargeoccurrence" style="font-family:monospace">recurring_charge_occurrence</a>  is retrieved by performing a GET request to
+      <p>An individual <a href="#recurring_charge_occurrence" style="font-family:monospace">recurring_charge_occurrence</a>  is retrieved by performing a GET request to
       <span class="code-green">/v1/recurring/charges/{id}/occurrences/{occurrenceId}</span>, where <span class="code-green">id</span> is the ID of the owning recurring charge and
       <span class="code-green">occurrenceId</span> is the ID of the occurrence to retrieve.</p>
     </div>
   </div>
 
   <blockquote>Example request</blockquote>
-  <pre><code>curl --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/recurring/charges/xicilh0vTAeZiThRtHU2Ow/occurrences/&#95;LIG1tsDQZ21oBgPYTRJdQ</code></pre>
+  <pre id="recur-occur"><code class="json">curl -X GET --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/recurring/charges/xicilh0vTAeZiThRtHU2Ow/occurrences/&#95;LIG1tsDQZ21oBgPYTRJdQ</code></pre>
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#recur-occur" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
   <pre><code>{
@@ -20,7 +21,7 @@
       "status": "PAID",
       "due_date": "2016-01-01",
       "attempts": 1,
-      "last_attempt": "2014-06-27T19:23:49.422Z",
+      "last_attempt": "2016-06-27T19:23:49.422Z",
       "transactions": [ {
           "id": "UvGF3iMEQwObZN0hxikByg",
           "type": "CHARGE"

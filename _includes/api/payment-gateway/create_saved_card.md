@@ -13,7 +13,7 @@
   </div>
 
   <blockquote>Creating a saved card</blockquote>
-  <pre><code>curl -X POST --user secret_key: -H "Content-Type: application/json" {{site.data.variables.apiurl.gateway}}/v1/cards -d '
+  <pre id="card-create"><code class="json">curl -X POST -H "Content-Type:application/json" --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/cards -d '
   {
       "number": "4242424242424242",
       "exp_month": 10,
@@ -21,8 +21,8 @@
       "name": "Some Customer",
       "description": "Corporate VISA",
       "reference": "Customer123"
-  }'</code>
-  </pre>
+  }'</code></pre>
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#card-create" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
   <pre><code>{
@@ -41,11 +41,11 @@
 
   <blockquote>Creating a saved card from a one-time token</blockquote>
 
-  <pre><code>curl -X POST --user secret_key: -H "Content-Type: application/json" {{site.data.variables.apiurl.gateway}}/v1/cards -d '
+  <pre id="token-card"><code class="json">curl -X POST -H "Content-Type:application/json" --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/cards -d '
   {
       "token_id": "lUi5VesmStiZo0ss5I0t5w"
-  }'</code>
-  </pre>
+  }'</code></pre>
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#token-card" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
   <pre><code>{
@@ -61,12 +61,12 @@
   </pre>
 
   <blockquote>Charging using the saved card</blockquote>
-  <pre><code>curl -X POST --user secret_key: -H "Content-Type: application/json" {{site.data.variables.apiurl.gateway}}/v1/charges -d '
+  <pre id="card-charge"><code class="json">curl -X POST -H "Content-Type:application/json" --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/charges -d '
   {
       "amount": "110",
       "method": "RNZyuzAPTK2TSS6hPKafDA"
-  }'</code>
-  </pre>
+  }'</code></pre>
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#card-charge" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
   <pre><code>{

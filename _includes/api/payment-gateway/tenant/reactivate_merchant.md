@@ -9,7 +9,7 @@ The updated Merchant is returned.
 
 <div class="http-example http-request-example">
   <pre class="prettyprint">
-curl -X POST --user username:password -H "Content-Type: application/json" {{site.data.variables.apiurl.gateway}}/v1/merchants/wKgeRDynFnyBPKdn4XIAAQ/reactivate</pre>
+curl -X POST --user username:password -H "Content-Type:application/json" {{site.data.variables.apiurl.gateway}}/v1/merchants/wKgeRDynFnyBPKdn4XIAAQ/reactivate</pre>
 </div>
 
 <div class="http-example http-response-example">

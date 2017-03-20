@@ -1680,6 +1680,36 @@
    ========================================================================== */
 /* 9. Fonts
    ========================================================================== */
+   @font-face {
+    font-family: "Roboto";
+    src: local(Roboto Thin), url("../fonts/roboto/Roboto-Thin.eot");
+    src: url("../fonts/roboto/Roboto-Thin.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto/Roboto-Thin.woff2") format("woff2"), url("../fonts/roboto/Roboto-Thin.woff") format("woff"), url("../fonts/roboto/Roboto-Thin.ttf") format("truetype");
+    font-weight: 200;
+}
+@font-face {
+    font-family: "Roboto";
+    src: local(Roboto Light), url("../fonts/roboto/Roboto-Light.eot");
+    src: url("../fonts/roboto/Roboto-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto/Roboto-Light.woff2") format("woff2"), url("../fonts/roboto/Roboto-Light.woff") format("woff"), url("../fonts/roboto/Roboto-Light.ttf") format("truetype");
+    font-weight: 300;
+}
+@font-face {
+    font-family: "Roboto";
+    src: local(Roboto Regular), url("../fonts/roboto/Roboto-Regular.eot");
+    src: url("../fonts/roboto/Roboto-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto/Roboto-Regular.woff2") format("woff2"), url("../fonts/roboto/Roboto-Regular.woff") format("woff"), url("../fonts/roboto/Roboto-Regular.ttf") format("truetype");
+    font-weight: 400;
+}
+@font-face {
+    font-family: "Roboto";
+    src: url("../fonts/roboto/Roboto-Medium.eot");
+    src: url("../fonts/roboto/Roboto-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto/Roboto-Medium.woff2") format("woff2"), url("../fonts/roboto/Roboto-Medium.woff") format("woff"), url("../fonts/roboto/Roboto-Medium.ttf") format("truetype");
+    font-weight: 500;
+}
+@font-face {
+    font-family: "Roboto";
+    src: url("../fonts/roboto/Roboto-Bold.eot");
+    src: url("../fonts/roboto/Roboto-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto/Roboto-Bold.woff2") format("woff2"), url("../fonts/roboto/Roboto-Bold.woff") format("woff"), url("../fonts/roboto/Roboto-Bold.ttf") format("truetype");
+    font-weight: 700;
+}
 /* 10. Forms
    ========================================================================== */
 /* 11. Global
@@ -1690,6 +1720,7 @@
    ========================================================================== */
 /* 14. Side Navigation
    ========================================================================== */
+/* uncss:ignore */
 #nav-mobile {
     top: 80px;
     height: auto;
@@ -1697,9 +1728,10 @@
     padding-top: 15px;
     padding-left: 10px;
 }
+/* uncss:ignore */
 @media only screen and (max-width: 600px) {
     #nav-mobile {
-      top: 41px;
+      top: 80px;
     }
 }
 ul.side-nav.fixed:hover {
@@ -1761,6 +1793,15 @@ ul.table-of-contents li a {
     padding-left: 10px;
     line-height: 18px;
     height: 25px;
+}
+.card-content ul {
+    padding-left: 20px;
+    margin: 10px;
+}
+.card-content > ul li {
+    line-height: 18px;
+    height: 25px;
+    list-style: disc;
 }
 ul.table-of-contents li.level1,
 ul.table-of-contents li.level1 > a {
@@ -2097,53 +2138,10 @@ span.panel-note ul li {
     margin: 20px 0px 20px 0px;
     display: block;
 }
-/*************************
-     Highlight.js theme CSS
-   **************************/
-
 pre.code code {
     padding-left: 50px;
     padding-right: 40px;
     max-height: 400px;
-}
-.hljs-comment,.hljs-quote {
-	color: #9a9ea0;
-}
-
-.hljs-variable,.hljs-template-variable,.hljs-attribute,.hljs-tag,.hljs-name,.hljs-regexp,.hljs-link,.hljs-name,.hljs-selector-id,.hljs-selector-class {
-	color: #f22c40;
-}
-
-.hljs-number,.hljs-meta,.hljs-built_in,.hljs-builtin-name,.hljs-literal,.hljs-type,.hljs-params {
-	color: #df5320;
-}
-
-.hljs-string,.hljs-symbol,.hljs-bullet {
-	color: #57b177;
-}
-
-.hljs-title,.hljs-section {
-	color: #407ee7;
-}
-
-.hljs-keyword,.hljs-selector-tag {
-	color: #6666ea;
-}
-
-.hljs {
-	display: block;
-	overflow-x: auto;
-	background: #f1efee;
-	color: #68615e;
-	padding: .5em;
-}
-
-.hljs-emphasis {
-	font-style: italic;
-}
-
-.hljs-strong {
-	font-weight: 700;
 }
 /***************************
 *HTTP request/response wells
@@ -2350,6 +2348,7 @@ pre.titled-code {
 a.side-nav {
     width: 380px;
 }
+/* uncss:ignore */
 .tocify-wrapper {
   -moz-transition: left .3s ease-in-out;
 	-o-transition: left .3s ease-in-out;
@@ -2370,14 +2369,17 @@ a.side-nav {
 	padding-bottom: 30px;
 
 }
+/* uncss:ignore */
 @media (max-width: 930px) {
 	.tocify-wrapper {
 		left: -240px;
-    top: 40px;
+    top: 80px;
 	}
+  /* uncss:ignore */
 	.tocify-wrapper.open {
 		left: 0;
 	}
+  /* uncss:ignore */
   .tocify-wrapper.close {
 		right: 0;
 	}
@@ -2390,6 +2392,7 @@ a.side-nav {
    ========================================================================== */
 /* 24. API Layout
  ========================================================================== */
+/* uncss:ignore */
  .page-wrapper {
   padding-top: 25px;
   margin-left: 245px;
@@ -2424,7 +2427,7 @@ a.side-nav {
   font-size: 11px;
   padding-left: 5px;
   padding-right: 10px;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 .api code {
   background-color: #f3f3f3;
@@ -2436,7 +2439,7 @@ a.side-nav {
   font-weight: bold;
 	padding-left: 15px;
 	width: 50%;
-  margin: 5px 0;
+  margin: 0px 0px 5px 0px;
 	float: right;
 	clear: right;
 	-webkit-box-sizing: border-box;
@@ -3127,6 +3130,7 @@ ul li {
 .z-depth-0 {
     box-shadow: none !important;
 }
+/* uncss:ignore */
 .z-depth-1,
 nav,
 .card-panel,
@@ -3140,6 +3144,7 @@ nav,
 .side-nav {
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
+/* uncss:ignore */
 .z-depth-1-half,
 .btn:hover,
 .btn-large:hover,
@@ -3330,6 +3335,8 @@ toc-wrapper {
 /*********************
   Media Query Classes
 **********************/
+
+/* uncss:ignore */
 @media only screen and (max-width: 800px) {
     .main ul li {
         list-style-type: disc;
@@ -4465,6 +4472,25 @@ nav .nav-wrapper {
         margin-top: 20px;
     }
 }
+@media only screen and (min-width: 425px) {
+    nav a.button-collapse,
+    nav a.button-collapse-no-shade {
+        margin-top: 20px;
+    }
+}
+@media only screen and (min-width: 375px) {
+    nav a.button-collapse,
+    nav a.button-collapse-no-shade {
+        margin-top: 20px;
+    }
+}
+@media only screen and (min-width: 320px) {
+    nav a.button-collapse,
+    nav a.button-collapse-no-shade {
+        margin-top: 20px;
+        padding-left: 5px;
+    }
+}
 nav .button-collapse,
 nav .button-collapse-no-shade {
     float: left;
@@ -4495,8 +4521,8 @@ nav .brand-logo.center {
 }
 @media only screen and (max-width: 700px) {
     nav .brand-logo {
-        left: 60%;
-        bottom: -40%;
+        left: 58%;
+        bottom: -45%;
         -webkit-transform: translateX(-50%);
         transform: translateX(-50%);
     }
@@ -4514,6 +4540,15 @@ nav .brand-logo.center {
         left: auto;
     }
 }
+@media only screen and (max-width: 425px) {
+    nav .brand-logo
+     {
+        left: 50%;
+        bottom: -0%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+}
 nav .brand-logo.right {
     right: 0.5rem;
     padding: 0;
@@ -4525,6 +4560,9 @@ nav ul li {
     transition: background-color .3s;
     float: left;
     padding: 0;
+}
+nav ul li .toc {
+  margin-top: 10px;
 }
 nav ul li .level2,
 nav ul li .level3 {
@@ -4543,7 +4581,7 @@ nav ul a {
     font-size: 1rem;
     color: #fff;
     display: inline-block;
-    padding: 0 15px;
+    /*padding: 0 15px;*/
     cursor: pointer;
 }
 nav ul a.btn,
@@ -4606,7 +4644,7 @@ nav .input-field label.active {
 .navbar-fixed nav {
     position: fixed;
 }
-@media only screen and (min-width: 601px) {
+@media only screen and (min-width: 301px) {
     nav {
         height: 80px;
     }
@@ -4621,35 +4659,80 @@ nav .input-field label.active {
         height: 80px;
     }
 }
-@font-face {
-    font-family: "Roboto";
-    src: local(Roboto Thin), url("../fonts/roboto/Roboto-Thin.eot");
-    src: url("../fonts/roboto/Roboto-Thin.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto/Roboto-Thin.woff2") format("woff2"), url("../fonts/roboto/Roboto-Thin.woff") format("woff"), url("../fonts/roboto/Roboto-Thin.ttf") format("truetype");
-    font-weight: 200;
+@media only screen and (min-width: 320px) {
+    nav {
+        height: 80px;
+    }
+    nav .nav-wrapper i,
+    nav a.button-collapse,
+    nav a.button-collapse-no-shade,
+    nav a.button-collapse-no-shade i,
+    nav a.button-collapse i {
+
+    }
+    .navbar-fixed {
+        height: 80px;
+    }
 }
-@font-face {
-    font-family: "Roboto";
-    src: local(Roboto Light), url("../fonts/roboto/Roboto-Light.eot");
-    src: url("../fonts/roboto/Roboto-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto/Roboto-Light.woff2") format("woff2"), url("../fonts/roboto/Roboto-Light.woff") format("woff"), url("../fonts/roboto/Roboto-Light.ttf") format("truetype");
-    font-weight: 300;
+@media only screen and (min-width: 375px) {
+    nav {
+        height: 80px;
+    }
+    nav .nav-wrapper i,
+    nav a.button-collapse,
+    nav a.button-collapse-no-shade,
+    nav a.button-collapse-no-shade i,
+    nav a.button-collapse i {
+
+    }
+    .navbar-fixed {
+        height: 80px;
+    }
 }
-@font-face {
-    font-family: "Roboto";
-    src: local(Roboto Regular), url("../fonts/roboto/Roboto-Regular.eot");
-    src: url("../fonts/roboto/Roboto-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto/Roboto-Regular.woff2") format("woff2"), url("../fonts/roboto/Roboto-Regular.woff") format("woff"), url("../fonts/roboto/Roboto-Regular.ttf") format("truetype");
-    font-weight: 400;
+@media only screen and (min-width: 425px) {
+    nav {
+        height: 80px;
+    }
+    nav .nav-wrapper i,
+    nav a.button-collapse,
+    nav a.button-collapse-no-shade,
+    nav a.button-collapse-no-shade i,
+    nav a.button-collapse i {
+
+    }
+    .navbar-fixed {
+        height: 80px;
+    }
 }
-@font-face {
-    font-family: "Roboto";
-    src: url("../fonts/roboto/Roboto-Medium.eot");
-    src: url("../fonts/roboto/Roboto-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto/Roboto-Medium.woff2") format("woff2"), url("../fonts/roboto/Roboto-Medium.woff") format("woff"), url("../fonts/roboto/Roboto-Medium.ttf") format("truetype");
-    font-weight: 500;
+@media only screen and (min-width: 600px) {
+    nav {
+        height: 80px;
+    }
+    nav .nav-wrapper i,
+    nav a.button-collapse,
+    nav a.button-collapse-no-shade,
+    nav a.button-collapse-no-shade i,
+    nav a.button-collapse i {
+
+    }
+    .navbar-fixed {
+        height: 80px;
+    }
 }
-@font-face {
-    font-family: "Roboto";
-    src: url("../fonts/roboto/Roboto-Bold.eot");
-    src: url("../fonts/roboto/Roboto-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/roboto/Roboto-Bold.woff2") format("woff2"), url("../fonts/roboto/Roboto-Bold.woff") format("woff"), url("../fonts/roboto/Roboto-Bold.ttf") format("truetype");
-    font-weight: 700;
+@media only screen and (min-width: 700px) {
+    nav {
+        height: 80px;
+    }
+    nav .nav-wrapper i,
+    nav a.button-collapse,
+    nav a.button-collapse-no-shade,
+    nav a.button-collapse-no-shade i,
+    nav a.button-collapse i {
+
+    }
+    .navbar-fixed {
+        height: 80px;
+    }
 }
 a {
     text-decoration: none;
@@ -4734,6 +4817,11 @@ small {
 .light,
 footer.page-footer .footer-copyright {
     font-weight: 300;
+}
+.footer-copyright {
+    text-align: right;
+    padding: 10px 10px 10px 0px;
+    font-size: 14px;
 }
 .thin {
     font-weight: 200;
@@ -4877,6 +4965,15 @@ footer.page-footer .footer-copyright {
 .card.large {
     position: relative;
 }
+@media only screen and (max-width: 600px) {
+    /* For mobile phones: */
+    .row .col.s6 {
+        width: 100%;
+    }
+    .parallax-container .section {
+        position: relative;
+    }
+}
 .card.small .card-image,
 .card.medium .card-image,
 .card.large .card-image {
@@ -4972,17 +5069,20 @@ footer.page-footer .footer-copyright {
     cursor: pointer;
     display: block;
 }
+/* uncss:ignore */
 #toast-container {
     display: block;
     position: fixed;
     z-index: 10000;
 }
+/* uncss:ignore */
 @media only screen and (max-width: 600px) {
     #toast-container {
         min-width: 100%;
         bottom: 0%;
     }
 }
+/* uncss:ignore */
 @media only screen and (min-width: 601px) and (max-width: 992px) {
     #toast-container {
         left: 5%;
@@ -4990,6 +5090,7 @@ footer.page-footer .footer-copyright {
         max-width: 90%;
     }
 }
+/* uncss:ignore */
 @media only screen and (min-width: 993px) {
     #toast-container {
         top: 10%;
@@ -4997,6 +5098,7 @@ footer.page-footer .footer-copyright {
         max-width: 86%;
     }
 }
+/* uncss:ignore */
 .toast {
     border-radius: 2px;
     top: 0;
@@ -5024,26 +5126,31 @@ footer.page-footer .footer-copyright {
     -ms-flex-pack: justify;
     justify-content: space-between;
 }
+/* uncss:ignore */
 .toast .btn,
 .toast .btn-large,
 .toast .btn-flat {
     margin: 0;
     margin-left: 3rem;
 }
+/* uncss:ignore */
 .toast.rounded {
     border-radius: 24px;
 }
+/* uncss:ignore */
 @media only screen and (max-width: 600px) {
     .toast {
         width: 100%;
         border-radius: 0;
     }
 }
+/* uncss:ignore */
 @media only screen and (min-width: 601px) and (max-width: 992px) {
     .toast {
         float: left;
     }
 }
+/* uncss:ignore */
 @media only screen and (min-width: 993px) {
     .toast {
         float: right;
@@ -5104,6 +5211,7 @@ footer.page-footer .footer-copyright {
     background-color: #f6b2b5;
     will-change: left, right;
 }
+/* uncss:ignore */
 .material-tooltip {
     padding: 10px 8px;
     font-size: 1rem;
@@ -5124,6 +5232,7 @@ footer.page-footer .footer-copyright {
     pointer-events: none;
     will-change: top, left;
 }
+/* uncss:ignore */
 .backdrop {
     position: absolute;
     opacity: 0;
@@ -5150,6 +5259,33 @@ footer.page-footer .footer-copyright {
     text-transform: uppercase;
     vertical-align: middle;
     -webkit-tap-highlight-color: transparent;
+}
+.btn.outline {
+  border: solid;
+  border-width: 2px;
+  border-color: #153C60;
+  color: #153C60;
+  background-color: #FFFFFF;
+}
+.btn.copy {
+  border-color: #2d74ff;
+  background-color: #2d74ff;
+  color: #fff;
+  font-size: 13px;
+  margin: 0px 0px 5px 0px;
+  /*position: relative;
+  left: 83%;*/
+}
+.btn.copy:hover {
+  background-color: #0054f9;
+}
+.btncopy.active,
+.btn.copy:active {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+     -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+          box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 .btn.disabled,
 .disabled.btn-large,
@@ -5200,9 +5336,10 @@ footer.page-footer .footer-copyright {
     transition: .2s ease-out;
     cursor: pointer;
 }
+/* uncss:ignore */
 .btn:hover,
 .btn-large:hover {
-    background-color: #2bbbad;
+    background-color: #ffffff;
 }
 .btn-floating {
     display: inline-block;
@@ -6893,7 +7030,7 @@ input[type=range]:focus::-ms-fill-upper {
 .side-nav a.btn:hover,
 .side-nav a.btn-large:hover,
 .side-nav a.btn-large:hover {
-    background-color: #2bbbad;
+    background-color: #57b177;
 }
 .side-nav a.btn-floating:hover {
     background-color: #26a69a;
@@ -6976,7 +7113,8 @@ input[type=range]:focus::-ms-fill-upper {
 
 .preloader-wrapper {
     display: inline-block;
-    position: relative;
+    position: absolute;
+    top: 160px;
     width: 48px;
     height: 48px;
 }
@@ -6993,6 +7131,18 @@ input[type=range]:focus::-ms-fill-upper {
 
     -webkit-animation: container-rotate 1568ms linear infinite;
     animation: container-rotate 1568ms linear infinite;
+}
+.preloader-background {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #fff;
+	position: fixed;
+	z-index: 100;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
 }
 @-webkit-keyframes container-rotate {
     to {
@@ -7015,6 +7165,10 @@ input[type=range]:focus::-ms-fill-upper {
 .spinner-blue,
 .spinner-blue-only {
     border-color: #4285f4;
+}
+.spinner-affinipay-blue,
+.spinner-affinipay-blue-only {
+    border-color: #153C60;
 }
 .spinner-red,
 .spinner-red-only {

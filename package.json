@@ -1,14 +1,14 @@
 {
   "name": "dev-docs",
   "version": "1.0.0",
-  "description": "Build process for the AffiniPay ddeveloper docs site",
+  "description": "Build process for the AffiniPay developer docs site",
   "main": "index.js",
   "directories": {
     "_site": "_site"
   },
   "scripts": {
     "test": "test",
-    "build": "gulp build"
+    "build": "gulp build-prod"
   },
   "repository": {
     "type": "git",
@@ -20,13 +20,21 @@
   },
   "author": "jeff matthews",
   "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-cheerio": "^0.6.2",
-    "gulp-clean-css": "^2.0.10",
-    "gulp-imagemin": "^2.2.0",
+    "gulp-clean-css": "^3.0.3",
+    "gulp-concat": "^2.6.1",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-imagemin": "^3.1.1",
     "gulp-uglify": "^1.1.0",
+    "gulp-uncss": "^1.0.6",
     "gulp-util": "^3.0.7",
-    "imagemin-pngquant": "^5.0.0",
+    "html-proofer": "0.0.1",
     "run-sequence": "^1.2.2"
+  },
+  "dependencies": {
+    "clipboard": "^1.6.0"
   }
 }

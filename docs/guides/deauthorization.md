@@ -21,7 +21,7 @@ First, you must acquire an <span class="code-green">access_token</span> through 
 Refer to [Configure Your Partner Application](../guides/app-dev-getting-started.html#configure-your-partner-application) for information about retrieving your OAuth client ID and secret.
 
 ## Call the API
-Send a DELETE request with your <span class="code-green">access_token</span> in the request header and the merchant's <span class="code-green">public_key</span> in the request URL to the following endpoint:
+Send a <span class="api-operation">DELETE</span> request with your <span class="code-green">access_token</span> in the request header and the merchant's <span class="code-green">public_key</span> in the request URL to the following endpoint:
 
 <span class="code-green">https://secure.affinipay.com/api/v1/merchants/{public_key}/deauthorize_application</span>
 

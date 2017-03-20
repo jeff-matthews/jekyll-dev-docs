@@ -100,10 +100,10 @@
           </tr>
           {% endif %}
           <tr>
-            <td>merchant_accounts</td><td>Array of <a href="#merchantaccount" style="font-family:monospace">merchant_account</a></td><td>The merchant's credit Accounts</td>
+            <td>merchant_accounts</td><td>Array of <a href="#merchant_account" style="font-family:monospace">merchant_account</a></td><td>The merchant's credit Accounts</td>
           </tr>
           <tr>
-            <td>ach_accounts</td><td>Array of <a href="#achaccount" style="font-family:monospace">ach_account</a></td><td>The merchant's bank accounts for ACH transactions</td>
+            <td>ach_accounts</td><td>Array of <a href="#ach_account" style="font-family:monospace">ach_account</a></td><td>The merchant's bank accounts for ACH transactions</td>
           </tr>
           <tr>
             <td>api_allowed_ip_address_ranges</td><td>String</td><td>Comma-delimited list of zero or more <a href="http://en.wikipedia.org/wiki/CIDR_notation" target="&#95;blank">CIDR-notation</a>

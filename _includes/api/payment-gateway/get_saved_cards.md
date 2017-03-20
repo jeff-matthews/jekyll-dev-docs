@@ -4,9 +4,9 @@
       <p><span class="api-operation">GET</span> <span class="code-green">/v1/cards</span></p>
 
       <p>The list of <a href="#card" style="font-family:monospace">cards</a> saved for a merchant are retrieved via a GET request
-      to <span class="code-green">/v1/cards</span>. The API supports pagination over the result set by allowing the client to
-      specify the number of results per logical "page" and the page to view. The following URL
-      parameters are supported:</p>
+      to <span class="code-green">/v1/cards</span>.</p>
+
+      <p>{{site.data.notes.note.pagination}}</p>
 
       <table>
         <thead>
@@ -48,11 +48,11 @@
 
   <blockquote>Retrieve the first page of saved cards</blockquote>
 
-  <pre><code>curl --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/cards?page=1&amp;page_size=5</code>
-  </pre>
+  <pre id="cards-saved"><code class="json">curl -X GET --user secret_key: '{{site.data.variables.apiurl.gateway}}/v1/cards?page=1&amp;page_size=5'</code></pre>
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#cards-saved" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
-  <pre><code>{
+  <pre><code class="json">{
       "page": 1,
       "page_size": 5,
       "total_entries": 24,
@@ -94,8 +94,8 @@
 
   <blockquote>Retrieve saved cards for a specific customer</blockquote>
 
-  <pre><code>curl --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/cards?reference=Customer123</code>
-  </pre>
+  <pre id="cust-cards"><code class="json">curl -X GET --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/cards?reference=Customer123</code></pre>
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#cust-cards" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
   <pre><code>{
@@ -123,8 +123,8 @@
 
   <blockquote>Retrieve saved cards by expiration</blockquote>
 
-  <pre><code>curl --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/cards?exp_month=3&amp;exp_year=2017</code>
-  </pre>
+  <pre id="exp-saved-cards"><code class="json">curl -X GET --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/cards?exp_month=3&amp;exp_year=2017</code></pre>
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#exp-saved-cards" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
   <pre><code>{

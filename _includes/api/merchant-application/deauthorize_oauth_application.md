@@ -3,7 +3,7 @@
     <div class="method-copy-padding">
       <p><span class="api-operation">DELETE</span> <span class="code-green">/merchants/{merchant_public_key}/deauthorize_application</span></p>
 
-      <p>Revoke authorization to use an OAuth Partner Application from the specified AffiniPay merchant account. This call requires you to obtain an access token using the <a href="../../basics/authentication.html#client-credentials">Client Credentials</a> OAuth flow.</p>
+      <p>Revoke authorization to use an OAuth Partner Application from the specified AffiniPay merchant account. This call requires you to obtain an access token using the <a href="../basics/authentication.html#client-credentials" target="&#95;blank">Client Credentials</a> OAuth flow.</p>
       <table>
         <thead>
           <tr>
@@ -26,9 +26,11 @@
   </div>
 
 <blockquote>Example request</blockquote>
-<pre><code>curl -X DELETE -H "Authorization: Bearer &lt;access_token>" -H "Content-Type: application/json" "https://secure.affinipay.com/api/v1/merchants/{public_key}/deauthorize_application"</code></pre>
+<pre id="deauthorize-app"><code class="json">curl -X DELETE -H "Authorization: Bearer &lt;access_token>" https://secure.affinipay.com/api/v1/merchants/{public_key}/deauthorize_application</code></pre>
+
+<blockquote><button id="btn" class="btn copy api" data-clipboard-target="#deauthorize-app" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
 <blockquote>Example response</blockquote>
-<pre><code class="json">Returns an HTTP 200 OK status code and an empty response body
+<pre><code class="html">Returns an HTTP 200 OK status code and an empty response body
 when successful.</code></pre>
 </div>

@@ -16,7 +16,7 @@ performed.</div>
 
 <div class="http-example http-request-example">
   <pre class="prettyprint">
-curl -X DELETE --user username:password -H "Content-Type: application/json" {{site.data.variables.apiurl.gateway}}/v1/merchants/wKgeRDynFnyBPKdn4XIAAQ</pre>
+curl -X DELETE --user username:password -H "Content-Type:application/json" {{site.data.variables.apiurl.gateway}}/v1/merchants/wKgeRDynFnyBPKdn4XIAAQ</pre>
 </div>
 
 <div class="http-example http-response-example">

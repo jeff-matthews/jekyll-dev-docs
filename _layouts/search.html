@@ -3,28 +3,24 @@
   {% include head.html %}
   <body>
     <header>
-      <!--White nav bar across top with logo-->
-        <div class="navbar-fixed">
-            <nav class="white" role="navigation">
-              <div class="navbar-fixed nav-wrapper white">
-                <ul>
-                  <li class="brand-logo"><a href="../index.html"><img src="../images/affinipay-developers.svg"></a></li>
-                </ul>
-                <!--Top navbar links
-                <ul id="nav-center" class="center hide-on-med-and-down">
-                  <li value="1"><a href="../guides/app-dev-getting-started.html"><span class="affinipay-green-text">Application</span></a></li>
-                  <li value="2"><a href="../guides/payment-page-getting-started.html"><span class="affinipay-green-text">Payment Page</span></a></li>
-                </ul>-->
-                <ul class="right hide-on-med-and-down">
-                  <li><a href="mailto:devsupport@affinipay.com" id="download-button" class="btn waves-effect waves-light affinipay-green">Contact Us</span></a></li>
-                  </ul>
-                </div>
-              </nav>
-            </div>
+    <!--White nav bar across top with logo-->
+      <div class="navbar-fixed">
+        <nav class="white" role="navigation">
+          <ul>
+            <li class="toc"><a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a></li>
+            <li class="brand-logo"><a href="../index.html" style="height: 80px;"><img class="logo" src="../images/dev_lock_up_doc_site.svg"></a></li>
+          </ul>
+          <div id="nav-mobile" class="toc-nav">
+            {% include toc/toc.html %}
           </div>
+          <!--BEGIN Search input field and icon on top right nav bar-->
+          <ul class="right hide-on-med-and-down">
+            <li><a href="mailto:devsupport@affinipay.com" id="download-button" class="btn outline waves-effect waves-light">Contact Us</span></a></li>
+          </ul>
         </nav>
       </div>
     </header>
+
     <div class="tocify-wrapper hide-on-med-and-down" style="padding-left: 10px;">
       {% include toc/toc.html %}
     </div>
@@ -34,16 +30,9 @@
             {{ content }}
       </div>
     </div>
-    <!--{% include footer.html %}-->
     <!--Import jQuery before materialize.js-->
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
-    <script type="text/javascript" src="../js/materialize.min.js"></script>
-    <script src="../../js/init.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <link rel="stylesheet" href="//cdn.materialdesignicons.com/1.6.50/css/materialdesignicons.min.css">
-    <!--jBox Tooltips-->
-    <script src="../../js/jBox.min.js"></script>
-    <link rel="stylesheet" href="../../css/jBox.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../js/scripts.js"></script>
+    <script type="text/javascript" src="../js/searchjs.js"></script>
   </body>
 </html>

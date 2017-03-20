@@ -13,7 +13,7 @@ default account to be used for credit card Charges when no account ID is specifi
 
 <div class="http-example http-request-example">
   <pre class="prettyprint">
-curl -X POST --user username:password -H "Content-Type: application/json" {{site.data.variables.apiurl.gateway}}/v1/merchants/ -d '
+curl -X POST --user username:password -H "Content-Type:application/json" {{site.data.variables.apiurl.gateway}}/v1/merchants/ -d '
 {
     "name": "Biz1",
     "contact_name": "Merchant Contact",

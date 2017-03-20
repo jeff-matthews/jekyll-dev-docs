@@ -1,7 +1,6 @@
 <div class="method-area">
   <div class="method-copy">
     <div class="method-copy-padding">
-
       <p><span class="api-operation">GET</span> <span class="code-green">/v1/merchant</span></p>
 
       <p>Returns the currently-authenticated <a href="#merchant" style="font-family:monospace">merchant</a>. This operation can be used to test authenticating to the Gateway using a Merchant's credentials. Note that the merchant and ACH accounts returned are filtered based on whether a live or test-mode secret key was provided. Only <span class="code-green">TEST</span> accounts are returned if a test-mode secret key is used, while a live-mode secret key only returns live accounts.</p>
@@ -9,7 +8,9 @@
   </div>
 
   <blockquote>Example request</blockquote>
-  <pre><code class="json">curl --user secret_key: https://api.chargeio.com/v1/merchant</code></pre>
+  <pre id="get-merchant"><code class="json">curl -X GET --user secret_key: https://api.chargeio.com/v1/merchant</code></pre>
+
+  <blockquote><button id="btn" class="btn copy api" data-clipboard-target="#get-merchant" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
   <pre><code class="json">{

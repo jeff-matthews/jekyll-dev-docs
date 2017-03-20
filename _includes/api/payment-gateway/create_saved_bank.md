@@ -12,7 +12,7 @@
 
   <blockquote>Creating a saved bank</blockquote>
 
-  <pre><code>curl -X POST --user secret_key: -H "Content-Type: application/json" {{site.data.variables.apiurl.gateway}}/v1/banks -d '
+  <pre id="bank-saved"><code class="json">curl -X POST -H "Content-Type:application/json" --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/banks -d '
   {
       "routing_number": "000000013",
       "account_number": "10333257392394",
@@ -20,8 +20,8 @@
       "name": "Some Customer",
       "description": "Corporate Checking",
       "reference": "Customer123"
-  }'</code>
-  </pre>
+  }'</code></pre>
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#bank-saved" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
   <pre><code>{
@@ -40,12 +40,12 @@
 
   <blockquote>Charging a customer using the saved bank</blockquote>
 
-  <pre><code>curl -X POST --user secret_key: -H "Content-Type: application/json" {{site.data.variables.apiurl.gateway}}/v1/charges -d '
+  <pre id="bank-charged"><code class="json">curl -X POST -H "Content-Type:application/json" --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/charges -d '
   {
       "amount": "41099",
       "method": "vU42KZWhTd2iiGLhjfJR6A"
-  }'</code>
-  </pre>
+  }'</code></pre>
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#bank-charged" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
   <pre><code>{

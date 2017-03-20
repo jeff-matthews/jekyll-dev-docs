@@ -3,9 +3,9 @@
     <div class="method-copy-padding">
       <p><span class="api-operation">POST</span> <span class="code-green">/v1/recurring/charges</span></p>
 
-      <p>A new recurring charge is created by POSTing a <a href="#recurringcharge" style="font-family:monospace">recurring_charge</a>
+      <p>A new recurring charge is created by POSTing a <a href="#recurring_charge" style="font-family:monospace">recurring_charge</a>
       to <span class="code-green">/v1/recurring/charges</span>. The Gateway schedules the first payment
-      <a href="#recurringchargeoccurrence" style="font-family:monospace">recurring_charge_occurrence</a> and returns the new recurring charge in the
+      <a href="#recurring_charge_occurrence" style="font-family:monospace">recurring_charge_occurrence</a> and returns the new recurring charge in the
       response.</p>
 
       <p><span class="panel-note"><b>Note:</b> recurring charges cannot be scheduled to start
@@ -16,7 +16,7 @@
 
   <blockquote>Creating a monthly recurring charge from a saved credit card:</blockquote>
 
-  <pre><code>curl -X POST --user secret_key: -H "Content-Type: application/json" {{site.data.variables.apiurl.gateway}}/v1/recurring/charges -d '
+  <pre id="saved-credit"><code class="json">curl -X POST -H "Content-Type:application/json" --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/recurring/charges -d '
   {
       "description": "Monthly recurring charge",
       "account_id": "wKgFeDz5HF-BPPl08dcADQ",
@@ -27,8 +27,8 @@
           "interval_unit": "MONTH",
           "interval_delay": 1
       }
-  }'</code>
-  </pre>
+  }'</code></pre>
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#saved-credit" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
   <pre><code>{
@@ -67,7 +67,7 @@
 
   <blockquote>Creating a bi-weekly recurring charge from a saved bank with a maximum amount</blockquote>
 
-  <pre><code>curl -X POST --user secret_key: -H "Content-Type: application/json" {{site.data.variables.apiurl.gateway}}/v1/recurring/charges -d '
+  <pre id="saved-bank"><code class="json">curl -X POST -H "Content-Type:application/json" --user secret_key:  {{site.data.variables.apiurl.gateway}}/v1/recurring/charges -d '
   {
       "description": "Bi-weekly recurring charge",
       "account_id": "7eyWpvRpEeKcOfUBJK8FBw",
@@ -79,11 +79,11 @@
           "interval_delay": 2
       },
       "max_amount": 50000
-  }'</code>
-  </pre>
+  }'</code></pre>
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#saved-bank" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
-  <pre><code>{
+  <pre><code class="json">{
       "id": "&#95;8T2uDMQSjeU-YD_w6aAJQ",
       "status": "ACTIVE",
       "account_id": "7eyWpvRpEeKcOfUBJK8FBw",

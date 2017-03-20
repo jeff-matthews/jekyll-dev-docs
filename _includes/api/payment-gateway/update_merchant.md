@@ -8,7 +8,7 @@
   </div>
 
   <blockquote>Example request</blockquote>
-  <pre><code>curl -X PUT --user secret_key: -H "Content-Type: application/json" https://api.chargeio.com/v1/merchant -d '
+  <pre id="put-merchant"><code class="json">curl -X PUT -H "Content-Type:application/json" --user secret_key: https://api.chargeio.com/v1/merchant -d '
   {
       "name": "Biz1 Updated",
       "contact_name": "Merchant Contact",
@@ -22,8 +22,9 @@
       "timezone": "America/New_York",
       "api_allowed_ip_address_ranges": "16.42.10.0/30",
       "live_events_urls": "http://merchant.example.com/events/live,http://system2.example.com/messages",
-      "test_events_urls": "http://merchant.example.com/events/test",
+      "test_events_urls": "http://merchant.example.com/events/test"
   }'</code></pre>
+  <blockquote><button id="btn" class="btn copy api" data-clipboard-target="#put-merchant" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
   <pre><code>{

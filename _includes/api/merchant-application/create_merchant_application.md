@@ -1,14 +1,16 @@
 <div class="method-area">
   <div class="method-copy">
     <div class="method-copy-padding">
-      <p><span class="api-operation">POST</span> <span class="code-green">/user/merchant_applications</span></p>
+      <p><span class="api-operation">POST</span> <span class="code-green">/merchant_applications</span></p>
 
-      <p>Create a new <a href="#merchantapplication"><span style="font-family: courier;">merchant_application</span></a> object and submit it to AffiniPay for review and approval.</p>
+      <p>Create a new <a href="#merchant_application"><span style="font-family: courier;">merchant_application</span></a> object and submit it to AffiniPay for review and approval.</p>
+      {{site.data.notes.note.no-encoded-values}}
     </div>  
   </div>
 
 <blockquote>Example request</blockquote>
-<pre><code>{
+<pre id="create-app"><code class="json">curl -X POST -H "Content-Type:application/json" -H "Authorization: Bearer &lt;access_token>" https://secure.affinipay.com/api/v1/merchant_applications
+{
   "merchant_application": {
       "test": "validate",
       "plan": "partner_specific_plan_id",
@@ -50,6 +52,7 @@
   "reference": "1hhta8u1"
   }
 }</code></pre>
+<blockquote><button id="btn" class="btn copy api" data-clipboard-target="#create-app" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
 <blockquote>Example response</blockquote>
 <pre><code>{

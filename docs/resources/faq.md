@@ -17,15 +17,18 @@ permalink: /resources/faq.html
     <div class="collapsible-body"><p>Yes, but first you have to <a href="mailto:devsupport@affinipay.com">contact</a> AffiniPay support and provide us with your site's domain name. An administrator must enable <span class="code-green">iframes</span> in your merchant account and send you a code snippet to embed in your site's HTML.</p>
 
     <p>Here's an example code snippet:</p>
-    <pre style="margin: 0 13px 0 13px;"><code>&lt;div id="amp-embed">&lt;/div>
-&lt;script src="https://cdn.affinipay.com/libs/ampp-embed.min.js">&lt;/script>
+    <pre id="iframe" style="margin: 0 13px 0 13px;"><code>&lt;div id="amp-embed">&lt;/div>
+&lt;script src="https://cdn.affinipay.com/libs/amp-embed.min.js">&lt;/script>
 &lt;script>
   AMP.Embed.init({
     publicKey: 'm_7LwaBGj6T52TyR60xvjgzg'
     containerID: 'amp-embed'
   });
 &lt;/script></code></pre>
+<button id="btn" class="btn copy" style="margin: 13px 13px 0 13px;" data-clipboard-target="#iframe" onclick="Materialize.toast('Copied!', 2000)">Copy</button>
+
     <p>The script generates an <span class="code-green">iframe</span> inside the <span class="code-green">#amp-embed</span> element. However, you must add a <span class="code-green">?page=payment-page-path</span> parameter to the end of the page URL. For example, the page <code>secure.affinipay.com/pages/merchant/payment</code> requires <span class="code-green">?page=payment</span> at the end of the URL.</p>
+    <p><span class="panel-warning"><b>Important:</b> When using WordPress or another Content Management System (CMS), if you're using a text field to embed the iframe script code snippet, make sure the snippet is being added to the bottom of the page and not inside the <span class="code-green">header</span> element.</span></p>
     </div>
   </li>
 </ul>
@@ -50,6 +53,14 @@ permalink: /resources/faq.html
 <ul class="collapsible faq-border" data-collapsible="accordion">
   <li>
     <div class="collapsible-header faq">How do I update a saved credit card?</div>
-    <div class="collapsible-body"><p>To change a property on a saved credit card, send a POST request to the <span class="code-green">/v1/cards/{cardId}</span> endpoint with the <span class="code-green">cardID</span> in the query string and the updated field(s) in the request body. The response body will contain a new <span class="code-green">cardID</span>. This operation migrates all unmodified fields from the original saved card object to the new card object.</p></div>
+    <div class="collapsible-body"><p>Currently, we only support creating a new saved card/bank from an existing card/bank or one-time token and not directly updating or patching an existing saved card/bank.</p>
+
+    <p>You can achieve the desired result, however, by first creating a new one-time token using the existing saved card/bank ID (along with the updated properties) and then creating a new saved card/bank from this one-time token. Click <a href="../guides/save-payment-details.html#update-a-saved-card-or-bank">here</a> for instructions.</p></div>
+  </li>
+</ul>
+<ul class="collapsible faq-border" data-collapsible="accordion">
+  <li>
+    <div class="collapsible-header faq">How do I report security issues?</div>
+    <div class="collapsible-body"><p>Although we do our best to ensure that our software meets rigorous security requirements, bugs and vulnerabilities are inevitable. If you think you've discovered a vulnerability in our platform, please email us: <a href="mailto:security@affinipay.com">security@affinipay.com</a>. You can also use our <a href="../basics/overview.html#contacting-affinipay-securely">PGP key</a> to contact us securely. We ask that you allow us an opportunity to address any issues before disclosing them to the public.</p></div>
   </li>
 </ul>

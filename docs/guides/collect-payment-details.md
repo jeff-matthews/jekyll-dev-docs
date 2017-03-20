@@ -10,4 +10,6 @@ You'll need to design and build a form to collect payment details. Whether you'r
 -   [Set up recurring charges](../guides/setup-recurring-charge.html)
 -   [Save payment details for future use](../guides/save-payment-details.html)
 
+<span class="panel-note"><b>Note:</b> {{site.data.notes.use-tokens}}</span>
+
 Refer to the [Payment Form Getting Started Guide](../guides/payment-form-getting-started.html#create-a-payment-form) to see an example form.

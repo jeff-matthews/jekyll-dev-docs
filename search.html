@@ -1,15 +1,8 @@
 ---
 layout: search
 ---
-
 <br>
 <br>
-<!--<form action="/search.html" method="get">
-    <input id="search-box" type ="text" name="query" placeholder="new search">
-    <i class="material-icons">close</i>
-  </div>
-</form>-->
-
 <form action="/search.html" method="get">
   <div class="input-field" style="width: auto; padding-left: 0rem;">
     <i class="material-icons affinipay-green-text valign prefix">search</i>
@@ -19,7 +12,6 @@ layout: search
 </form>
 <br>
 <ul id="search-results"></ul>
-
 <script>
   window.store = {
     {% for page in site.pages %}
@@ -33,5 +25,3 @@ layout: search
     {% endfor %}
   };
 </script>
-<script src="/js/lunr.min.js"></script>
-<script src="/js/search.js"></script>

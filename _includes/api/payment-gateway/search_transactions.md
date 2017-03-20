@@ -6,10 +6,9 @@
       <p>The transactions associated with the authenticated
       <a href="#merchant" style="font-family:monospace">merchant</a> are returned via a GET request to
       <span class="code-green">/v1/transactions</span>. Transactions may be returned for a specific account
-      or from all the Merchant's accounts. The API supports pagination over the
-      result set by allowing the client to specify the number of results per
-      logical "page", the page to view, sort order and filtering. The following
-      URL parameters are supported:</p>
+      or from all the Merchant's accounts.</p>
+
+      <p>{{site.data.notes.note.pagination}}</p>
 
       <table>
         <thead>
@@ -80,11 +79,12 @@
 
   <blockquote>Retrieve the 5 most recent transactions:</blockquote>
 
-  <pre><code>curl --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/transactions?page=1&amp;page_size=5&amp;order_by=-created</code>
-  </pre>
+  <pre id="recent-trans"><code class="json">curl -X GET --user secret_key: '{{site.data.variables.apiurl.gateway}}/v1/transactions?page=1&amp;page_size=5&amp;order_by=-created'</code></pre>
+
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#recent-trans" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
-  <pre><code>{
+  <pre><code class="json">{
       "page": 1,
       "page_size": 5,
       "total_entries": 82,
@@ -92,7 +92,7 @@
           {
               "id": "wKgFnjz8GamBPP0ViHAACQ",
               "type": "REFUND",
-              "created": "2013-02-24T14:36:27.000-06:00",
+              "created": "2016-02-24T14:36:27.000-06:00",
               "account_id": "wKgFeDz5HF-BPPl08dcADQ",
               "status": "COMPLETED",
               "amount": 18,
@@ -112,7 +112,7 @@
           }, {
               "id": "wKgFnjz8GamBPP0S54gACA",
               "type": {% if user == 'tenant' %}"CREDIT"{% else %}"CHARGE"{% endif %},
-              "created": "2013-02-21T08:06:19.000-06:00",
+              "created": "2016-02-21T08:06:19.000-06:00",
               "account_id": "7eyWpvRpEeKcOfUBJK8FBw",
               "status": "COMPLETED",
               "amount": 2100,
@@ -129,7 +129,7 @@
           }, {
               "id": "wKgFnjz8GamBPP0SBFoABw",
               "type": "CHARGE",
-              "created": "2013-02-21T08:04:41.000-06:00",
+              "created": "2016-02-21T08:04:41.000-06:00",
               "account_id": "wKgFeDz5HF-BPPl08dcADQ",
               "status": "COMPLETED",
               "amount": 95,
@@ -151,12 +151,12 @@
           }, {
               "id": "wKgBZTynEtOBPKi_AjoABg",
               "type": "CHARGE",
-              "created": "2013-02-17T23:05:55.000-06:00",
+              "created": "2016-02-17T23:05:55.000-06:00",
               ...
           }, {
               "id": "wKgBZTynEtOBPKhlyA0AAQ",
               "type": "CHARGE",
-              "created": "2013-02-04T21:28:28.000-06:00",
+              "created": "2016-02-04T21:28:28.000-06:00",
               "account_id": "wKgeRDynFnyBPKdn4XsABA",
               "status": "COMPLETED",
               "amount": 100,
@@ -181,11 +181,12 @@
 
   <blockquote>Retrieve the 5 most recent Charges</blockquote>
 
-  <pre><code>curl --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/transactions?page=1&amp;page_size=5&amp;order_by=-created&amp;qf=type:CHARGE</code>
-  </pre>
+  <pre id="recent-charges"><code class="json">curl -X GET --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/transactions?page=1&amp;page_size=5&amp;order_by=-created&amp;qf=type:CHARGE</code></pre>
+
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#recent-charges" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
-  <pre><code>{
+  <pre><code class="json">{
       "page": 1,
       "page_size": 5,
       "total_entries": 82,
@@ -193,7 +194,7 @@
           {
               "id": "wKgFnjz8GamBPP0SBFoABw",
               "type": "CHARGE",
-              "created": "2013-02-21T08:04:41.000-06:00",
+              "created": "2016-02-21T08:04:41.000-06:00",
               "account_id": "wKgFeDz5HF-BPPl08dcADQ",
               "status": "COMPLETED",
               "amount": 95,
@@ -215,22 +216,22 @@
           }, {
               "id": "wKgBZTynEtOBPKi_AjoABg",
               "type": "CHARGE",
-              "created": "2013-02-17T23:05:55.000-06:00",
+              "created": "2016-02-17T23:05:55.000-06:00",
               ...
           }, {
               "id": "wKgBZTynEtOBPKhlyA0AAQ",
               "type": "CHARGE",
-              "created": "2013-02-04T21:28:28.000-06:00",
+              "created": "2016-02-04T21:28:28.000-06:00",
               ...
           }, {
               "id": "EcE2jKH3QeOBhOvnvAugpQ",
               "type": "CHARGE",
-              "created": "2013-02-03T17:43:19.000-06:00",
+              "created": "2016-02-03T17:43:19.000-06:00",
               ...
           }, {
               "id": "lyh3fKDSTi-S4EbAqNdKCg",
               "type": "CHARGE",
-              "created": "2013-02-03T17:29:01.000-06:00",
+              "created": "2016-02-03T17:29:01.000-06:00",
               ...
           }
       ]
@@ -240,11 +241,12 @@
 
   <blockquote>Retrieve the 5 most recent credit card refunds</blockquote>
 
-  <pre><code>curl --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/transactions?page=1&amp;page_size=5&amp;order_by=-created&amp;qf=type:REFUND&amp;qf=method.type:card</code>
-  </pre>
+  <pre id="credit-refunds"><code class="json">curl -X GET --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/transactions?page=1&amp;page_size=5&amp;order_by=-created&amp;qf=type:REFUND&amp;qf=method.type:card</code></pre>
+
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#credit-refunds" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
-  <pre><code>{
+  <pre><code class="json">{
       "page": 1,
       "page_size": 5,
       "total_entries": 82,
@@ -252,7 +254,7 @@
           {
               "id": "wKgFnjz8GamBPP0ViHAACQ",
               "type": "REFUND",
-              "created": "2013-02-24T14:36:27.000-06:00",
+              "created": "2016-02-24T14:36:27.000-06:00",
               "account_id": "wKgFeDz5HF-BPPl08dcADQ",
               "status": "COMPLETED",
               "amount": 18,
@@ -272,7 +274,7 @@
           }, {
               "id": "-adgFlH-TUSV3M4_sVXvKQ",
               "type": "REFUND",
-              "created": "2013-02-01T08:55:19.000-06:00",
+              "created": "2016-02-01T08:55:19.000-06:00",
               ...,
               "method": {
                   "type": "card",
@@ -281,7 +283,7 @@
           }, {
               "id": "y4CfMEZERXuTeXEqMkUd2w",
               "type": "REFUND",
-              "created": "2013-02-01T07:36:08.000-06:00",
+              "created": "2016-02-01T07:36:08.000-06:00",
               ...,
               "method": {
                   "type": "card",
@@ -290,7 +292,7 @@
           }, {
               "id": "DOPApiYlEeOfvhLxg70sog",
               "type": "REFUND",
-              "created": "2013-01-30T18:04:44.000-06:00",
+              "created": "2016-01-30T18:04:44.000-06:00",
               ...,
               "method": {
                   "type": "card",
@@ -299,7 +301,7 @@
           }, {
               "id": "lbBObpbATdCj1lfX9fM6Aw",
               "type": "REFUND",
-              "created": "2013-01-30T12:11:26.000-06:00",
+              "created": "2016-01-30T12:11:26.000-06:00",
               ...,
               "method": {
                   "type": "card",

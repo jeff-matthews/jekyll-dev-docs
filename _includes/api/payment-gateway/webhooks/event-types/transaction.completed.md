@@ -11,12 +11,12 @@
 
   <pre><code class="json">{
       "id": "gSebwTS4TSCDDAINhYVirA",
-      "created": "2013-10-25T18:08:22.811Z",
+      "created": "2016-10-25T18:08:22.811Z",
       "type": "transaction.completed",
       "data": {
           "id": "KZ785OcOT9eKrd9vYUHSIg",
-          "created": "2013-10-25T05:00:00.322Z",
-          "modified": "2013-10-25T05:00:00.322Z",
+          "created": "2016-10-25T05:00:00.322Z",
+          "modified": "2016-10-25T05:00:00.322Z",
           "account_id": "TU0BOD2gEeOfvhLxg70sog",
           "status": "COMPLETED",
           "amount": 100,

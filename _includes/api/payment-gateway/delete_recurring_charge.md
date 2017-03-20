@@ -11,11 +11,12 @@
   </div>
 
   <blockquote>Example request</blockquote>
-  <pre><code>curl -X DELETE --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/recurring/charges/pmx4nID6QtSNvB4lljqA0A</code>
-  </pre>
+  <pre id="del-recur"><code class="json">curl -X DELETE --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/recurring/charges/pmx4nID6QtSNvB4lljqA0A</code></pre>
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#del-recur" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
+
 
   <blockquote>Example response</blockquote>
-  <pre><code>{
+  <pre><code class="json">{
       "id": "pmx4nID6QtSNvB4lljqA0A",
       "status": "DELETED",
       "account_id": "wKgFeDz5HF-BPPl08dcADQ",

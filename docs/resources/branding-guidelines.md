@@ -16,7 +16,7 @@ You should represent the branding of the specific integrated payment solution wh
 
 Your application must include a button that initiates the OAuth flow between a merchant user's AffiniPay account and your application. Follow these design guidelines:
 
- - **AffiniPay Logo** - Use the logo that corresponds to the AffiniPay payment solution you've integrated with your application. Click [here](../images/affinipay_logos.zip) to download our logos.
+ - **AffiniPay Logo** - Use the logo that corresponds to the AffiniPay payment solution you've integrated with your application. Click [here](../downloads/affinipay_logos.zip) to download our logos.
  - **Size** - You can scale buttons and logos to meet your size requirements, but make sure the aspect ratio is locked when doing so to prevent stretching or otherwise distorting the logo.
  - **Text** - Use the text "Sign in with..." and append it with either "AffiniPay", "LawPay", or "CPACharge".
 

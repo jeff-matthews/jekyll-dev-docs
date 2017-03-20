@@ -18,20 +18,20 @@ selected. If no matching account is found, or if an account ID is provided but d
 match the payment method, the credit is rejected.
 
 The Gateway authorizes the funds transfer and returns the JSON Credit in the response.
-Credits are captured automatically by the Gateway on a daily basis. 
+Credits are captured automatically by the Gateway on a daily basis.
 
 **Example:** Credit funds to a credit card
 
 <div class="http-example http-request-example">
   <pre class="prettyprint">
-curl -X POST --user username:password -H "Content-Type: application/json" {{site.data.variables.apiurl.gateway}}/v1/credits -d '
+curl -X POST --user username:password -H "Content-Type:application/json" {{site.data.variables.apiurl.gateway}}/v1/credits -d '
 {
     "amount": "1255",
     "method": {
         "type": "card",
         "number": "4242424242424242",
         "exp_month": 10,
-        "exp_year": 2013,
+        "exp_year": 2020,
         "cvv": "123",
         "name": "Sample Customer",
         "address1": "123 Main St",
@@ -57,7 +57,7 @@ curl -X POST --user username:password -H "Content-Type: application/json" {{site
         "fingerprint": "CmsP3lYV4akuOz12pFa8",
         "card_type": "VISA",
         "exp_month": 10,
-        "exp_year": 2013,
+        "exp_year": 2020,
         "name": "Some Customer",
         "address1": "123 Main St",
         "city": "Austin",
@@ -72,7 +72,7 @@ curl -X POST --user username:password -H "Content-Type: application/json" {{site
 
 <div class="http-example http-request-example">
   <pre class="prettyprint">
-curl -X POST --user username:password -H "Content-Type: application/json" {{site.data.variables.apiurl.gateway}}/v1/credits -d '
+curl -X POST --user username:password -H "Content-Type:application/json" {{site.data.variables.apiurl.gateway}}/v1/credits -d '
 {
     "amount": "18000",
     "method": {
@@ -108,7 +108,7 @@ curl -X POST --user username:password -H "Content-Type: application/json" {{site
 **Example:** Credit funds to a saved bank
 <div class="http-example http-request-example">
   <pre class="prettyprint">
-curl -X POST --user username:password -H "Content-Type: application/json" {{site.data.variables.apiurl.gateway}}/v1/credits -d '
+curl -X POST --user username:password -H "Content-Type:application/json" {{site.data.variables.apiurl.gateway}}/v1/credits -d '
 {
     "amount": "18000",
     "method": "vU42KZWhTd2iiGLhjfJR6A"

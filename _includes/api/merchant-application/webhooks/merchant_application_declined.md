@@ -12,7 +12,7 @@
   "events": [{
       "type":"merchant_application.declined",
       "data": {
-          "id":"&lt;some_merchant_application_id>"
+          "id":"&lt;some_merchant_application_id>",
           "reference":"&lt;some_partner_provided_reference>"
       }
   }]

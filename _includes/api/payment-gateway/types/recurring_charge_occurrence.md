@@ -2,7 +2,7 @@
   <div class="method-copy">
     <div class="method-copy-padding">
 		<p>An occurrence of a recurring charge. Occurrences track individual scheduled payments as defined by the schedule of
-		the owning <a href="#recurringcharge" style="font-family:monospace">recurring_charge</a>.</p>
+		the owning <a href="#recurring_charge" style="font-family:monospace">recurring_charge</a>.</p>
 
 		<table>
 				<thead>

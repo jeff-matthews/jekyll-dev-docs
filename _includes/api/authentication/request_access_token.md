@@ -46,7 +46,8 @@
   </div>
 
 <blockquote>Example request</blockquote>
-<pre><code class="json">curl -X POST -H "Content-Type:application/json" https://secure.affinipay.com/oauth/token -d '
+
+<pre id="access-token"><code class="json">curl -X POST -H "Content-Type:application/json" https://secure.affinipay.com/oauth/token -d '
 {
   "client_id":"Y4QLWPO6wZag2ia8Abw7nbeLUAOgebDlfZGF1KyzgBaqAllzMtYFfP58jRxg5rp5",
   "client_secret":"4EG357enIs4m2SWKi9yfC3fQzIeOZmBTWr96ay47tqN4GUtRPYrWwxwCxwlZJbiC",
@@ -55,6 +56,7 @@
   "redirect_uri":"http://localhost:9292/callback",
   "code":"EiKvFkJu6rcFwOMWSqW8bWIng6EMFVD93duwn1QhgQKDvmpbA97zWFN2AfC5052R"
 }'</code></pre>
+<blockquote><button id="btn" class="btn copy" data-clipboard-target="#access-token" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
 <blockquote>Example response</blockquote>
 <pre><code>{

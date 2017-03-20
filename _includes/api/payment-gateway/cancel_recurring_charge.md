@@ -12,8 +12,8 @@
   </div>
 
   <blockquote>Example request</blockquote>
-  <pre><code>curl -X POST --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/recurring/charges/xicilh0vTAeZiThRtHU2Ow/cancel</code>
-  </pre>
+  <pre id="can-recur"><code class="json">curl -X POST --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/recurring/charges/xicilh0vTAeZiThRtHU2Ow/cancel</code></pre>
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#can-recur" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
   <pre><code>{

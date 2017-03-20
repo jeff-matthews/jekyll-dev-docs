@@ -1,10 +1,10 @@
 <div class="method-area">
   <div class="method-copy">
     <div class="method-copy-padding">
-      <p>Merchants can provide an optional <span class="code-green">recur</span> element to a charge request to create a <a href="../reference/api.html#recurringcharge" target="&#95;" style="font-family:monospace">recurring_charge</a>. This is often useful when you want to start a new scheduled payment starting immediately, but want to ensure the first payment is successful first, or need to prorate an initial payment. When a <span class="code-green">recur</span> element is
+      <p>Merchants can provide an optional <span class="code-green">recur</span> element to a charge request to create a <a href="../reference/api.html#recurring_charge" target="&#95;" style="font-family:monospace">recurring_charge</a>. This is often useful when you want to start a new scheduled payment starting immediately, but want to ensure the first payment is successful first, or need to prorate an initial payment. When a <span class="code-green">recur</span> element is
       provided, the Gateway validates the schedule information and then performs the charge.</p>
 
-      <p>If the authorization is declined, the failure reason is returned and no recurring charge is created. If, on the other hand, the charge is successfully authorized, a new recurring charge is created for which the initial <a href="../reference/api.html#recurringchargeoccurrence" target="&#95;" style="font-family:monospace">recurring_charge_occurrence</a> is marked <span class="code-green">PAID</span> by the charge. The Gateway returns the new charge in the response JSON with a <span class="code-green">recurring_charge_id</span> attribute containing the ID of the new recurring charge and a
+      <p>If the authorization is declined, the failure reason is returned and no recurring charge is created. If, on the other hand, the charge is successfully authorized, a new recurring charge is created for which the initial <a href="../reference/api.html#recurring_charge_occurrence" target="&#95;" style="font-family:monospace">recurring_charge_occurrence</a> is marked <span class="code-green">PAID</span> by the charge. The Gateway returns the new charge in the response JSON with a <span class="code-green">recurring_charge_id</span> attribute containing the ID of the new recurring charge and a
       <span class="code-green">recurring_charge_occurrence_id</span> attribute containing the ID of the paid occurrence.</p>
 
       <p><span class="panel-note"><b>Note:</b> Only auto-capture charges can
@@ -84,36 +84,26 @@
     </div>
   </div>
 
-  <blockquote>Create a monthly recurring charge for $20.00 starting today</blockquote>
+  <blockquote>Create a monthly recurring charge from a saved Card for $20.00 starting today</blockquote>
 
-  <pre><code>curl -X POST --user secret_key: -H "Content-Type: application/json" {{site.data.variables.apiurl.gateway}}/v1/charges -d '
+  <pre id="recur-monthly"><code class="json">curl -X POST -H "Content-Type:application/json" --user &lt;secret_key>: {{site.data.variables.apiurl.gateway}}/v1/charges -d '
   {
       "amount": "2000",
-      "method": {
-          "type": "card",
-          "number": "4242424242424242",
-          "exp_month": 10,
-          "exp_year": 2017,
-          "cvv": "123",
-          "name": "Sample Customer",
-          "address1": "123 Main St",
-          "city": "Austin",
-          "state": "TX",
-          "postal_code": "78730"
-      },
+      "method": "K_5tUK78SKKpNKu9F8fvIw",
+      "account_id": "diON4KOPnesamprmrxA8Iuo",
       "reference": "Donation Plan #1234",
       "recur": {
           "description": "Monthly donation from Sample Customer",
           "interval_unit": "MONTH",
           "interval_delay": 1
       }
-  }'</code>
-  </pre>
+  }'</code></pre>
+    <blockquote><button id="btn" class="btn copy" data-clipboard-target="#recur-monthly" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
   <pre><code>{
       "id": "PUZt8B_fTCWCO25SJfMY6A",
-      "account_id": "wKgFeDz5HF-BPPl08dcADQ",
+      "account_id": "diON4KOPnesamprmrxA8Iuo",
       "status": "AUTHORIZED",
       "auto_capture": true,
       "amount": 2000,
@@ -139,27 +129,28 @@
       "recurring_charge_id": "Ou5d_4XxTBi1hWKKF1iY5g",
       "recurring_charge_occurrence_id": "tO6EA6oPRtSa7mX3vaupuQ",
       "type": "CHARGE"
-  }</code>
-  </pre>
+}</code>
+</pre>
 
   <blockquote>Create a bi-weekly recurring charge from a saved Card for $75.00 with an initial payment of $250 starting today</blockquote>
 
-  <pre><code>curl -X POST --user secret_key: -H "Content-Type: application/json" {{site.data.variables.apiurl.gateway}}/v1/charges -d '
+  <pre id="recur-biweekly"><code class="json">curl -X POST -H "Content-Type:application/json" --user &lt;secret_key>: {{site.data.variables.apiurl.gateway}}/v1/charges -d '
   {
       "amount": "25000",
       "method": "K_5tUK78SKKpNKu9F8fvIw",
+      "account_id": "diON4KOPnesamprmrxA8Iuo",
       "recur": {
           "amount": 7500,
           "interval_unit": "WEEK",
           "interval_delay": 2
       }
-  }'</code>
-  </pre>
+  }'</code></pre>
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#recur-biweekly" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
   <pre><code>{
       "id": "XvUHFfZlQpur0QFABEF0Pw",
-      "account_id": "wKgFeDz5HF-BPPl08dcADQ",
+      "account_id": "diON4KOPnesamprmrxA8Iuo",
       "status": "AUTHORIZED",
       "auto_capture": true,
       "amount": 25000,
@@ -184,6 +175,5 @@
       "recurring_charge_id": "V9Sg2WcJSca-gZWYrYQ13w",
       "recurring_charge_occurrence_id": "mNrrlHgNRjS0T8dc-uL1dQ",
       "type": "CHARGE"
-  }</code>
-  </pre>
+}</code></pre>
 </div>

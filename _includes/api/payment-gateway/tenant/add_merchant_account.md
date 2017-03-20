@@ -12,7 +12,7 @@ adds a Merchant Account to a Merchant by POSTing the account contents to
 
 <div class="http-example http-request-example">
   <pre class="prettyprint">
-curl -X POST --user username:password -H "Content-Type: application/json" {{site.data.variables.apiurl.gateway}}/v1/merchants/wKgeRDynFnyBPKdn4XIAAQ/accounts -d'
+curl -X POST --user username:password -H "Content-Type:application/json" {{site.data.variables.apiurl.gateway}}/v1/merchants/wKgeRDynFnyBPKdn4XIAAQ/accounts -d'
 {
     "type": "TEST",
     "name": "New Enterprise",

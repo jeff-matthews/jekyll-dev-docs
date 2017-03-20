@@ -4,6 +4,8 @@
  */
 
 /* The Table of Contents container element */
+
+/* uncss:ignore */
 .tocify {
     width: 240px;
     max-height: 90%;
@@ -15,13 +17,17 @@
     background: #fff;
     border-right: 1px solid rgba(221,221,221,0.5);
 }
+
+/* uncss:ignore */
 @media only screen and (max-width: 700px) {
     .tocify {
-      top: 40px;
+      top: 80px;
     }
 }
 
 /* The Table of Contents is composed of multiple nested unordered lists.  These styles remove the default styling of an unordered list because it is ugly. */
+
+/* uncss:ignore */
 .tocify ul, .tocify li {
     list-style: none;
     margin: 0;
@@ -30,17 +36,21 @@
     line-height: 30px;
 }
 
+/* uncss:ignore */
 .tocify .active a {
     font-weight: 500;
     color: #444;
     border-left: 2px solid #5caf7b;
 }
 
+/* uncss:ignore */
 .tocify a:hover {
     color: #a8a8a8;
 }
 
 /* Top level header elements */
+
+/* uncss:ignore */
 .tocify-header,
 .tocify-header a {
     text-indent: 15px;
@@ -51,26 +61,35 @@
 }
 
 /* Top level subheader elements.  These are the first nested items underneath a header element. */
+
+/* uncss:ignore */
 .tocify-subheader {
     text-indent: 25px;
     display: none;
 }
 
+/* uncss:ignore */
 .tocify-subheader a {
     font-size: 13px;
 }
 
 /* Makes the font smaller for all subheader elements. */
+
+/* uncss:ignore */
 .tocify-subheader li {
     font-size: 13px;
 }
 
 /* Further indents second level subheader elements. */
+
+/* uncss:ignore */
 .tocify-subheader .tocify-subheader {
     text-indent: 35px;
 }
 
 /* Further indents third level subheader elements. You can continue this pattern if you have more nested elements. */
+
+/* uncss:ignore */
 .tocify-subheader .tocify-subheader .tocify-subheader {
     text-indent: 45px;
 }

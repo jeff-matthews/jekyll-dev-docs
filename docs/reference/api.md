@@ -120,6 +120,9 @@ permalink: /reference/api.html
 #### Capture
 {% include api/payment-gateway/capture.md %}
 
+#### Authorization Holds
+{% include api/payment-gateway/authorization_holds.md %}
+
 ### Refunds
 {% include api/payment-gateway/refund.md %}
 

@@ -8,7 +8,7 @@
 
   <pre><code class="json">{
       "id": "3nA46a9yQAKF4A7kVcThyA",
-      "created": "2014-07-01T01:55:12.473Z",
+      "created": "2016-07-01T01:55:12.473Z",
       "type": "recurring_charge.occurrence.created",
       "data": {
           "id": "LDJtMP40T6WXLPYJxlsMQQ",

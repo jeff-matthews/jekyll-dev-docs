@@ -3,16 +3,16 @@
     <div class="method-copy-padding">
       <p><span class="api-operation">GET</span> <span class="code-green">/v1/recurring/charges/{id}</span></p>
 
-      <p>A Merchant may retrieve an existing <a href="#recurringcharge" style="font-family:monospace">recurring_charge</a> created through one
+      <p>A Merchant may retrieve an existing <a href="#recurring_charge" style="font-family:monospace">recurring_charge</a> created through one
       of its own accounts by sending a GET request to <span class="code-green">/v1/recurring/charges/{id}</span> where <span class="code-green">id</span> is the ID of the recurring charge. The Gateway returns the JSON contents of the recurring charge.</p>
 
-      <p><span class="panel-note"><b>Note:</b> <a href="#recurringchargeoccurrence" style="font-family:monospace">Occurrences</a> must be retrieved separately via their own <a href="#get-occurrence">API</a>.</span></p>
+      <p><span class="panel-note"><b>Note:</b> <a href="#recurring_charge_occurrence" style="font-family:monospace">Occurrences</a> must be retrieved separately via their own <a href="#get-occurrence">API</a>.</span></p>
     </div>
   </div>
 
   <blockquote>Example request</blockquote>
-  <pre><code>curl --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/recurring/charges/xicilh0vTAeZiThRtHU2Ow</code>
-  </pre>
+  <pre id="get-recur"><code class="json">curl -X GET --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/recurring/charges/xicilh0vTAeZiThRtHU2Ow</code></pre>
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#get-recur" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
   <pre><code>{

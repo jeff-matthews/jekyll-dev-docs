@@ -14,8 +14,9 @@
 
   <blockquote>Retrieving a credit card Charge with Refunds</blockquote>
 
-  <pre><code>curl --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/transactions/wKgBZTynEtOBPKjE2VAACA</code>
-  </pre>
+  <pre id="get-charge-refunds"><code class="json">curl -X GET --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/transactions/wKgBZTynEtOBPKjE2VAACA</code></pre>
+
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#get-charge-refunds" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
   <pre><code>{
@@ -65,8 +66,9 @@
 
   <blockquote>Retrieving a credit to a bank account</blockquote>
 
-  <pre><code>curl --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/transactions/wKgBZTynEtOBPKjE2VAACA</code>
-  </pre>
+  <pre id="get-credit-bank"><code class="json">curl -X GET --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/transactions/OHqxGhSTT3KckThAEhX57A</code></pre>
+
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#get-credit-bank" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
   <pre><code>{

@@ -9,7 +9,7 @@ updated ACH account is returned in the response.
 
 <div class="http-example http-request-example">
   <pre class="prettyprint">
-curl -X PUT --user username:password -H "Content-Type: application/json" {{site.data.variables.apiurl.gateway}}/v1/ach-accounts/Cn9j655rSem_QzRQXLsbhw -d'
+curl -X PUT --user username:password -H "Content-Type:application/json" {{site.data.variables.apiurl.gateway}}/v1/ach-accounts/Cn9j655rSem_QzRQXLsbhw -d'
 {
     "type": "TEST",
     "name": "ACH Account Updated",

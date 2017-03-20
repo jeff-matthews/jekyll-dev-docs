@@ -13,7 +13,7 @@ Note that this API does **not** modify the Merchant's Accounts.
 
 <div class="http-example http-request-example">
   <pre class="prettyprint">
-curl -X PUT --user username:password -H "Content-Type: application/json" {{site.data.variables.apiurl.gateway}}/v1/merchants/wKgFeDz-H6WBPP5YjHcAAg -d '
+curl -X PUT --user username:password -H "Content-Type:application/json" {{site.data.variables.apiurl.gateway}}/v1/merchants/wKgFeDz-H6WBPP5YjHcAAg -d '
 {
     "name": "Biz1 Updated",
     "contact_name": "Biz1 Contact",

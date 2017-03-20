@@ -3,7 +3,7 @@
     <div class="method-copy-padding">
       <p><span class="api-operation">POST</span> <span class="code-green">/v1/charges/{chargeId}/capture</span></p>
 
-      <p>Merchants use the capture API to control the settlement of authorization-only Charges (those Charges created with <span class="code-green">auto_capture: false</span>), which initiates the transfer of funds from the credit card holder's bank to the Merchant's account. This feature is only available for credit card transactions, and must be enabled by the Tenant on a per-account basis.</p>
+      <p>Merchants use the capture API to control the settlement of <a href="../reference/api.html#authorization-holds">authorization-only Charges</a> (those Charges created with <span class="code-green">auto_capture: false</span>), which initiates the transfer of funds from the credit card holder's bank to the Merchant's account. This feature is only available for credit card transactions, and must be enabled by the Tenant on a per-account basis.</p>
 
       <p>Charges created with <span class="code-green">auto_capture: true</span>, or without specifying any value for this property,
       are captured automatically by the Gateway daily, and require no Merchant interaction to initiate settlement. When a Charge is created with <span class="code-green">auto_capture: false</span>, however, a hold is placed on the customer's funds for the amount specified, but the transaction will not be settled unless the Merchant issues a capture request for the funds.</p>
@@ -44,13 +44,13 @@
       </table>
     </div>
   </div>
-  
+
   <blockquote>Example request</blockquote>
-  <pre><code>curl -X POST --user secret_key: -H "Content-Type: application/json" {{site.data.variables.apiurl.gateway}}/v1/charges/wKgFnjz8GamBPP0HTv0ABQ/capture -d '
+  <pre id="post-capture"><code class="json">curl -X POST -H "Content-Type:application/json" --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/charges/wKgFnjz8GamBPP0HTv0ABQ/capture -d '
   {
       "amount":"95"
-  }'</code>
-  </pre>
+  }'</code></pre>
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#post-capture" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
   <pre><code>{

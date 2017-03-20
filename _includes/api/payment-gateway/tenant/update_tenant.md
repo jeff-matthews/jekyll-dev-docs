@@ -9,7 +9,7 @@ to the `/v1/tenant` URL. The updated [Tenant](types#tenant-section) is returned.
 
 <div class="http-example http-request-example">
   <pre class="prettyprint">
-curl -X PUT --user username:password -H "Content-Type: application/json" {{site.data.variables.apiurl.gateway}}/v1/tenant -d '
+curl -X PUT --user username:password -H "Content-Type:application/json" {{site.data.variables.apiurl.gateway}}/v1/tenant -d '
 {
     "name": "Sample Tenant Updated",
     "contact_name": "New ContactName",

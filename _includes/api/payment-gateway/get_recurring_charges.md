@@ -3,9 +3,9 @@
     <div class="method-copy-padding">
       <p><span class="api-operation">GET</span> <span class="code-green">/v1/recurring/charges</span></p>
 
-      <p>The list of <a href="#recurringcharge" style="font-family:monospace">recurring_charges</a> for a Merchant are retrieved via a GET request
-      to <span class="code-green">/v1/recurring/charges</span>. The API supports pagination over the result set by allowing the client to specify
-      the number of results per logical "page" and the page to view. The following URL parameters are supported:</p>
+      <p>The list of <a href="#recurring_charge" style="font-family:monospace">recurring_charges</a> for a Merchant are retrieved via a GET request to <span class="code-green">/v1/recurring/charges</span>.</p>
+
+      <p>{{site.data.notes.note.pagination}}</p>
 
       <table>
         <thead>
@@ -32,7 +32,7 @@
           <tr>
             <td>status</td>
             <td>The status recurring charges must match to be returned in the results. If not specified, recurring charges
-                of all statuses are returned. Refer to the <a href="#recurringcharge" style="font-family:monospace">recurring_charge</a> type definition for a list of valid status codes.
+                of all statuses are returned. Refer to the <a href="#recurring_charge" style="font-family:monospace">recurring_charge</a> type definition for a list of valid status codes.
             </td>
           </tr>
           <tr>
@@ -54,18 +54,18 @@
 
   <blockquote>Retrieve the 5 most recent recurring charges:</blockquote>
 
-  <pre><code>curl --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/recurring/charges?page=1&amp;page_size=5&amp;order_by=-created</code>
-  </pre>
+  <pre id="recent-recur"><code class="json">curl -X GET --user secret_key: '{{site.data.variables.apiurl.gateway}}/v1/recurring/charges?page=1&amp;page_size=5&amp;order_by=-created'</code></pre>
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#recent-recur" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
-  <pre><code>{
+  <pre><code class="json">{
       "page": 1,
       "page_size": 5,
       "total_entries": 22,
       "results": [
           {
               "id": "xicilh0vTAeZiThRtHU2Ow",
-              "created": "2014-06-27T12:11:14.102Z",
+              "created": "2016-06-27T12:11:14.102Z",
               "status": "COMPLETED",
               "status_reason": "user_canceled",
               "account_id": "wKgFeDz5HF-BPPl08dcADQ",
@@ -91,25 +91,25 @@
               "next_payment": "2016-04-01"
           }, {
               "id": "I2h-9d8aSp-7DN-5IM9aOw",
-              "created": "2014-06-27T11:35:06.823",
+              "created": "2016-06-27T11:35:06.823",
               "status": "ACTIVE",
               "account_id": "wKgFeDz5HF-BPPl08dcADQ",
               ...
           }, {
               "id": "3DazwIsiRsan5oVqNv1LBQ",
-              "created": "2014-06-24T18:10:33.652",
+              "created": "2016-06-24T18:10:33.652",
               "status": "ACTIVE",
               "account_id": "XLu8EABYEeS91ehmSDUzYg",
               ...
           }, {
               "id": "PpQu1BWpTG6ancC2HUZWwQ",
-              "created": "2014-06-18T14:51:27.039",
+              "created": "2016-06-18T14:51:27.039",
               "status": "ACTIVE",
               "account_id": "wKgFeDz5HF-BPPl08dcADQ",
               ...
           }, {
               "id": "aoeO8fBvT3KYeVYCDIrZUw",
-              "created": "2014-06-16T10:41:29.520",
+              "created": "2016-06-16T10:41:29.520",
               "status": "COMPLETED",
               "account_id": "wKgFeDz5HF-BPPl08dcADQ",
               ...

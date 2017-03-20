@@ -3,12 +3,12 @@
     <div class="method-copy-padding">
       <p><span class="api-operation">GET</span> <span class="code-green">/v1/recurring/charges/{id}/occurrences</span></p>
 
-      <p>The list of <a href="#recurringchargeoccurrence" style="font-family:monospace">recurring_charge_occurrences</a> for a recurring charge, including status information
-      and associated transactions, is obtained by sending a GET request to <span class="code-green">/v1/recurring/charges/{id}/occurrences</span>, substituting the recurring charge ID for <span class="code-green">id</span>. The Gateway responds with a <a href="#searchresults" style="font-family:monospace">search_results</a> instance containing the occurrences.</p>
+      <p>The list of <a href="#recurring_charge_occurrence" style="font-family:monospace">recurring_charge_occurrences</a> for a recurring charge, including status information
+      and associated transactions, is obtained by sending a GET request to <span class="code-green">/v1/recurring/charges/{id}/occurrences</span>, substituting the recurring charge ID for <span class="code-green">id</span>. The Gateway responds with a <a href="#search_results" style="font-family:monospace">search_results</a> instance containing the occurrences.</p>
 
       <p><span class="panel-note"><b>Note:</b> Occurrences are returned in descending order of their creation such that the next pending due occurrence (or the last occurrence in a completed schedule) is first.</span></p>
 
-      <p>The API supports pagination over the result set by allowing the client to specify the number of results per logical "page" and the page to view. The following URL parameters are supported:</p>
+      <p>{{site.data.notes.note.pagination}}</p>
 
       <table>
         <thead>
@@ -32,8 +32,8 @@
   </div>
 
   <blockquote>Example request</blockquote>
-  <pre><code>curl --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/recurring/charges/xicilh0vTAeZiThRtHU2Ow/occurrences</code>
-  </pre>
+  <pre id="recur-occurs"><code class="json">curl -X GET --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/recurring/charges/xicilh0vTAeZiThRtHU2Ow/occurrences</code></pre>
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#recur-occurs" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
   <pre><code>{
@@ -61,7 +61,7 @@
           "status": "PAID",
           "due_date": "2016-01-01",
           "attempts": 1,
-          "last_attempt": "2014-06-27T19:23:49.422Z",
+          "last_attempt": "2016-06-27T19:23:49.422Z",
           "transactions": [ {
               "id": "UvGF3iMEQwObZN0hxikByg",
               "type": "CHARGE"

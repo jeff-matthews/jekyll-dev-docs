@@ -3,7 +3,7 @@
     <div class="method-copy-padding">
       <p>All merchants are provided with a public key and test- and live-mode secret keys to use when authenticating with the Gateway. Using the test-mode secret key, you can start using the API immediately without any worry that your charges will be passed to the payment processing networks. When you're ready to start processing payments, just switch to the live-mode secret key.</p>
 
-      <p>All requests to the Gateway are authenticated using <a href="http://en.wikipedia.org/wiki/Basic_access_authentication">HTTP Basic Authentication</a>. To authenticate, you provide either your test- or live-mode secret key in the HTTP <span class="code-green">Authorization</span> header.</p>
+      <p>All requests to the Gateway are authenticated using <a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="&#95;blank">HTTP Basic Authentication</a>. To authenticate, you provide either your test- or live-mode secret key in the HTTP <span class="code-green">Authorization</span> header.</p>
     </div>
   </div>
 </div>

@@ -12,12 +12,12 @@
 
   <pre><code class="json">{
       "id": "3mLZet76SrOMg0Gs3QsTbA",
-      "created": "2013-10-25T18:08:22.811Z",
+      "created": "2016-10-25T18:08:22.811Z",
       "type": "transaction.authorized",
       "data": {
           "id": "S-EdSnl0RCmPjlCNcc8MSA",
-          "created": "2013-10-25T18:08:22.555Z",
-          "modified": "2013-10-25T18:08:22.806Z",
+          "created": "2016-10-25T18:08:22.555Z",
+          "modified": "2016-10-25T18:08:22.806Z",
           "account_id": "TU0BOD2gEeOfvhLxg70sog",
           "status": "AUTHORIZED",
           "amount": 1312,

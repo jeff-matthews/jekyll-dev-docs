@@ -9,7 +9,7 @@
 
   <pre><code class="json">{
       "id": "07RRZ2aESqedDKcyqfEWMQ",
-      "created": "2014-07-01T00:00:00.193Z",
+      "created": "2016-07-01T00:00:00.193Z",
       "type": "recurring_charge.payment_method.expired",
       "data": {
           "id": "OAe6YaS7TPiRtJiM1USqDg",
@@ -21,7 +21,7 @@
               "fingerprint": "GunPelYVthifNV63LEw1",
               "card_type": "VISA",
               "exp_month": 6,
-              "exp_year": 2014
+              "exp_year": 2000
               "name": "Test Customer",
               "address1": "123 Main St",
               "postal_code": "78730"
@@ -29,14 +29,14 @@
           "schedule": {
               "interval_unit": "MONTH",
               "interval_delay": 1,
-              "start": "2014-05-01"
+              "start": "2016-05-01"
           },
           "description": "New Recurring Charge",
           "amount": 2500,
           "currency": "USD",
           "total_occurrences": 2,
           "total_amount": 2500,
-          "next_payment": "2014-07-01"
+          "next_payment": "2016-07-01"
       }
   }</code>
   </pre>

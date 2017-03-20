@@ -9,9 +9,10 @@
     </div>
   </div>
   <blockquote>Example request</blockquote>
-  <pre><code>curl -X POST --user secret_key: -H "Content-Type: application/json" https://api.chargeio.com/v1/merchant/purge-test-data</code></pre>
+  <pre id="delete-test-data"><code class="json">curl -X POST -H "Content-Type:application/json" --user secret_key: https://api.chargeio.com/v1/merchant/purge-test-data</code></pre>
+
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#delete-test-data" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
-  <pre><code>An HTTP 204 response is returned to indicate
-  that the test data has been successfully deleted.</code></pre>
+  <pre><code class="html">Returns an HTTP 204 No Content status code and an empty response body when successful.</code></pre>
 </div>

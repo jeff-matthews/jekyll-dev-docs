@@ -2,6 +2,7 @@ brand:
   gateway-api: AffiniPay Payment Gateway API
   gateway: AffiniPay Payment Gateway
   vt-api: Authentication API
+  oauth: OAuth partner application
 apiurl:
   vt: <span class="code-green">https://secure.affinipay.com/api/v1/</span>
   gateway: https://api.chargeio.com

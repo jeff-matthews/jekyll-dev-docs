@@ -10,18 +10,18 @@
 
   <pre><code class="json">{
       "id": "O5r6bWvHQZ2kW3QjAMV6Xg",
-      "created": "2013-12-01T03:00:03.842Z",
+      "created": "2016-12-01T03:00:03.842Z",
       "type": "payment_method.expired",
       "data": {
           "id": "&#95;&#95;v0aP-&#95;QfKsD61ZBkcjPg",
-          "created": "2013-11-21T03:01:10.485Z",
-          "modified": "2013-11-21T03:01:10.485Z",
+          "created": "2016-11-21T03:01:10.485Z",
+          "modified": "2016-11-21T03:01:10.485Z",
           "type": "card",
           "name": "Some Customer",
           "number": "************4242",
           "card_type": "VISA",
           "exp_month": 11,
-          "exp_year": 2013,
+          "exp_year": 2020,
       }
   }</code>
   </pre>

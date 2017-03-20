@@ -148,7 +148,7 @@
 						<tr>
 							<td>occurrences</td>
 							<td>
-								Array of <a href="#recurringchargeoccurrence" style="font-family:monospace">recurring_charge_occurrences</a>
+								Array of <a href="#recurring_charge_occurrence" style="font-family:monospace">recurring_charge_occurrences</a>
 							</td>
 							<td>The recurring charge's occurrences, in order of increasing payment date. Occurrences are only returned following creation as a convenience to provide initial occurrence
 							information<em>(read-only)</em></td>

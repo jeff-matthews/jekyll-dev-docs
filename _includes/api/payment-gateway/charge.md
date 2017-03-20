@@ -14,9 +14,10 @@
   </div>
 
   <blockquote>Creating a credit card Charge with automatic capture</blockquote>
-  <pre><code>curl -X POST --user secret_key: -H "Content-Type: application/json" {{site.data.variables.apiurl.gateway}}/v1/charges -d '
+  <pre id="charge"><code class="json">curl -X POST -H "Content-Type:application/json" --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/charges -d '
   {
       "amount": "100",
+      "account_id": "wKgFeDz5HF-BPPl08dcADQ",
       "method": {
           "type": "card",
           "number": "4242424242424242",
@@ -25,8 +26,8 @@
           "cvv": "123",
           "name": "Some Customer"
       }
-  }'</code>
-  </pre>
+  }'</code></pre>
+  <blockquote><button id="btn" class="btn copy api" data-clipboard-target="#charge" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
   <pre><code>{
@@ -54,10 +55,11 @@
 
   <blockquote>Creating an authorization-only credit card Charge</blockquote>
 
-  <pre><code>curl -X POST --user secret_key: -H "Content-Type: application/json" {{site.data.variables.apiurl.gateway}}/v1/charges -d '
+  <pre id="charge2"><code class="json">curl -X POST -H "Content-Type:application/json" --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/charges -d '
   {
       "amount": "100",
       "auto_capture": false,
+      "account_id": "wKgFeDz5HF-BPPl08dcADQ",
       "method": {
           "type": "card",
           "number": "4242424242424242",
@@ -70,8 +72,8 @@
           "state": "TX",
           "postal_code": "78730"
       }
-  }'</code>
-  </pre>
+  }'</code></pre>
+  <blockquote><button id="btn" class="btn copy api" data-clipboard-target="#charge2" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
   <pre><code>{
@@ -103,14 +105,15 @@
   </pre>
 
 
-  <blockquote>Creating a credit card charge using a saved card ID</blockquote>
+  <blockquote>Creating a credit card charge using a saved card ID or one-time token</blockquote>
 
-  <pre><code>curl -X POST --user secret_key: -H "Content-Type: application/json" {{site.data.variables.apiurl.gateway}}/v1/charges -d '
+  <pre id="charge3"><code class="json">curl -X POST -H "Content-Type:application/json" --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/charges -d '
   {
       "amount": "100",
-      "method": "RNZyuzAPTK2TSS6hPKafDA"
-  }'</code>
-  </pre>
+      "method": "RNZyuzAPTK2TSS6hPKafDA",
+      "account_id": "wKgFeDz5HF-BPPl08dcADQ"
+  }'</code></pre>
+  <blockquote><button id="btn" class="btn copy api" data-clipboard-target="#charge3" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
   <pre><code>{
@@ -139,9 +142,10 @@
 
   <blockquote>Creating a Charge debiting a customer bank account</blockquote>
 
-  <pre><code>curl -X POST --user secret_key: -H "Content-Type: application/json" {{site.data.variables.apiurl.gateway}}/v1/charges -d '
+  <pre id="charge4"><code class="json">curl -X POST -H "Content-Type:application/json" --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/charges -d '
   {
       "amount": "39088",
+      "account_id": "7eyWpvRpEeKcOfUBJK8FBw",
       "method": {
           "type": "bank",
           "routing_number": "000000013",
@@ -149,8 +153,8 @@
           "account_type": "CHECKING",
           "name": "Some Customer"
       }
-  }'</code>
-  </pre>
+  }'</code></pre>
+  <blockquote><button id="btn" class="btn copy api" data-clipboard-target="#charge4" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
   <pre><code>{

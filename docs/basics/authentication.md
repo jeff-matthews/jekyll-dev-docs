@@ -34,7 +34,7 @@ See the following diagram for a high-level description of the OAuth Web Server A
     <p><img class="center" width="70%" src="../images/grantApplicationAccess.png"/></p>
    </li>
   <li>After granting access to your application, <span class="code-green">https://secure.affinipay.com/oauth/authorize</span> redirects them back to your web server using the URL you specify in your <a href="../guides/app-dev-getting-started.html#configure-your-partner-application">AffiniPay OAuth Partner Application</a> and includes an <span class="code-green">authorization_code</span>.</li>
-  <li>Your application uses the <span class="code-green">authorization_code</span> along with the client secret to send a POST request to <span class="code-green">https://secure.affinipay.com/oauth/token</span> to retrieve an <span class="code-green">access_token</span>. The following parameters are required:
+  <li>Your application uses the <span class="code-green">authorization_code</span> along with the client secret to send a <span class="api-operation">POST</span> request to <span class="code-green">https://secure.affinipay.com/oauth/token</span> to retrieve an <span class="code-green">access_token</span>. The following parameters are required:
     <ul>
       <li><span class="code-green">client_id=&lt;your client id&gt;</span></li>
       <li><span class="code-green">client_secret=&lt;your client secret&gt;</span></li>
@@ -46,14 +46,13 @@ See the following diagram for a high-level description of the OAuth Web Server A
     </li>
   <li>A successful response will return JSON that contains an <span class="code-green">access_token</span>.</li>
 
-<div class="http-example http-response-example"><pre>
-  {
-    "access_token":"mypn6krga4nyevxs96as6p3mw564rzc33pjdsrsko0aymt3s2jl2g269lrcj0s6j",
-    "token_type":"bearer",
-    "scope":"chargeio",
-    "created_at":"1464986958"
-  }
-</pre></div></ol>
+<pre><code>{
+  "access_token":"mypn6krga4nyevxs96as6p3mw564rzc33pjdsrsko0aymt3s2jl2g269lrcj0s6j",
+  "token_type":"bearer",
+  "scope":"chargeio",
+  "created_at":"1464986958"
+}
+</code></pre></ol>
 
 ### Next Steps
 
@@ -74,18 +73,23 @@ See the following diagram for a high-level description of the OAuth Client Crede
 
 <ol>
   <li>Your application requests an <span class="code-green">access_token</span> using your OAuth Partner Application client credentials (ID and secret). For example:
-<div class="http-example http-request-example"><pre>
-curl -X POST https://secure.affinipay.com/oauth/token -d client_id=&lt;client_id> -d client_secret=&lt;client_secret> -d grant_type=client_credentials
-</pre></div></li>
-<li>The {{site.data.variables.brand.vt-api}} validates your client credentials and returns the <span class="code-green">access_token</span>:
-<div class="http-example http-response-example"><pre>
+<pre id="copy"><code class="json">curl -X POST https://secure.affinipay.com/oauth/token -d '
 {
+  "client_id":"Y4QLWPO6wZag2ia8Abw7nbeLUAOgebDlfZGF1KyzgBaqAllzMtYFfP58jRxg5rp5",
+  "client_secret":"4EG357enIs4m2SWKi9yfC3fQzIeOZmBTWr96ay47tqN4GUtRPYrWwxwCxwlZJbiC",
+  "grant_type":"client_credentials"
+}'
+</code></pre>
+<button id="btn" class="btn copy" data-clipboard-target="#copy" onclick="Materialize.toast('Copied!', 2000)">Copy</button>
+</li>
+<li>The {{site.data.variables.brand.vt-api}} validates your client credentials and returns the <span class="code-green">access_token</span>:
+<pre><code>{
   "access_token":"mypn6krga4nyevxs96as6p3mw564rzc33pjdsrsko0aymt3s2jl2g269lrcj0s6j",
   "token_type":"bearer",
-  "scope":"chargeio",
+  "scope":"tenant",
   "created_at":"1464986958"
 }
-</pre></div></li>
+</code></pre></li>
 
 <li>Your application can store this token and use it to access API resources that don't have an owner. For example, submitting a <a href="../guides/merchant-signup.html">new merchant application</a> to AffiniPay.</li>
 </ol>

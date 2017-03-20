@@ -6,11 +6,10 @@
       <p>The <a href="#event" style="font-family:monospace">events</a> associated with the authenticated Merchant
       are returned via a GET request to <span class="code-green">/v1/events</span>.</p>
 
-      <p>The API supports pagination over the result set by allowing the client to specify the number of results per
-      logical "page" and the page to view. By default the Events are returned in reverse chronological order, such
-      that the most recent Events appear first. However, if the <span class="code-green">start_date</span> parameter is specified, only events occurring after the given timestamp are returned, and the results are returned in chronological order. The of the in-order <span class="code-green">start_date</span>-based retrieval is intended to simplify synchronization of Gateway state with external systems.</p>
+      <p>The API supports pagination over the result set by allowing the client to specify the number of results per logical "page" and the page to view.</p>
 
-      <p>The following URL parameters are supported:</p>
+      <p>By default the Events are returned in reverse chronological order, such
+      that the most recent Events appear first. However, if the <span class="code-green">start_date</span> parameter is specified, only events occurring after the given timestamp are returned, and the results are returned in chronological order. Start date-based retrieval is intended to simplify synchronization of Gateway state with external systems.</p>
 
       <table>
         <thead>
@@ -41,8 +40,8 @@
 
   <blockquote>Retrieve the 2 most recent events</blockquote>
 
-  <pre><code>curl --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/events?page=1&amp;page_size=2</code>
-  </pre>
+  <pre id="get-events"><code class="json">curl -X GET --user secret_key: '{{site.data.variables.apiurl.gateway}}/v1/events?page=1&amp;page_size=2'</code></pre>
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#get-events" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
   <pre><code>{
@@ -52,12 +51,12 @@
       "results": [
           {
               "id": "LhBgkp4oScmr3wEeyHKzZw",
-              "created": "2013-10-25T17:46:33.792Z",
+              "created": "2016-10-25T17:46:33.792Z",
               "type": "transaction.authorized",
               "data": {
                   "id": "AfLZQYR2RLGRqBxDo4IKIQ",
-                  "created": "2013-10-25T17:46:33.786Z",
-                  "modified": "2013-10-25T17:46:33.786Z",
+                  "created": "2016-10-25T17:46:33.786Z",
+                  "modified": "2016-10-25T17:46:33.786Z",
                   "account_id": "8IO47jzCEeOfvhLxg70sog",
                   "status": "AUTHORIZED",
                   "amount": 100,
@@ -81,12 +80,12 @@
               }
           }, {
               "id": "L6vN5PwhRDG9SDKxDwghJQ",
-              "created": "2013-10-25T17:46:33.781Z",
+              "created": "2016-10-25T17:46:33.781Z",
               "type": "transaction.created",
               "data": {
                   "id": "AfLZQYR2RLGRqBxDo4IKIQ",
-                  "created": "2013-10-25T17:46:33.778Z",
-                  "modified": "2013-10-25T17:46:33.778Z",
+                  "created": "2016-10-25T17:46:33.778Z",
+                  "modified": "2016-10-25T17:46:33.778Z",
                   "account_id": "8IO47jzCEeOfvhLxg70sog",
                   "status": "PENDING",
                   "amount": 100,
@@ -114,12 +113,12 @@
   </pre>
 
 
-  <blockquote>Retrieve the next 5 Events starting from Oct 1, 2013 at 14:33:29.105 UTC</blockquote>
-  <pre><code>curl --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/events?page=1&amp;page_size=5&amp;start_date=2013-10-01T14:33:29.105Z</code>
-  </pre>
+  <blockquote>Retrieve the next 5 Events starting from Oct 1, 2016 at 14:33:29.105 UTC</blockquote>
+  <pre id="events-spec"><code class="json">curl -X GET --user secret_key: '{{site.data.variables.apiurl.gateway}}/v1/events?page=1&amp;page_size=5&amp;start_date=2016-10-01T14:33:29.105Z'</code></pre>
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#events-spec" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
-  <pre><code>{
+  <pre><code class="json">{
       "page": 1,
       "page_size": 5,
       "total_entries": 136,
@@ -127,11 +126,11 @@
           {
               "id": "RsRwETpFSJ2L3lyuPaFO0Q",
               "type": "transaction.created",
-              "created": "2013-10-25T18:08:22.199Z",
+              "created": "2016-10-25T18:08:22.199Z",
               "data": {
                   "id": "z2jUj9JyRNG_nIQZr9L_CA",
-                  "created": "2013-10-25T18:08:22.148Z",
-                  "modified": "2013-10-25T18:08:22.148Z",
+                  "created": "2016-10-25T18:08:22.148Z",
+                  "modified": "2016-10-25T18:08:22.148Z",
                   "account_id": "TU0BOD2gEeOfvhLxg70sog",
                   "status": "PENDING",
                   "amount": 1256,
@@ -156,22 +155,22 @@
               }
           }, {
               "id": "h00xvpjLS6usI3_Uv1TMlw",
-              "created": "2013-10-25T18:08:22.293Z",
+              "created": "2016-10-25T18:08:22.293Z",
               "type": "transaction.authorized",
               ...
           }, {
               "id": "WjqzlbTwSHqB0xYS1BznXw",
-              "created": "2013-10-25T18:08:22.436Z",
+              "created": "2016-10-25T18:08:22.436Z",
               "type": "transaction.created",
               ...
           }, {
               "id": "3mLZet76SrOMg0Gs3QsTbA",
-              "created": "2013-10-25T18:08:22.473Z",
+              "created": "2016-10-25T18:08:22.473Z",
               "type": "transaction.authorized",
               ...
           }, {
               "id": "0QkrSnlaRW2F6GdiUd8w0Q",
-              "created": "2013-10-25T18:08:22.567Z",
+              "created": "2016-10-25T18:08:22.567Z",
               "type": "transaction.created",
               ...
           }

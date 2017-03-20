@@ -1,4 +1,4 @@
-<li class="level1">Guides</li>
+<li class="level1" style="padding-right: 60px;">Guides</li>
   <div class="collapsible-body">
     <ul>
       <!--GETTING STARTED-->
@@ -57,7 +57,7 @@
             {% else %}
             <li class="level3">
             {% endif %}
-            <a href="../guides/hosted-payment-page-link.html">Link to a Hosted Payment Page</a></li>
+            <a href="../guides/hosted-payment-page-link.html">Hosted Payment Pages</a></li>
             {% if page.url == '/guides/collect-payment-details.html' %}
             <li class="level3 active">
             {% else %}
@@ -124,22 +124,31 @@
           </div>
         </li>
       </ul>
-      <!--TESTING-->
+      <!--NOTIFICATIONS-->
       <ul id="toc" class="collapsible collapsible-accordion">
-        {% if page.url == '/guides/test-web-server-oauth-flow.html' %}
-        <li class="level2 active"><a class="collapsible-header active">Testing</a>
+        {% if page.url == '/guides/enable-email-receipts.html' %}
+        <li class="level2 active"><a class="collapsible-header active">Notifications</a>
+          <div class="collapsible-body">
+        {% elsif page.url == '/guides/webhooks.html' %}
+        <li class="level2 active"><a class="collapsible-header active">Notifications</a>
           <div class="collapsible-body">
         {% else %}
-        <li class="level2"><a class="collapsible-header">Testing</a>
+        <li class="level2"><a class="collapsible-header">Notifications</a>
           <div class="collapsible-body" style="display:none">
         {% endif %}
           <ul>
-            {% if page.url == '/guides/test-web-server-oauth-flow.html' %}
+            {% if page.url == '/guides/enable-email-receipts.html' %}
             <li class="level3 active">
             {% else %}
             <li class="level3">
             {% endif %}
-            <a href="../guides/test-web-server-oauth-flow.html">Test the Web Server OAuth Flow</a></li>
+            <a href="../guides/enable-email-receipts.html">Enable Email Receipts</a></li>
+            {% if page.url == '/guides/webhooks.html' %}
+            <li class="level3 active">
+            {% else %}
+            <li class="level3">
+            {% endif %}
+            <a href="../guides/webhooks.html">Webhooks</a></li>
           </ul>
           </div>
         </li>

@@ -145,9 +145,8 @@
 
   <blockquote>Create a credit card one-time token using form URL-encoding</blockquote>
 
-  <pre><code>curl -X POST --user public_key: -H "Content-Type: application/x-www-form-urlencoded" {{site.data.variables.apiurl.gateway}}/v1/tokens -d 'type=card&amp;number=4242424242424242&amp;exp_month=10&amp;exp_year=2017&amp;cvv=123&amp;extra_data=some_value&amp;extra_data=second_value&amp;more_data=another_value'
-    </code>
-  </pre>
+  <pre id="post-token"><code class="json">curl -X POST -H "Content-Type:application/x-www-form-urlencoded" --user public_key: {{site.data.variables.apiurl.gateway}}/v1/tokens -d 'type=card&amp;number=4242424242424242&amp;exp_month=10&amp;exp_year=2017&amp;cvv=123&amp;extra_data=some_value&amp;extra_data=second_value&amp;more_data=another_value'</code></pre>
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#post-token" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
   <pre><code>{
@@ -167,18 +166,19 @@
 
   <blockquote>Create a credit card one-time token using JSON encoding</blockquote>
 
-  <pre><code>curl -X POST --user public_key: -H "Content-Type: application/json" {{site.data.variables.apiurl.gateway}}/v1/tokens -d '{
-      "type": "card",
-      "number": "4242424242424242",
-      "exp_month": 10,
-      "exp_year": 2017,
-      "cvv": "123",
-      "form_data": {
-          "extra_data": "some_value",
-          "more_data": "another_value"
-      }
-  }'</code>
-  </pre>
+  <pre id="token-json"><code class="json">curl -X POST -H "Content-Type:application/json" --user public_key: {{site.data.variables.apiurl.gateway}}/v1/tokens -d '
+  {
+    "type": "card",
+    "number": "4242424242424242",
+    "exp_month": 10,
+    "exp_year": 2017,
+    "cvv": "123",
+    "form_data": {
+        "extra_data": "some_value",
+        "more_data": "another_value"
+    }
+}'</code></pre>
+<blockquote><button id="btn" class="btn copy" data-clipboard-target="#token-json" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
   <pre><code>{
@@ -198,13 +198,10 @@
 
   <blockquote>Create a bank one-time token specifying a redirect URL</blockquote>
 
-  <pre><code>curl -X POST --user public_key: -H "Content-Type: application/x-www-form-urlencoded" {{site.data.variables.apiurl.gateway}}/v1/tokens -d 'type=bank&amp;routing_number=000000013&amp;account_number=1234567890&amp;account_type=CHECKING&amp;redirect_url=https://merchant.example.com/payment'
-    </code>
-  </pre>
+  <pre id="token-bank"><code class="json">curl -X POST -H "Content-Type:application/x-www-form-urlencoded" --user public_key: {{site.data.variables.apiurl.gateway}}/v1/tokens -d 'type=bank&amp;routing_number=000000013&amp;account_number=1234567890&amp;account_type=CHECKING&amp;redirect_url=https://merchant.example.com/payment'</code></pre>
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#token-bank" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
-  <pre><code>HTTP/1.1 303 See Other
-  Location: https://merchant.example.com/payment?token_id=wKgFaj72F3aBPvZ9KuIBfA
-  Content-Length: 0</code>
+  <pre><code class="html">HTTP/1.1 303 See Other Location: https://merchant.example.com/payment?token_id=wKgFaj72F3aBPvZ9KuIBfAContent-Length: 0</code>
   </pre>
 </div>

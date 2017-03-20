@@ -30,11 +30,12 @@
       </table>
     </div>
   </div>
-  
+
   <blockquote>Voiding a transaction</blockquote>
 
-  <pre><code>curl -X POST --user secret_key: -H "Content-Type: application/json" {{site.data.variables.apiurl.gateway}}/v1/transactions/wKgFnjz8GamBPP0ASxIABA/void</code>
-  </pre>
+  <pre id="void"><code class="json">curl -X POST --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/transactions/wKgFnjz8GamBPP0ASxIABA/void</code></pre>
+
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#void" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
   <pre><code>{
@@ -66,11 +67,12 @@
 
   <blockquote>Voiding a transaction with a reference</blockquote>
 
-  <pre><code>curl -X POST --user secret_key: -H "Content-Type: application/json" {{site.data.variables.apiurl.gateway}}/v1/transactions/wKgFnjz8GamBPP0ASxIABA/void -d '
+  <pre id="void-ref"><code class="json">curl -X POST -H "Content-Type:application/json" --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/transactions/wKgFnjz8GamBPP0ASxIABA/void -d '
   {
       "reference": "An explanation for why the charge was voided"
-  }'</code>
-  </pre>
+  }'</code></pre>
+
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#void-ref" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <blockquote>Example response</blockquote>
   <pre><code>{

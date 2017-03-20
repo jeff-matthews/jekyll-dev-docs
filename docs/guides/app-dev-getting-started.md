@@ -3,8 +3,11 @@ layout: default
 title: "Application Development"
 permalink: /guides/app-dev-getting-started.html
 ---
+This guide is intended for AffiniPay partners developing payment integrations for existing commercial software applications (e.g., practice management software).
 
 {{site.data.notes.note.partner-apps-description}}
+
+<span class="panel-note"><b>Note:</b> If you just need to update a website to accept payments from non-merchants (e.g., clients, members, or donors), refer to <a href="../guides/payment-form-getting-started.html">Getting Started with Payment Forms</a>.</span>
 
 By the end of this guide, you'll be able to:
 
@@ -25,7 +28,7 @@ Before proceeding with this guide, make sure you can log in to the <a href="http
 
 Follow these steps to configure your application and retrieve your client ID and secret:
 
- 1. Log in to the AffiniPay web application by going to <a href="https://secure.affinipay.com/login" target="&#95;blank">https://secure.affinipay.com/login</a>.<span class="tooltip" title="LawPay users should go to https://secure.lawpay.com/login"><i class="fa fa-info-circle superscript"></i></span>
+ 1. Log in to <a href="https://secure.affinipay.com/login" target="&#95;blank">https://secure.affinipay.com/login</a>.<i class="fa fa-info-circle superscript tooltipped" data-position="top" data-delay="50" data-tooltip="LawPay users should go to https://secure.lawpay.com/login"></i>
  2. Click your name in the upper-right corner to open the drop-down menu and click **Developers**.
  3. The **My Partner Applications** section on the right lists your OAuth applications. Locate the application whose client ID and secret you want to retrieve and click **Edit**.
   <img width="70%" src="../images/clientIDandSecret.png">
@@ -42,40 +45,46 @@ Follow these steps to configure your application and retrieve your client ID and
 
 ## Configure Your OAuth Client
 
-{% include configure-oauth-client.md %}
+{% include tasks/configure-oauth-client.md %}
 
 ## Request Gateway Credentials
 
-{% include request-gateway-credentials.md %}
+{% include tasks/request-gateway-credentials.md %}
 
 ## Create a Charge
 
-After you successfully retrieve {{site.data.variables.brand.gateway}} credentials, you're application can start making API calls to manage transactions on behalf of a merchant user, like:
+After successfully retrieving {{site.data.variables.brand.gateway}} credentials, you're application can start making API calls to manage transactions on behalf of an AffiniPay merchant.
 
-- Creating a credit card charge
-- Creating a charge by debiting a bank account
+<span class="panel-tip"><b>Tip:</b> We highly recommend masking payment details you collect using tokenization. {{site.data.notes.use-tokens}}</span>
 
-<span class="panel-tip"><b>Tip:</b> We highly recommend masking payment details you collect using tokenization. {{site.data.notes.note.tokenization-definition}}</span>
+### Creating a One-Time Token
+{{site.data.notes.note.tokenization-definition}}
 
-Refer to <a href="../reference/api.html#One-TimeTokens" target="&#95;blank">One-Time Tokens</a> more information.
-
-### Creating a Credit Card One-Time Token
-
-<div class="http-example http-request-example"><pre>
-curl -X POST --user public_key: -H "Content-Type: application/json" https://api.chargeio.com/v1/tokens -d '{
+<h4>Example request</h4>
+<pre id="token"><code class="json">curl -X POST -H "Content-Type:application/json" --user &lt;public_key>: https://api.chargeio.com/v1/tokens -d '
+{
     "type": "card",
     "number": "4242424242424242",
     "exp_month": 10,
     "exp_year": 2017,
     "cvv": "123",
+    "name": "Dave Bowman",
+    "address1": "2001 Odyssey Ln",
+    "address2": "Suite 100",
+    "city": "Austin",
+    "state": "TX",
+    "postal_code": "78750",
     "form_data": {
         "extra_data": "some_value",
         "more_data": "another_value"
     }
-}'</pre></div>
+}'</code></pre>
+<button id="btn" class="btn copy" data-clipboard-target="#token" onclick="Materialize.toast('Copied!', 2000)">Copy</button>
 
-<div class="http-example http-response-example"><pre>
-{
+{{site.data.notes.required-payment-fields}}
+
+<h4>Example response</h4>
+<pre><code>{
     "id": "wKgFaj72F3aBPvZneEsBew",
     "type": "card",
     "number": "************4242",
@@ -88,23 +97,27 @@ curl -X POST --user public_key: -H "Content-Type: application/json" https://api.
         "more_data": "another_value"
     }
 }
-</pre></div>
+</code></pre>
 
-### Creating a Charge with a Credit Card One-Time Token
+### Running a Charge with a One-Time Token
+After creating a token, you're ready to run a charge. {% include concepts/charge-properties.md %}
 
-<div class="http-example http-request-example"><pre>
-curl -X POST --user secret_key: -H "Content-Type: application/json" https://api.chargeio.com/v1/charges -d '
+<h4>Example request</h4>
+<pre id="use-token"><code class="json">curl -X POST -H "Content-Type:application/json" --user &lt;secret_key>: https://api.chargeio.com/v1/charges -d '
 {
     "amount": "100",
-    "method": "wKgFaj72F3aBPvZneEsBew"
+    "method": "wKgFaj72F3aBPvZneEsBew",
+    "account_id":"diON4KOPnesamprmrxA8Iuo"
 }'
-</pre></div>
+</code></pre>
 
-<div class="http-example http-response-example"><pre>
-{
+<button id="btn" class="btn copy" data-clipboard-target="#use-token" onclick="Materialize.toast('Copied!', 2000)">Copy</button>
+
+<h4>Example response</h4>
+<pre><code>{
     "id": "wKgFnjz8GamBPPzKzIsAAA",
     "type": "CHARGE",
-    "account_id": "wKgFeDz5HF-BPPl08dcADQ",
+    "account_id": "diON4KOPnesamprmrxA8Iuo",
     "status": "AUTHORIZED",
     "amount": 100,
     "currency": "USD",
@@ -122,7 +135,7 @@ curl -X POST --user secret_key: -H "Content-Type: application/json" https://api.
     },
     "cvv_result" : "MATCHED"
 }
-</pre></div>
+</code></pre>
 
 <!-- Scrollspy -->
 <scrollspy-toc>

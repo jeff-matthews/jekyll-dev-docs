@@ -10,8 +10,8 @@
   </div>
 
   <blockquote>Example request</blockquote>
-  <pre><code>curl --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/cards/RNZyuzAPTK2TSS6hPKafDA</code>
-  </pre>
+  <pre id="card-saved"><code class="json">curl -X GET --user secret_key: {{site.data.variables.apiurl.gateway}}/v1/cards/RNZyuzAPTK2TSS6hPKafDA</code></pre>
+  <blockquote><button id="btn" class="btn copy" data-clipboard-target="#card-saved" onclick="Materialize.toast('Copied!', 2000)">Copy</button></blockquote>
 
   <pre><code>{
       "id": "RNZyuzAPTK2TSS6hPKafDA",

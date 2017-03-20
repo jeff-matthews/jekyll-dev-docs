@@ -3,35 +3,44 @@
   {% include head.html %}
   <body>
     {% include top-nav-api.html %}
-
     <div class="page-wrapper mobile-box">
+      <div class="dark-box"></div>
+        <div class="preloader-background">
+          <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-affinipay-blue-only">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div><div class="gap-patch">
+                <div class="circle"></div>
+              </div><div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
+            </div>
+          </div>
+        </div>
       <div class="tocify-wrapper">
         {% include toc/api-toc.html %}
       </div>
-        <div class="dark-box"></div>
         <div class="api">
           {{ content }}
         </div>
     </div>
-    <!--{% include footer.html %}-->
-    <link rel="stylesheet" href="//cdn.materialdesignicons.com/1.6.50/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="../../css/jBox.css">
-    <link rel="stylesheet" href="../../css/jquery.tocify.css"></script>
+    {% include footer.html %}
     <!--Import jQuery before materialize.js-->
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
-    <script src="../../js/jquery.tocify.js"></script>
-    <script>
-    $(function() {
-      var toc = $("#toc").tocify({ selectors: "h1, h2, h3, h4" }).data("toc-tocify");
-    });
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+    <!-- Dynamically generate the API TOC -->
+    <script type="text/javascript" src="../../js/init.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $("#toc").tocify({ selectors: "h1, h2, h3, h4" }).data("toc-tocify");
+      })
     </script>
-    <script src="../../js/openMobileNav.js"></script>
-    <script src="../../js/init.js"></script>
-    <!--jBox Tooltips-->
-    <script src="../../js/jBox.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <script type="text/javascript" src="../js/materialize.js"></script>
+    <script type="text/javascript" src="../js/scripts.js"></script>
+    <!--Include Clipboard JS library -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.0/clipboard.min.js"></script>
+    <script type="text/javascript" src="../js/tooltip.js"></script>
+    <!--Code syntax highlighting-->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script>
   </body>
 </html>

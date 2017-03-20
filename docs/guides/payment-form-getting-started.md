@@ -17,6 +17,8 @@ Integrating payments on your website using a web form requires the following ste
 5. Send token and non-sensitive payment information (everything except the card number) to your web server in order to record the payment.
 6. Send a POST request to create a charge to the {{site.data.variables.brand.gateway}}.
 
+<span class="panel-tip"><b>Tip:</b> If you just want to request a token using our JavaScript library, and skip all these other steps, refer to <a href="../basics/tokenization.html#request-a-payment-token"><code>create_token()</code></a>.</span>
+
 ## Obtain Credentials
 You'll need the following information from an [authorized application](../basics/account-management.html#authorized-applications) to complete this guide:
 
@@ -27,7 +29,7 @@ You'll need the following information from an [authorized application](../basics
 To authorize your website application and access your keys:
 
 <ol>
-  <li>Log in to AffiniPay at <a href="https://secure.affinipay.com/login" target="&#95;blank">https://secure.affinipay.com/login</a>.<span class="tooltip" title="LawPay users should go to https://secure.lawpay.com/login"><i class="fa fa-info-circle superscript"></i></span></li>
+  <li>Log in to <a href="https://secure.affinipay.com/login" target="&#95;blank">https://secure.affinipay.com/login</a>.<i class="fa fa-info-circle superscript tooltipped" data-position="top" data-delay="50" data-tooltip="LawPay users should go to https://secure.lawpay.com/login"></i></li>
   <li>Click your name in the top-right corner and click <b>Developers</b>.
 
     <p><img width="30%" src="../images/developers.png"></p></li>
@@ -52,10 +54,13 @@ The following steps are required to enable payments on your page:
 
 <ol>
   <li><b>Include the tokenization library</b> - Add the following script include to your web page:
-    <pre><code>&lt;script type="text/javascript" src="https://api.chargeio.com/assets/api/v1/chargeio.min.js">&lt;/script></code></pre>
+    <pre id="include"><code>&lt;script type="text/javascript" src="https://api.chargeio.com/assets/api/v1/chargeio.min.js">&lt;/script></code></pre>
+    <button id="btn" class="btn copy" data-clipboard-target="#include" onclick="Materialize.toast('Copied!', 2000)">Copy</button>
   </li>
   <li><b>Initialize the tokenization library</b> - The library needs to know your merchant identity in order to handle requests from your payment form. Identify yourself by providing your merchant <b>public key</b>, which is safe to expose in web pages (as opposed to your secret keys, which must be safeguarded).
-    <pre><code>&lt;script type="text/javascript">ChargeIO.init({public_key: 'your merchant public key'});&lt;/script></code></pre>    <span class="panel-note"><b>Note:</b> You must add this <span class="code-green">&lt;script></span> element <i>after</i> the script include element from the previous step.</span>
+    <pre id="initialize"><code>&lt;script type="text/javascript">ChargeIO.init({public_key: 'your merchant public key'});&lt;/script></code></pre>    
+    <button id="btn" class="btn copy" data-clipboard-target="#initialize" onclick="Materialize.toast('Copied!', 2000)">Copy</button>
+    <span class="panel-note"><b>Note:</b> You must add this <span class="code-green">&lt;script></span> element <i>after</i> the script include element from the previous step.</span>
   </li>
 </ol>
 
@@ -69,67 +74,67 @@ The following HTML is a basic payment form example based on the <a href="http://
 - Don't define any actions in your HTML form.
 - Provide a button to submit payment information to the gateway. In the next section, you'll learn how to hook this button up to our JavaScript tokenization library.
 
-```html
-<div class="row">
-  <h2>Enter your payment information:</h2>
+<pre id="sample-form"><code class="html">&lt;div class="row">
+  &lt;h2>Enter your payment information:</h2>
 
-  <div id="messages" class="alert alert-danger" style="display: none">
-    <ul></ul>
-  </div>
+  &lt;div id="messages" class="alert alert-danger" style="display: none">
+    &lt;ul></ul>
+  &lt;/div>
 
-  <form>
-    <div class="form-group">
-      <label>Name</label>
-      <input type="text" name="name">
-    </div>
-    <div class="form-group">
-      <label>Card Number</label>
-      <input type="text" name="number">
-    </div>
-    <div class="form-group">
-      <label>CVV</label>
-      <input type="text" name="cvv">
-    </div>
-    <div class="form-group">
-      <label>Exp Month</label>
-      <input type="text" name="exp_month">
-    </div>
-    <div class="form-group">
-      <label>Exp Year</label>
-      <input type="text" name="exp_year">
-    </div>
+  &lt;form>
+    &lt;div class="form-group">
+      &lt;label>Name</label>
+      &lt;input type="text" name="name">
+    &lt;/div>
+    &lt;div class="form-group">
+      &lt;label>Card Number</label>
+      &lt;input type="text" name="number">
+    &lt;/div>
+    &lt;div class="form-group">
+      &lt;label>CVV</label>
+      &lt;input type="text" name="cvv">
+    &lt;/div>
+    &lt;div class="form-group">
+      &lt;label>Exp Month</label>
+      &lt;input type="text" name="exp_month">
+    &lt;/div>
+    &lt;div class="form-group">
+      &lt;label>Exp Year</label>
+      &lt;input type="text" name="exp_year">
+    &lt;/div>
 
-    <button type="submit" id="pay" disabled>Submit</button>
-  </form>
-</div>
-```
+    &lt;button type="submit" id="pay" disabled>Submit</button>
+  &lt;/form>
+&lt;/div>
+</code></pre>
+<button id="btn" class="btn copy" data-clipboard-target="#sample-form" onclick="Materialize.toast('Copied!', 2000)">Copy</button>
 
 ## Handle Payment Requests
 
 You must add a JavaScript event handler and bind it to the form action you're using to submit the payment details to the gateway. In this example, we're binding the event handler to the button with ID "pay" click event. The event handler must:
 
 - Exchange payment details for a token from the {{site.data.variables.brand.gateway}} using the <span class="code-green">ChargeIO.create_token()</span> function. In the sample provided below, the variable you pass this function is composed of the payment form's field values. The function that sets this variable assumes your form field names match the <a href="../reference/api.html#token" target="&#95;blank">`token`</a> API properties.
-- POST the token and payment amount to your server, which must submit the charge to the {{site.data.variables.brand.gateway}} using your protected secret key.
+- <span class="api-operation">POST</span> the token and payment amount to your server, which must submit the charge to the {{site.data.variables.brand.gateway}} using your protected secret key.
 - Handle the payment response returned from your web server, displaying any errors or updating the page with a receipt.
 <span class="panel-warning"><b>Important:</b> It's critical that the payment form event handler prevent propagation of the JavaScript click event to ensure that sensitive payment information is only passed to the AffiniPay tokenization library. Refer to [Sample Form Handler](#sample-form-handler) for an example.</span>
 
 ### Sample Form Handler
 
-The following is an example payment form event handler that works with the  [HTML payment form](#create-a-payment-form) described above and <a href="https://github.com/charge-io/chargeio-example-php" target="&#95;blank">AffiniPay's sample PHP application</a>.
+The following is an example payment form event handler that works with the  [HTML payment form](#create-a-payment-form) described above and <a href="https://github.com/affinipay/chargeio-example-php" target="&#95;blank">AffiniPay's sample PHP application</a>.
 
 <span class="panel-note"><b>Note:</b> Click [here](#code-comments) to see code comments.</span>
 
-```js
-01 <script type="text/javascript" src="https://api.chargeio.com/assets/api/v1/chargeio.min.js"></script>
-02 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-03 <script type="text/javascript">
+<pre id="sample-handler">
+<code class="js">01 &lt;script type="text/javascript" src="https://api.chargeio.com/assets/api/v1/chargeio.min.js"></script>
+02 &lt;script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+03 &lt;script type="text/javascript">
 04  ChargeIO.init({ public_key: 'your merchant public key' });
 05
 06   function processErrorMessages(messages) {
 07     var msgList = $('#messages ul');
 08     $(msgList).empty();
 09     $.each(messages, function(index, item) {
-10       $(msgList).append("<li>" + item.message + "</li>");
+10       $(msgList).append("&lt;li>" + item.message + "</li>");
 11     });
 12	  
 13     $('#messages').show();
@@ -157,8 +162,9 @@ The following is an example payment form event handler that works with the  [HTM
 35       });
 36     });
 37   });
-38 </script>
-```
+38 &lt;/script>
+</code></pre>
+<button id="btn" class="btn copy" data-clipboard-target="#sample-handler" onclick="Materialize.toast('Copied!', 2000)">Copy</button>
 
 #### Code Comments
 
@@ -180,26 +186,29 @@ The following is an example payment form event handler that works with the  [HTM
 - 32-34: Handle failures to run the payment from the web server.
 
 ## Submit a Charge from Your Server
-
 After securely collecting and tokenizing your customers' payment information, your web server must send a <a href="../reference/api.html#charges" target="&#95;blank">charge request</a> to the {{site.data.variables.brand.gateway-api}} using your merchant [secret key](#obtain-credentials) for authentication.
 
-<div class="http-example http-request-example"><pre>
-curl -X POST --user secret_key: -H "Content-Type: application/json" https://api.chargeio.com/v1/charges -d '
+<span class="panel-note"><b>Note:</b> {{site.data.notes.use-tokens}}</span>
 
+{% include concepts/charge-properties.md %}
+
+<pre id="charge"><code class="json">curl -X POST -H "Content-Type:application/json" --user &lt;secret_key>: https://api.chargeio.com/v1/charges -d '
 {
-  "account_id":"&lt;Account ID>",
-  "amount":"100",
-  "token_id":"&lt;Payment Token ID>"
+  "amount":"50000",
+  "method":"wKgFaj72F3aBPvZneEsBew",
+  "account_id":"diON4KOPnesamprmrxA8Iuo"
 }'
-</pre></div>
+</code></pre>
 
-Our <a href="https://github.com/charge-io/chargeio-example-php/blob/master/Purchase.php" target="&#95;blank">sample PHP application</a> provides a working example you can use to get started.
+<button id="btn" class="btn copy" data-clipboard-target="#charge" onclick="Materialize.toast('Copied!', 2000)">Copy</button>
+
+Our <a href="https://github.com/affinipay/chargeio-example-php/blob/master/Purchase.php" target="&#95;blank">sample PHP application</a> provides a working example you can use to get started.
 
 <span class="panel-tip"><b>Tip:</b> The {{site.data.variables.brand.gateway}} uses <a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="&#95;blank">HTTP Basic Authentication</a>. Use your test or live-mode secret key as your username and an empty string for the password.</span>
 
 ### Test and Live Mode Secret Keys
 
-{% include test-live-mode-keys.md %}
+{% include concepts/test-live-mode-keys.md %}
 
 <!-- Scrollspy -->
 <scrollspy-toc>

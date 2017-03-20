@@ -8,12 +8,12 @@
 
   <pre><code class="json">{
       "id": "LMvWZZ8MTYyVBr7hjoohEg",
-      "created": "2013-10-25T20:48:21.814Z",
+      "created": "2016-10-25T20:48:21.814Z",
       "type": "transaction.voided",
       "data": {
           "id": "A-TyJgSnTiCGVP6qYdovFw",
-          "created": "2013-10-25T20:48:21.713Z",
-          "modified": "2013-10-25T20:48:21.754Z",
+          "created": "2016-10-25T20:48:21.713Z",
+          "modified": "2016-10-25T20:48:21.754Z",
           "account_id": "NRnwSWCzRy69rIyvkVRIUA",
           "status": "VOIDED",
           "amount": 100,
