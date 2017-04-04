@@ -4,10 +4,12 @@ title: "Authentication"
 permalink: /basics/authentication.html
 ---
 
-AffiniPay uses the industry standard <a href="http://oauth.net/2/" target="&#95;blank">OAuth 2.0</a> to manage API authentication. There are two OAuth authentication flows that you need to know about when developing integrations:
+AffiniPay uses the industry standard <a href="http://oauth.net/2/" target="&#95;blank">OAuth 2.0</a> to manage API authentication. There are two OAuth authentication flows that you need to know about when developing third-party application integrations:
 
-- **Web Server** - Grants your application access to an AffiniPay merchant's account and the ability to manage transactions on a merchant's behalf.
+- **Web Server** - Grants your application access to an AffiniPay merchant's account and the ability to manage transactions on a merchant's behalf. This is a two-step process. After completing this OAuth flow, you must [request gateway credentials](../guides/app-dev-getting-started.html#request-gateway-credentials) before you can start managing transactions.
 - **Client Credentials** - Grants your application access to the {{site.data.variables.brand.vt-api}} without granting access to merchant data. Useful for [White Label Sign Up](../guides/merchant-signup.html).
+
+<span class="panel-note"><b>Note:</b> If you're trying to accept payments directly from clients on your website, OAuth flows don't apply to you. Use your [gateway credentials](../guides/payment-form-getting-started.html#obtain-credentials) instead.</span>
 
 ## Web Server
 

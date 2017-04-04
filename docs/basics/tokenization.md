@@ -8,7 +8,7 @@ Use our REST APIs and JavaScript tokenization library to securely integrate paym
 
 PCI DSS requirements include, but are not limited to:
 
-  - Building and maintaining a secure networks
+  - Building and maintaining a secure network
   - Protecting cardholder data
   - Maintaining a vulnerability management program
   - Implementing strong access control measures
@@ -23,7 +23,7 @@ Potential PCI DSS liabilities include, but are not limited to:
 
 {{site.data.notes.note.tokenization-definition}}
 
-<span class="panel-note"><b>Note:</b> {{site.data.notes.use-tokens}}</span>
+<span class="panel-note"><b>Note:</b> {{site.data.notes.token-ttl}} {{site.data.notes.use-tokens}}</span>
 
 ## Tokenization Flow
 <img class="center" width="100%" src="../images/tokenizationFlow.svg">

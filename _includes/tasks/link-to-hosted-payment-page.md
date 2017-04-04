@@ -1,7 +1,7 @@
 To get a link to a hosted payment page:
 
 <ol>
-  <li>Log in to the AffiniPay web application by going to <a href="https://secure.affinipay.com/login" target="&#95;blank">https://secure.affinipay.com</a>.<span class="tooltip" title="LawPay users should go to https://secure.lawpay.com/login"><i class="fa fa-info-circle superscript"></i></span></li>
+  <li>Log in to <a href="https://secure.affinipay.com/login" target="&#95;blank">https://secure.affinipay.com/login</a>.<i class="fa fa-info-circle superscript tooltipped" data-position="top" data-delay="50" data-tooltip="LawPay users should go to https://secure.lawpay.com/login"></i></li>
   <li>Click <b>New Charge</b> in the left menu.</li>
   <li>Locate the payment page that you want to link to and click <b>Actions</b> > <b>Show & Copy Page Link</b>.</li>
   <li>Copy the link.

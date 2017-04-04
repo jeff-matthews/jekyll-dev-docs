@@ -1,7 +1,7 @@
 <div class="method-area">
   <div class="method-copy">
     <div class="method-copy-padding">
-      <p><span class="api-operation">POST</span> <span class="code-green">/v1/oauth/token</span></p>
+      <p><span class="api-operation">POST</span> <span class="code-green">/oauth/token</span></p>
 
       <p>This endpoint returns an <span class="code-green">access_token</span> when you POST a valid <span class="code-green">grant_type</span> parameter.</p>
 

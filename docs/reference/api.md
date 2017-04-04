@@ -4,7 +4,7 @@ title: API Reference
 permalink: /reference/api.html
 ---
 
-<h1 class="top"> Authentication API</h1>
+<h1 id="authentication-api" class="top"> Authentication API</h1>
 
 ## Overview
 {% include api/authentication/overview.md %}
@@ -116,6 +116,9 @@ permalink: /reference/api.html
 
 #### Charge with Recurrence
 {% include api/payment-gateway/charge_with_schedule.md %}
+
+#### Schedule a Charge
+{% include api/payment-gateway/schedule_a_charge.md %}
 
 #### Capture
 {% include api/payment-gateway/capture.md %}
@@ -252,7 +255,7 @@ permalink: /reference/api.html
 ### refund
 {% include api/payment-gateway/types/refund.md %}
 
-### schedule
+### schedule {#schedule-object}
 {% include api/payment-gateway/types/schedule.md %}
 
 ### search_results

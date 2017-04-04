@@ -4,7 +4,7 @@ title: "Enable Email Receipts"
 permalink: /guides/enable-email-receipts.html
 ---
 
-You can configure the Affinipay web application to automatically email you and/or your customers a [receipt](#sample-email-receipts) after processing a transaction (e.g., payment, refund, void).
+You can configure the {{site.data.variables.dashboard}} to automatically email you and/or your customers a [receipt](#sample-email-receipts) after processing a transaction (e.g., payment, refund, void).
 
 To enable email receipts:
 <ol>
