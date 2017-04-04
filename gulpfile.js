@@ -7,7 +7,6 @@ var uglify       = require('gulp-uglify');
 var htmlmin      = require('gulp-htmlmin');
 var imagemin     = require('gulp-imagemin');
 var cheerio      = require('gulp-cheerio');
-var runSequence  = require('run-sequence');
 var browserSync  = require('browser-sync');
 var del          = require('del');
 var uncss        = require('gulp-uncss');
@@ -23,16 +22,16 @@ You can run each gulp task independently by name. For example,
   gulp htmlproofer
 
 Local Developement:
-  To build the site, start a local dev server, watch files for changes, and auto reload the page:
+  To compile the site, start a local dev server, watch files for changes, and auto reload the page:
 
     gulp build-dev
 
-  To build the site and run tests, like link/spell check:
+  To compile the site and run tests, like link/spell check:
 
     gulp run-tests
 
 Production:
-  To build the site, minify CSS/JS, validate links, and insert the Google Analytics tracking code:
+  To compile the site, minify CSS/JS, validate links, and insert the Google Analytics tracking code:
 
     gulp build-prod
 
@@ -44,48 +43,30 @@ Production:
 */
 
 /*
-* Build the site. Executes the built-in "jekyll build" shell command with the "JEKYLL_ENV=production" parameter set to ensure that the google analytics tracking code is inserted in all pages.
+* Compile the site. Executes the built-in "jekyll build" shell command with the "JEKYLL_ENV=production" parameter set to insert the Google Analytics tracking code in the HTML.
 */
 gulp.task('make', function (cb) {
  exec('JEKYLL_ENV=production jekyll build', function (err, stdout, stderr) {
-   console.log(stdout);
-   console.log(stderr);
+   gutil.log(gutil.colors.white(stdout));
+   gutil.log(gutil.colors.red(stderr));
    cb(err);
  });
 });
 
 /*
-* Build the site. Used for local development.
+* Compile the site. Used for local development.
 */
 gulp.task('jekyll-build', function (cb) {
    browserSync.notify(messages.jekyllBuild);
    exec('jekyll build', function (err, stdout, stderr) {
-     console.log(stdout);
-     console.log(stderr);
+     gutil.log(gutil.colors.white(stdout));
+     gutil.log(gutil.colors.red(stderr));
      cb(err);
    });
 });
 
 /*
-* Compile the site, launch BrowserSync & watch files for changes. USed for local development.
-*/
-gulp.task('build-dev', function() {
-  runSequence('jekyll-build', 'concat-js', 'concat-searchjs', 'minify', 'clean', 'watch', 'browser-sync');
-});
-
-//Build but don't serve or watch files for changes. Required for Jenkins build. Runs tasks sequentially because 'insert-analytics' won't work unless it runs AFTER 'make'. The release of Gulp v4 will probably break this, but it's a great workaround for now to insert the google analytics tracking code in the index.html file for production builds
-gulp.task('build-prod', function() {
-  runSequence('make', 'insert-analytics', 'concat-js', 'concat-searchjs', 'minify', 'clean', 'htmlproofer');
-});
-
-/*
-* Rebuild the page after changing a file. Used for local development. Don't forget to add 'minify-js' after you figure out how to concatenate JS files.
-*/
-gulp.task('jekyll-rebuild', function () {
-    runSequence('jekyll-build', 'minify-css', 'concat-js', 'concat-searchjs', 'minify-js', 'clean', 'reload');
-});
-
-/* Start a local server for the site at localhost:4000. Simply executes built-in "jekyll serve" shell command. Auto-regeneration enabled by default. No need for a separate gulp task to watch files.
+* Start a local web server for the site at localhost:4000. Simply executes built-in "jekyll serve" shell command. Auto-regeneration and file watch is enabled by default, so the --<options> turn those off.
 */
 gulp.task('serve', function (cb) {
  exec('jekyll serve --skip-initial-build --no-watch', function (err, stdout, stderr) {
@@ -96,7 +77,7 @@ gulp.task('serve', function (cb) {
 });
 
 /*
-* Wait for jekyll-build, then launch the server. Used for local development.
+* Wait for jekyll-build, then launch a local web server. Used for local development.
 */
 gulp.task('browser-sync', function() {
    browserSync({
@@ -107,51 +88,42 @@ gulp.task('browser-sync', function() {
 });
 
 /*
-* Reload the page after changing a file. Used for local development.
+* Reload the page after changing, adding, or removing a file. Used for local development.
 */
-gulp.task('reload', function () {
+gulp.task('reload', function (done) {
    browserSync.reload();
+   done();
 });
 
 /*
-* Recompile the site whenever a file changes. Used for local development.
-*/
-gulp.task('watch', function () {
-   gulp.watch(['*.html', '_data/*.yml', '_includes/**/*', '_layouts/*.html', 'docs/**/*', 'css/*.css', 'js/*.js', 'images/**/*.+(png|jpeg|jpg|gif|svg)', '_config.yml'], ['jekyll-rebuild']);
-   //Separate instructions for watching asset directories and running an additional gulp task, like minification:
-   //gulp.watch('css/*.css', ['minify-css']);
-   //gulp.watch('js/*.js', ['minify-js']);
-   //gulp.watch('images/**/*.+(png|jpeg|jpg|gif|svg)', ['minify-images']);
-});
-
-/*
-*  Concatenates and minifies all .css files and produces a single styles.css file in the _site/css directory.
+* Minify and concatenate all .css files into a single styles.css file in the _site/css directory.
 */
 gulp.task('minify-css', function(){
- gulp.src('css/*.css')
+ return gulp.src('css/*.css')
  .pipe(concat('styles.css'))
  .pipe(uncss({
     html: ['_site/**/*.html'],
     ignore: [/tocify/]
   }))
  .pipe(cleanCSS({debug: true}, function(details) {
-    console.log(details.name + ': ' + details.stats.originalSize);
-    console.log(details.name + ': ' + details.stats.minifiedSize);
+    gutil.log(gutil.colors.yellow(details.name + ': ' + details.stats.originalSize));
+    gutil.log(gutil.colors.green(details.name + ': ' + details.stats.minifiedSize));
   }))
  .pipe(gulp.dest('_site/css/'));
 });
 
 /*
-* Delete CSS files that have been concatenated in minify-css.
+* Delete .css and .js files after concatenating in minify-css, minify-js, concat-js, and concat-searchjs.
 */
-gulp.task('clean', function() {
+gulp.task('clean', function(done) {
  del(['_site/css/materialize.css', '_site/css/style.css', '_site/css/jquery.tocify.css', '_site/css/highlightJS.css', '_site/js/materialize.js', '_site/js/jquery.tocify.js', '_site/js/search.js', '_site/js/lunr.js']).then(paths => {
-    console.log('Deleted files and folders:\n', paths.join('\n'));
+    gutil.log(gutil.colors.yellow('Deleted files and folders:\n', paths.join('\n')));
  });
+ done();
 });
 
 /*
-* Concatenates all .js files and produces a single scripts.js file in the _site/js directory.
+* Concatenate all .js files into a single scripts.js file in the _site/js directory.
 */
 gulp.task('concat-js', function(){
   return gulp.src(['_site/js/materialize.js', '_site/js/jquery.tocify.js'])
@@ -162,7 +134,7 @@ gulp.task('concat-js', function(){
 });
 
 /*
-* Concatenates search related .js files and produces a single search.js file in the _site/js directory.
+* Concatenate search-related .js files into a single search.js file in the _site/js directory.
 */
 gulp.task('concat-searchjs', function(){
   return gulp.src(['_site/js/lunr.js', '_site/js/search.js'])
@@ -173,31 +145,29 @@ gulp.task('concat-searchjs', function(){
 });
 
 /*
-* Minifies all .js files the _site/js directory.
+* Minify all .js files in the _site/js directory.
 */
 gulp.task('minify-js', function(){
   return gulp.src('_site/js/*.js')
-    //Concatenates all files in _site/js/
-    // .pipe(concat('scripts.js'))
     .pipe(uglify())
     .pipe(gulp.dest('_site/js/'))
     .on('error', gutil.log);
 });
 
 /*
-* Minifies all .html files in the _site/ directory.
+* Minify all .html files in the _site/ directory.
 */
 gulp.task('minify-html', function(){
-   gulp.src('_site/**/*.html')
+   return gulp.src('_site/**/*.html')
    .pipe(htmlmin({collapseWhitespace: true}))
    .pipe(gulp.dest('_site'));
 });
 
-/**
-Copy and minimize image files in _site/images directory.
+/*
+* Copy and minimize image files in the _site/images directory. This task takes about 2 minutest to minimize 30 images.
 */
 gulp.task('minify-images', function () {
-  gulp.src('images/*')
+  return gulp.src('images/*')
     .pipe(imagemin([
       /*
       * The imagemin defaults are ok, except when optimizing SVGs. Optimized SVGs contain duplicated text labels for some reason (TP-250). Overriding the cleanupIDs plugin seems to fix the issue, but I don't know why.
@@ -209,16 +179,20 @@ gulp.task('minify-images', function () {
       imagemin.jpegtran({progressive: true}),
       imagemin.optipng({optimizationLevel: 5}),
       imagemin.svgo({plugins: [{cleanupIDs: false}]})
-    ]))
+    ], {
+      //Show me info about each processed image in in the console.
+      verbose: true
+    }))
     .pipe(gulp.dest('_site/images'));
   });
 
 /*
 * Chain all minification tasks together.
 */
-gulp.task('minify', ['minify-js', 'minify-css', 'minify-html', 'minify-images']);
+gulp.task('minify', gulp.series(gulp.parallel('minify-js', 'minify-css', 'minify-html', 'minify-images')));
 
-/* Insert Google Analytics tracking code in index.html on production builds because Jekyll sucks sometimes and I can't use the logic for conditional builds that I'm using in _includes/head.html
+/*
+* Insert a Google Analytics tracking code in index.html on production builds because Jekyll sucks sometimes and I can't use the logic for conditional builds that I'm using in _includes/head.html.
 */
 gulp.task('insert-analytics', function () {
  return gulp
@@ -232,27 +206,67 @@ gulp.task('insert-analytics', function () {
 });
 
 /*
-* Compile the site and run all tests. Used for local development.
-*/
-gulp.task('run-tests', function() {
- runSequence('jekyll-build', 'htmlproofer');
-});
-
-/*
-* Test uncss
-*/
-gulp.task('test', function() {
- runSequence('jekyll-build', 'minify-css', 'concat-js', 'concat-searchjs', 'minify-js', 'clean', 'serve');
-});
-
-/* Validate HTML, but ignore custom_404.html, custom_50x.html, search.html, and missing image alt tags. * Also ignores _site/reference b/c API links aren't generated during build; they're generated dynamically by tocify.js when opening a page in a browser. If we don't ignore this, we get loads of non-error errors.
+* Validate HTML, but ignore custom_404.html, custom_50x.html, search.html, and missing image alt tags. This task relies on the html-proofer rubygem that gets installed from the Gemfile.
+* Also ignores _site/reference b/c API links aren't generated during build; they're generated dynamically by jquery.tocify.js on page load. If we don't ignore this, we get loads of non-error errors.
 * To ignore specific links, just add a 'data-proofer-ignore' attribute to any tag (e.g., <a href="http://notareallink" data-proofer-ignore>Not checked.</a>).
 */
 gulp.task('htmlproofer', function (cb) {
   exec('htmlproofer ./_site --only-4xx --url-ignore "/reference/" --alt-ignore "/.*/" --allow-hash-href "true" --file-ignore "/custom|search/"',
   function (err, stdout, stderr) {
-    gutil.log(gutil.colors.cyan(stdout));
+    gutil.log(gutil.colors.green(stdout));
     gutil.log(gutil.colors.red(stderr));
     cb(err);
   });
 });
+
+/*
+* Compile the site, but don't serve or watch files. Required for Jenkins build.
+*/
+gulp.task('build-prod', gulp.series('make', 'insert-analytics', 'concat-js', 'concat-searchjs', 'minify', 'clean', 'htmlproofer', function(done) {
+  done();
+}));
+
+/*
+* Recompile the site after changing, adding, or removing a file. Used for local development.
+*/
+gulp.task('jekyll-rebuild', gulp.series('jekyll-build', 'minify-html', 'minify-css', 'concat-js', 'concat-searchjs', 'minify-js', 'clean', 'reload', function(done) {
+  done();
+}));
+
+/*
+* Compile the site and run all tests. Used for local development.
+*/
+gulp.task('run-tests', gulp.series('jekyll-build', 'htmlproofer', function(done) {
+  done();
+}));
+
+/*
+* Debug ad-hoc tasks
+*/
+gulp.task('test', gulp.series('jekyll-build', 'minify-css', 'concat-js', 'concat-searchjs', 'minify-js', 'clean', 'serve', function(done) {
+ done();
+}));
+
+/*
+* Recompile the site and reload the browser whenever changing, adding, or removing a file. Used for local development.
+*/
+gulp.task('watch', function(done) {
+  var watcher = gulp.watch(['*.html', '_data/*.yml', '_includes/**/*', '_layouts/*.html', 'docs/**/*', 'css/*.css', 'js/*.js', 'images/**/*.+(png|jpeg|jpg|gif|svg)', '_config.yml'], gulp.series('jekyll-rebuild'));
+    watcher.on('change', function(path, stats) {
+      gutil.log(gutil.colors.bgYellow.black('File ' + path + ' has been changed. Recompiling...'));
+    });
+    watcher.on('add', function(path) {
+      gutil.log(gutil.colors.bgYellow.black('File ' + path + ' has been added. Recompiling...'));
+    });
+    watcher.on('unlink', function(path) {
+      gutil.log(gutil.colors.bgYellow.black('File ' + path + ' has been removed. Recompiling...'));
+    });
+  done();
+});
+
+/*
+* Compile the site, launch BrowserSync, and watch files for changes. Used for local development.
+*/
+gulp.task('build-dev', gulp.series('jekyll-build', 'concat-js', 'concat-searchjs', 'minify-js', 'minify-css', 'minify-html', 'clean', 'watch', 'browser-sync', function(done) {
+ done();
+}));

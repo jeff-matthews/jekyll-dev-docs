@@ -3862,6 +3862,7 @@ input[type=range] + .thumb {
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
+/* uncss:ignore */
 .section.scrollspy {
     padding: 0;
 }

@@ -24,7 +24,7 @@ Before your application can start managing transactions on behalf of an AffiniPa
   <span class="panel-note"><b>Note:</b> {{site.data.variables.brand.gateway}} credentials don't expire. Save these credentials securely so your application can manage transactions on behalf of merchant users.</span>
 
 ## Configure Your Partner Application
-Before proceeding with this guide, make sure you can log in to the <a href="https://secure.affinipay.com" target="&#95;blank">AffiniPay Virtual Terminal web application</a> and that you have an OAuth [partner application](../basics/account-management.html#partner-applications).
+Before proceeding with this guide, make sure you can log in to the <a href="https://secure.affinipay.com" target="&#95;blank">{{site.data.variables.dashboard}}</a> and that you have an OAuth [partner application](../basics/account-management.html#partner-applications).
 
 Follow these steps to configure your application and retrieve your client ID and secret:
 
@@ -38,7 +38,7 @@ Follow these steps to configure your application and retrieve your client ID and
 
     - **Application Name** – The name end-users see when they authorize your application to interact with their AffiniPay account.
     - **OAuth Enabled** – If you'd like to disable your OAuth integration, uncheck this checkbox.
-    - **Redirect URI** – Per the OAuth 2.0 specification, this is the URI to which the AffiniPay web application will redirect after successful authorization. Your web server must handle redirects to this URI according to the OAuth 2.0 specification.
+    - **Redirect URI** – Per the OAuth 2.0 specification, this is the URI to which the {{site.data.variables.dashboard}} will redirect after successful authorization. Your web server must handle redirects to this URI according to the OAuth 2.0 specification.
     - **Event URL** - The endpoint on your server to which AffiniPay sends notifications and event details, such as merchant application disposition.
     - **OAuth Client ID** – Used to identify your application during OAuth authorization flows.
     - **OAuth Secret** – Used to authenticate your application during OAuth authorization flows.
@@ -59,6 +59,8 @@ After successfully retrieving {{site.data.variables.brand.gateway}} credentials,
 
 ### Creating a One-Time Token
 {{site.data.notes.note.tokenization-definition}}
+
+<span class="panel-note"><b>Note:</b> {{site.data.notes.token-ttl}}</span>
 
 <h4>Example request</h4>
 <pre id="token"><code class="json">curl -X POST -H "Content-Type:application/json" --user &lt;public_key>: https://api.chargeio.com/v1/tokens -d '

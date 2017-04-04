@@ -8,7 +8,7 @@ All of the API examples you see on this site use [cURL](https://curl.haxx.se/) c
 
 All API requests are authenticated using HTTP Basic Authentication. The method you use to authenticate depends on what you're trying to do:
 
--   **Merchants** - If you're trying to manage transactions for your AffiniPay merchant account only, you must provide either your test- or live-mode secret key in the HTTP Authorization header. You can find these keys by logging in to the AffiniPay web application and going to [**Settings** > **Developer** > **My Website** > **Show Credentials**](../guides/payment-form-getting-started.html#obtain-credentials).
+-   **Merchants** - If you're trying to manage transactions for your AffiniPay merchant account only, you must provide either your test- or live-mode secret key in the HTTP Authorization header. You can find these keys by logging in to the {{site.data.variables.dashboard}} and going to [**Settings** > **Developer** > **My Website** > **Show Credentials**](../guides/payment-form-getting-started.html#obtain-credentials).
 -   **Partners** - If you're trying to manage transactions on behalf of _other_ AffiniPay merchants, you must go through an [OAuth flow](../basics/authentication.html) to retrieve an <span class="code-green">access_token</span>. Then, you must use the access token to [request gateway credentials](../guides/app-dev-getting-started.html#request-gateway-credentials) for a specific AffiniPay merchant, which returns the merchant's secret keys.
 
 ## Before You Begin
@@ -72,7 +72,7 @@ Let's launch the Postman app and make the same API request we made using cURL:
 2. Enter the following endpoint URL in the adjacent text box: _https://api.chargeio.com/v1/tokens_
 3. Configure headers. **No Auth** should be selected in **Authorization** > **Type** by default. If not, do that now.
     -   Enter _Content-Type_ in the first **key** field and _application/json_ in the adjacent **value** field.
-    -   Enter _Authorization_ in the next **key** field and _Basic_ followed by your base64-encoded secret key plus trailing colon (e.g., encode this => `<secret_key>:`). You can use an [online Base64 encoder](https://www.base64encode.org/) for this.
+    -   Enter _Authorization_ in the next **key** field and _Basic_ followed by your base64-encoded secret key plus trailing colon (e.g., encode this => `<secret_key>:`). Use the <a href="https://linux.die.net/man/1/base64" target="&#95;blank">base64</a> (OS X/Linux) or <a href="https://technet.microsoft.com/en-us/library/cc732443(v=ws.11).aspx" target="&#95;blank">certutil</a> (Windows) command line tool to encode your secret key.
 
     <img width="90%" src="../images/postman1.png">
 

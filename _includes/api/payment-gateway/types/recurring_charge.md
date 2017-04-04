@@ -71,7 +71,7 @@
 						<tr>
 							<td>schedule</td>
 							<td>
-								<a href="#schedule">Schedule</a>
+								<a href="#schedule-object">Schedule</a>
 							</td>
 							<td>The schedule indicating when payments are due. Upon creation or update of a recurring charge, the Gateway calculates the next payment using the given schedule along with
 							the configured start date and current date. For start dates occurring before the current date, the next payment is defined as the next eligible date (based on the schedule) on

@@ -1,13 +1,15 @@
 $(document).ready(function(){
+  //The jquery.tocify.js plugin needs this to dynamically generate the API reference TOC.
+  $("#toc").tocify({ selectors: "h1, h2, h3, h4" }).data("toc-tocify"),
   $(".scrollspy").scrollSpy(),
   $(".dropdown-button").dropdown(),
-  //Enable parallax effect for landing page graphic
+  //Enable the parallax effect on the landing page graphic.
   $(".parallax").parallax(),
   $(".button-collapse").sideNav(),
   $(".sidebar-module").pushpin(),
-  //Enable hover text using materialize.js/css plugin
+  //Enable hover text using the materialize.js/css plugin.
   $('.tooltipped').tooltip({delay: 50}),
-  //Enable highlightJS syntax highlighting for code exmaples
+  //Enable highlightJS syntax highlighting for code exmaples.
   $('pre code').each(function(i, block) {
     hljs.highlightBlock(block);
   });

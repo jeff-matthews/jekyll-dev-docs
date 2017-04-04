@@ -4,9 +4,9 @@ title: "Account Management"
 permalink: /basics/account-management.html
 ---
 
-The AffiniPay web application at <a href="https://secure.affinipay.com" target="&#95;blank">https://secure.affinipay.com</a> is where you go to perform administrative tasks associated with your merchant account(s), such as authorizing/deauthorizing applications, configuring card verification policies, and accessing payment gateway credentials/API keys for development purposes.
+The {{site.data.variables.dashboard}} at <a href="https://secure.affinipay.com" target="&#95;blank">https://secure.affinipay.com</a> is where you go to perform administrative tasks associated with your merchant account(s), such as authorizing/deauthorizing applications, configuring card verification policies, and accessing payment gateway credentials/API keys for development purposes.
 
-<div class="panel-note"><b>Note:</b> The AffiniPay web application URL varies depending on which AffiniPay product you're using:
+<div class="panel-note"><b>Note:</b> The {{site.data.variables.dashboard}} URL varies depending on which AffiniPay product you're using:
   <ul>
     <li>AffiniPay - <a href="https://secure.affinipay.com" target="&#95;blank">https://secure.affinipay.com</a></li>
     <li>LawPay - <a href="https://secure.lawpay.com" target="&#95;blank">https://secure.lawpay.com</a></li>
@@ -15,7 +15,7 @@ The AffiniPay web application at <a href="https://secure.affinipay.com" target="
 </div>
 
 ## Authorized Applications
-When you sign up for an AffiniPay merchant account, we create a default application for you called **My Website**. This application contains the credentials you must use to submit API requests to the {{site.data.variables.brand.gateway}}. You must log in to the AffiniPay web application and [manually authorize](../guides/payment-form-getting-started.html#obtain-credentials) this application to access your [test- and live-mode credentials](#test-live-creds).
+When you sign up for an AffiniPay merchant account, we create a default application for you called **My Website**. This application contains the credentials you must use to submit API requests to the {{site.data.variables.brand.gateway}}. You must log in to the {{site.data.variables.dashboard}} and [manually authorize](../guides/payment-form-getting-started.html#obtain-credentials) this application to access your [test- and live-mode credentials](#test-live-creds).
 
 ### Merchant Accounts
 {% include concepts/merchant-accounts.md %}
@@ -29,7 +29,7 @@ Third-party integrations require an OAuth partner application within the AffiniP
 AffiniPay merchants must authorize these applications to perform actions (e.g., charge, refund, void) on their behalf through the OAuth 2.0 [web authentication flow](../basics/authentication.html#web-server). Refer to [Configure Your Partner Application](../guides/app-dev-getting-started.html#configure-your-partner-application) for more information.
 
 ### Access Control
-Merchants users can revoke a partner application's access to their account any time by logging in to the Virtual Terminal web application and deleting the application.
+Merchants users can revoke a partner application's access to their account any time by logging in to the {{site.data.variables.dashboard}} and deleting the application.
 
 Partners can use our <a href="../guides/deauthorization.html">API</a> to revoke a user's access to their application.
 
@@ -43,7 +43,7 @@ When you run a charge, the AffiniPay Payment Gateway sends customer-provided AVS
 AffiniPay's AVS/CVV policy configuration allows you to enable/disable matching and/or specify how strict match parameters should be. For example, some card-issuing banks will authorize a charge despite a failed AVS/CVV match between the charge request and the bank's records. You can configure AffiniPay AVS/CVV policies to reject transactions when a card-issuing bank responds with a mismatched result. If a card-issuing bank's response triggers one of your merchant account AVS/CVV policies, the AffiniPay Payment Gateway returns a <a href="../reference/api.html#CardValidationMessages" target="&#95;blank">Card Validation</a> error message.  
 
 ### Configuration
-The easiest way to configure AVS/CVV policies for your merchant account(s) is through the AffiniPay Virtual Terminal web application:
+The easiest way to configure AVS/CVV policies for your merchant account(s) is through the {{site.data.variables.dashboard}}:
 
 <span class="panel-note"><b>Note:</b> Only authorized users can access and modify account settings.</span>
 

@@ -4,6 +4,8 @@
       <p><span class="api-operation">PUT</span> <span class="code-green">/v1/accounts/{accountId}</span></p>
 
       <p>A Merchant may update the name, primary status, and policy configuration of a <a href="#merchant_account" style="font-family:monospace">merchant_account</a> via a PUT to <span class="code-green">/v1/accounts/{accountId}</span>.</p>
+
+      <span class="panel-tip"><b>Tip:</b> To find an account ID, look for <span class="code-green">id</span> properties in the array of <a href="#merchant_account" style="font-family:monospace">merchant_accounts</a> within a <a href="#merchant" style="font-family:monospace">merchant</a> object.</span>
     </div>
   </div>
 

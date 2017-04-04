@@ -9,7 +9,7 @@ Why take on the liabilities associated with storing large amounts of sensitive c
 There are two methods for managing businesses:
 
 - **API** - Use our Businesses API to programmatically create new customers in bulk or migrate all your existing customer records to the AffiniPay system. Refer to the <a href="/tenant/index.html" data-proofer-ignore target="&#95;blank">Businesses API Reference</a> for more information.
-- **Businesses Dashboard** - Use the Businesses dashboard in the AffiniPay web application to create new customers or update existing customer details without help from a developer. This topic guides you through creating and updating businesses through the Businesses dashboard.
+- **Businesses Dashboard** - Use the Businesses dashboard in the {{site.data.variables.dashboard}} to create new customers or update existing customer details without help from a developer. This topic guides you through creating and updating businesses through the Businesses dashboard.
 
 ## Create a Business
 To create a business:

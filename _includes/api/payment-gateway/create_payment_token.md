@@ -3,8 +3,9 @@
     <div class="method-copy-padding">
       <p><span class="api-operation">POST</span> <span class="code-green">/v1/tokens</span></p>
 
-      <p>A merchant system, having collected a customer's payment details, may exchange them for a one-time payment token by
-      POSTing the payment details to <span class="code-green">/v1/tokens</span>. The Gateway responds with a JSON <a href="#token" style="font-family:monospace">token</a> containing the payment details (with the card number, routing number, and bank account number masked, and without the given CVV, if any), the key <span class="code-green">id</span> holding the token identifier to be sent in a future transaction, and any additional data included in the POST. The Gateway accepts payment details as either form URL-encoded data or a JSON structure, based on the HTTP Content-Type header provided (<span class="code-green">application/x-www-form-urlencoded</span> or <span class="code-green">application/json</span>, respectively).</p>
+      <p>A merchant system, having collected a customer's payment details, may exchange them for a one-time payment token by POSTing the payment details to <span class="code-green">/v1/tokens</span>. {{site.data.notes.token-ttl}}</p>
+
+      <p>The Gateway responds with a JSON <a href="#token" style="font-family:monospace">token</a> containing the payment details (with the card number, routing number, and bank account number masked, and without the given CVV, if any), the key <span class="code-green">id</span> holding the token identifier to be sent in a future transaction, and any additional data included in the POST. The Gateway accepts payment details as either form URL-encoded data or a JSON structure, based on the HTTP Content-Type header provided (<span class="code-green">application/x-www-form-urlencoded</span> or <span class="code-green">application/json</span>, respectively).</p>
 
       <p>The following table summarizes the supported payment detail properties, provided either as form parameters or JSON
       keys. When using form URL-encoded data, the values should be sent encoded in the form POST body, not included as query

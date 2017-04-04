@@ -4,11 +4,10 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
   <title>Affinipay | Developers</title>
-  <!-- CSS  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
-  <link href="css/styles.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
+  <link href="css/styles.css" type="text/css" rel="stylesheet" media="none" onload="if(media!='all')media='all'">
   <link rel="shortcut icon" href="images/favicon.ico">
 </head>
 <body>
@@ -83,16 +82,15 @@
   </div>
   <footer>
     <div class="footer-copyright">
-      <!--<p style="text-align: right; margin-right: 40px;">© AffiniPay 2016</p>-->
-      &copy; AffiniPay
+      &copy; AffiniPay<span style="color:#fff;">.</span>
       <script type="text/javascript">
         document.write(new Date().getFullYear());
       </script>
     </div>
   </footer>
-    <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="js/scripts.js"></script>
-    <script type="text/javascript" src="js/init.js"></script>
+  <!--Import jQuery before materialize.js (aka scripts.js)-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/init.js"></script>
+  <script type="text/javascript" src="js/scripts.js"></script>
   </body>
 </html>

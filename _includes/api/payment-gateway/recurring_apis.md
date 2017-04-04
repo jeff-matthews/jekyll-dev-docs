@@ -10,7 +10,7 @@
           <li>Configuring the payment schedule and optional limits</li>
         </ul>
       <p><span class="panel-tip"><b>Tip:</b> We highly recommend masking payment details you collect using tokenization. {{site.data.notes.use-tokens}}</span></p>
-      <p>The Gateway tracks each scheduled payment using an <a href="../reference/api.html#recurringchargeoccurrence" target="&#95;">occurrence</a> instance, which lets you know the status of the payment and what transaction(s) were created to collect that payment. Through the APIs, you can:</p>
+      <p>The Gateway tracks each scheduled payment using an <a href="../reference/api.html#recurring_charge_occurrence" target="&#95;">occurrence</a> instance, which lets you know the status of the payment and what transaction(s) were created to collect that payment. Through the APIs, you can:</p>
         <ul>
           <li><a href="../reference/api.html#list-recurring-charges" target="&#95;">View</a> all your recurring charges and their associated <a href="../reference/api.html#list-occurrences" target="&#95;">occurrences</a></li>
           <li><a href="../reference/api.html#update-recurring-charge" target="&#95;">Edit</a> recurring charges</li>

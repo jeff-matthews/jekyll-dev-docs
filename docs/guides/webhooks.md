@@ -20,9 +20,9 @@ Event URLs should represent endpoints you control and that are capable of handli
 <span class="panel-warning">Events don't contain any sensitive payment details, but they may contain personally identifiable information (e.g., customer names and addresses). For this reason, we strongly recommend using the HTTPS scheme for all webhook URLs you register.</span>
 
 ## Payment Gateway Events
-You can configure {{site.data.variables.brand.gateway}} webhooks through the AffiniPay web application or the <a href="../reference/api.html#ConfiguringWebhooks" target="&#95;blank">{{site.data.variables.brand.gateway-api}}</a>.
+You can configure {{site.data.variables.brand.gateway}} webhooks through the {{site.data.variables.dashboard}} or the <a href="../reference/api.html#ConfiguringWebhooks" target="&#95;blank">{{site.data.variables.brand.gateway-api}}</a>.
 
-To configure {{site.data.variables.brand.gateway}} webhooks through the AffiniPay web application:
+To configure {{site.data.variables.brand.gateway}} webhooks through the {{site.data.variables.dashboard}}:
 
 <ol>
   <li>Log in to <a href="https://secure.affinipay.com/login" target="&#95;blank">https://secure.affinipay.com/login</a>.<i class="fa fa-info-circle superscript tooltipped" data-position="top" data-delay="50" data-tooltip="LawPay users should go to https://secure.lawpay.com/login"></i></li>
@@ -38,7 +38,7 @@ To configure {{site.data.variables.brand.gateway}} webhooks through the AffiniPa
 </ol>
 
 ## OAuth Partner Application Events
-You must configure {{site.data.variables.brand.oauth}} webhooks through the AffiniPay web application.
+You must configure {{site.data.variables.brand.oauth}} webhooks through the {{site.data.variables.dashboard}}.
 
 To configure {{site.data.variables.brand.oauth}} webhooks:
 
