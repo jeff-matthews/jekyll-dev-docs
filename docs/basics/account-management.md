@@ -29,7 +29,7 @@ Third-party integrations require an OAuth partner application within the AffiniP
 AffiniPay merchants must authorize these applications to perform actions (e.g., charge, refund, void) on their behalf through the OAuth 2.0 [web authentication flow](../basics/authentication.html#web-server). Refer to [Configure Your Partner Application](../guides/app-dev-getting-started.html#configure-your-partner-application) for more information.
 
 ### Access Control
-Merchants users can revoke a partner application's access to their account any time by logging in to the {{site.data.variables.dashboard}} and deleting the application.
+Merchants can revoke a partner application's access to their AffiniPay account any time by logging in to the {{site.data.variables.dashboard}} and deleting it.
 
 Partners can use our <a href="../guides/deauthorization.html">API</a> to revoke a user's access to their application.
 
@@ -47,7 +47,7 @@ The easiest way to configure AVS/CVV policies for your merchant account(s) is th
 
 <span class="panel-note"><b>Note:</b> Only authorized users can access and modify account settings.</span>
 
-1. Log in to <a href="https://secure.affinipay.com/login" target="&#95;blank">https://secure.affinipay.com/login</a>.<i class="fa fa-info-circle superscript tooltipped" data-position="top" data-delay="50" data-tooltip="LawPay users should go to https://secure.lawpay.com/login"></i>
+1. Log in to <a href="https://secure.affinipay.com/login" target="&#95;blank">https://secure.affinipay.com/login</a>.<image style="cursor:pointer" class="icon-info tooltipped" src="../images/icn_information.svg" data-position="top" data-delay="50" data-tooltip="LawPay users should go to https://secure.lawpay.com/login">
 2. Click your name in the upper-right corner to open the drop-down menu and click **Settings**.
 3. Click the <b>My Business</b> tab and scroll down to the <b>Accounts</b> section.
 4. Click <b>Edit</b> next to the account you want to configure.

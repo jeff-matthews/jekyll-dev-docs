@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
   <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <link data-proofer-ignore rel="canonical" href="{% if jekyll.environment == 'qa' %}{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.qa_url}}{% else %}{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.production_url}}{% endif %}">
   <link rel="alternate" type="application/rss+xml" title="AffiniPay Developers RSS" href="/feed.xml">
   <!-- CSS -->
   <link href="../css/styles.css" type="text/css" rel="stylesheet" media="screen,projection"/>

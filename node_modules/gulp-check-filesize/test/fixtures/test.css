@@ -1,0 +1,13 @@
+.some-class {
+	height: 230px;
+	width: 500px;
+	background-color: transparent;
+	opacity: 1;
+}
+
+.some-other-class {
+	width: 800em;
+	height: 20em;
+	display: block;
+	background-image: url('someimageurl.png');
+}

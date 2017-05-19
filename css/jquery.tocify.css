@@ -10,7 +10,6 @@
     width: 240px;
     max-height: 90%;
     overflow: auto;
-    margin-top: 20px;
     margin-left: 0;
     position: fixed;
     top: 80px;
@@ -21,7 +20,7 @@
 /* uncss:ignore */
 @media only screen and (max-width: 700px) {
     .tocify {
-      top: 80px;
+      top: 140px;
     }
 }
 

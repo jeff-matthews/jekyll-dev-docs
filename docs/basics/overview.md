@@ -49,8 +49,10 @@ Integrations fall into two categories:
     -   [**Hosted payment pages**](../guides/hosted-payment-page-link.html) - The easiest way to collect a payment online is to provide a link to one of our pre-built hosted payment pages. If you want to host a payment page inside an <span class="code-green">iframe</span> element, you'll have to contact support. Refer to **Can I embed a hosted payment page in my website using an <iframe>?** in the <a href="../resources/faq.html">FAQ</a> for more information.
     -   [**Custom HTML and AffiniPay JS library**](../guides/payment-form-getting-started.html) - Collect and store sensitive payment details without passing the data through your servers. The script passes the card details collected on your payment form directly to the {{site.data.variables.brand.gateway}} and exchanges them for a one-time token. This token can then be safely stored on your server and passed to the {{site.data.variables.brand.gateway}} in any operation that takes credit card details, such as a <a href="../reference/api.html#charge" target="&#95;blank">`charge`</a>.
 
+<span class="panel-tip"><b>Tip:</b> Refer to our [Best Practices](../resources/integration-best-practices.html) guide for more information.</span>.
+
 ## Resources and Support
-The developer guides on this site and the <a href="../reference/api.html" target="&#95;blank">API reference</a> are helpful development resources. We also offer a growing set of [code libraries and example applications](../resources/libraries-sample-code.html) for most languages (e.g., Ruby, PHP, and .NET).
+The developer guides on this site and the <a href="../reference/api.html" target="&#95;blank">API reference</a> are helpful development resources. We also offer a growing set of [code libraries](../resources/libraries-sample-code.html) for most languages (e.g., Ruby, PHP, and .NET).
 
 Still have questions? Check out our [FAQ](../resources/faq.html) or just send us an email at <a href="mailto:devsupprot@affinipay.com">devsupport@affinipay.com</a>. We're here to help!
 

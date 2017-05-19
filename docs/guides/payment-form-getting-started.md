@@ -6,7 +6,7 @@ permalink: /guides/payment-form-getting-started.html
 
 Use this guide to securely integrate payments on your website using our JavaScript tokenization library.
 
-<span class="panel-note"><b>Note:</b> Click [here](../basics/tokenization.html) to learn more about tokenization.</span>
+<span class="panel-note"><b>Note:</b> Refer to [Securing Payment Details](../basics/tokenization.html) to learn more about tokenization.</span>
 
 Integrating payments on your website using a web form requires the following steps:
 
@@ -29,7 +29,7 @@ You'll need the following information from an [authorized application](../basics
 To authorize your website application and access your keys:
 
 <ol>
-  <li>Log in to <a href="https://secure.affinipay.com/login" target="&#95;blank">https://secure.affinipay.com/login</a>.<i class="fa fa-info-circle superscript tooltipped" data-position="top" data-delay="50" data-tooltip="LawPay users should go to https://secure.lawpay.com/login"></i></li>
+  <li>Log in to <a href="https://secure.affinipay.com/login" target="&#95;blank">https://secure.affinipay.com/login</a>.<image style="cursor:pointer" class="icon-info tooltipped" src="../images/icn_information.svg" data-position="top" data-delay="50" data-tooltip="LawPay users should go to https://secure.lawpay.com/login"/></li>
   <li>Click your name in the top-right corner and click <b>Developers</b>.
 
     <p><img width="30%" src="../images/developers.png"></p></li>
@@ -120,7 +120,7 @@ You must add a JavaScript event handler and bind it to the form action you're us
 
 ### Sample Form Handler
 
-The following is an example payment form event handler that works with the  [HTML payment form](#create-a-payment-form) described above and <a href="https://github.com/affinipay/chargeio-example-php" target="&#95;blank">AffiniPay's sample PHP application</a>.
+The following is an example payment form event handler that works with the [HTML payment form](#create-a-payment-form) described above.
 
 <span class="panel-note"><b>Note:</b> Click [here](#code-comments) to see code comments.</span>
 
@@ -149,12 +149,12 @@ The following is an example payment form event handler that works with the  [HTM
 22       var amount = parseInt($('#total').text().replace(/\D/g,''));
 23       var paymentJson = ChargeIO.payment_params($('form'));
 24       ChargeIO.create_token(paymentJson, function(token) {
-25         $.post('/chargeio-example-php/Purchase.php', { 'amount': amount, 'token_id': token.id }).done(function(data) {
+25         $.post('&lt;add your URL here>', { 'amount': amount, 'token_id': token.id }).done(function(data) {
 26           if (data.messages) {
 27             processErrorMessages(data.messages);
 28           }
 29           else {
-30             window.location = '/chargeio-example-php/Receipt.php';
+30             window.location = '&lt;add your URL here>';
 31           }
 32         }).fail(function(xhr) {
 33           processErrorMessages([ { "message": "An unexpected error occurred" } ]);
@@ -180,7 +180,7 @@ The following is an example payment form event handler that works with the  [HTM
 - 22: Define the payment amount.
 - 23: Use the payment form fields to create the 'token' JSON request object. The ChargeIO.payment_params() function assumes your form field names match the 'token' API properties. If this isn't the case in your form, you need to programmatically create this JSON object.
 - 23: Request a token from the AffiniPay Payment Gateway.
-- 25: POST the received token ID and amount to the web server.
+- 25: POST the received token ID and amount to your web server.
 - 26-28: Process error messages that were returned.
 - 29-31: Transition to receipt page on success.
 - 32-34: Handle failures to run the payment from the web server.
@@ -201,8 +201,6 @@ After securely collecting and tokenizing your customers' payment information, yo
 </code></pre>
 
 <button id="btn" class="btn copy" data-clipboard-target="#charge" onclick="Materialize.toast('Copied!', 2000)">Copy</button>
-
-Our <a href="https://github.com/affinipay/chargeio-example-php/blob/master/Purchase.php" target="&#95;blank">sample PHP application</a> provides a working example you can use to get started.
 
 <span class="panel-tip"><b>Tip:</b> The {{site.data.variables.brand.gateway}} uses <a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="&#95;blank">HTTP Basic Authentication</a>. Use your test or live-mode secret key as your username and an empty string for the password.</span>
 

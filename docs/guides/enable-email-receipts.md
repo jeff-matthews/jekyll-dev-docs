@@ -8,7 +8,7 @@ You can configure the {{site.data.variables.dashboard}} to automatically email y
 
 To enable email receipts:
 <ol>
-  <li>Log in to <a href="https://secure.affinipay.com/login" target="&#95;blank">https://secure.affinipay.com/login</a>.<i class="fa fa-info-circle superscript tooltipped" data-position="top" data-delay="50" data-tooltip="LawPay users should go to https://secure.lawpay.com/login"></i></li>
+  <li>Log in to <a href="https://secure.affinipay.com/login" target="&#95;blank">https://secure.affinipay.com/login</a>.<image style="cursor:pointer" class="icon-info tooltipped" src="../images/icn_information.svg" data-position="top" data-delay="50" data-tooltip="LawPay users should go to https://secure.lawpay.com/login"/></li>
   <li>Click your name in the top-right corner and click <b>Developers</b>.
 
     <p><img width="30%" src="../images/developers.png"></p></li>

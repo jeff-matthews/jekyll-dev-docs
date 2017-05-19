@@ -19,6 +19,13 @@
           </div>
         </div>
       <div class="tocify-wrapper">
+        <form class="hide-on-med-and-up" action="/search.html" method="get" style="padding-left:10px;">
+          <div class="input-field" style="width: 220px; padding-left: 3.5rem; border-bottom: solid 1px #ddd;">
+            <input id="search-box" type ="search" name="query" placeholder="search">
+              <label for="search"><i class="material-icons affinipay-green-text" style="margin-top: -4px;">search</i></label>
+                <i class="material-icons" style="margin-top: 8px;">close</i>
+          </div>
+        </form>
         {% include toc/api-toc.html %}
       </div>
         <div class="api">
@@ -29,12 +36,13 @@
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="../../js/init.js"></script>
-    <script type="text/javascript" src="../js/scripts.js"></script>
+    <script type="text/javascript" src="../js/jquery.tocify.js"></script>
+    <!--Code syntax highlighting. Must come before api.js.-->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script>
+    <script type="text/javascript" src="../js/api.js"></script>
+    <script type="text/javascript" src="../js/materialize.js"></script>
     <!--Include Clipboard JS library -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.0/clipboard.min.js"></script>
     <script type="text/javascript" src="../js/tooltip.js"></script>
-    <!--Code syntax highlighting-->
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script>
   </body>
 </html>

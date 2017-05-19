@@ -7,6 +7,13 @@
         <li class="brand-logo"><a href="../index.html" style="height: 80px;"><img class="logo" src="../images/dev_lock_up_doc_site.svg"></a></li>
       </ul>
       <div id="nav-mobile" class="toc-nav">
+          <form action="/search.html" method="get">
+            <div class="input-field" style="width: 220px; padding-left: 3.5rem; border-bottom: solid 1px #ddd;">
+              <input id="search-box" type ="search" name="query" placeholder="search">
+                <label for="search"><i class="material-icons affinipay-green-text" style="margin-top: 20px;">search</i></label>
+                  <i class="material-icons" style="margin-top: 20px;">close</i>
+            </div>
+          </form>
         {% include toc/toc.html %}
       </div>
       <!--Top navbar links
