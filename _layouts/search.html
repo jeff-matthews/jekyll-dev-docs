@@ -2,25 +2,7 @@
 <html>
   {% include head.html %}
   <body>
-    <header>
-    <!--White nav bar across top with logo-->
-      <div class="navbar-fixed">
-        <nav class="white" role="navigation">
-          <ul>
-            <li class="toc"><a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a></li>
-            <li class="brand-logo"><a href="../index.html" style="height: 80px;"><img class="logo" src="../images/dev_lock_up_doc_site.svg"></a></li>
-          </ul>
-          <div id="nav-mobile" class="toc-nav">
-            {% include toc/toc.html %}
-          </div>
-          <!--BEGIN Search input field and icon on top right nav bar-->
-          <ul class="right hide-on-med-and-down">
-            <li><a href="mailto:devsupport@affinipay.com" id="download-button" class="btn outline waves-effect waves-light">Contact Us</span></a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
+    {% include top-nav.html %}
     <div class="tocify-wrapper hide-on-med-and-down" style="padding-left: 10px;">
       {% include toc/toc.html %}
     </div>
@@ -28,12 +10,14 @@
       <div class="main">
         <h1>{{ page.title }}</h1>
             {{ content }}
+            {% include footer.html %}
       </div>
     </div>
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="../js/scripts.js"></script>
     <script type="text/javascript" src="../js/searchjs.js"></script>
+    <script type="text/javascript" src="../js/init.js"></script>
+    <script type="text/javascript" src="../js/materialize.js"></script>
   </body>
 </html>

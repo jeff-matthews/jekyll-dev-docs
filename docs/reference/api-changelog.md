@@ -18,7 +18,7 @@ Backward-compatible changes include:
 Added a <a href="../reference/api.html#schedule-a-charge" target="&#95;blank"><span class="code-green">/charges/{chargeId}/schedule</span></a> endpoint to create a recurring charge using the details of a previously processed payment (i.e., <a href="../reference/api.html#charge" style="font-family:monospace" target="&#95;blank">charge</a> object)
 
 ## 2016-03-31
-Added a <span class="code-green">currency</span> property to the <a href="../reference/api.html#merchant_account" style="font-family:monospace" target="&#95;blank">merchant_account</a> and <a href="../reference/api.html#ach_account" style="font-family:monospace" target="&#95;blank">ach_account</a> objects
+Added a <span class="code-green">currency</span> property to the <a href="../reference/api.html#merchant_account" style="font-family:monospace" target="&#95;blank">merchant_account</a> object
 
 ## 2016-10-09
 Added an optional <span class="code-green">trust_account</span> property to the <a href="../reference/api.html#merchant_account" style="font-family:monospace" target="&#95;blank">merchant_account</a> and <a href="../reference/api.html#ach_account" style="font-family:monospace" target="&#95;blank">ach_account</a> objects

@@ -30,8 +30,20 @@ Local Developement:
 
     gulp run-tests
 
+QA:
+  To compile the site, minify CSS/JS, validate links, insert the Google Analytics tracking code, and build domain-specific canonical links and feed.xml links:
+
+    gulp build-qa
+
+    This is the command that the Jenkins build configs use. This block must be in the package.json file:
+      "scripts": {
+        "test": "test",
+        "build-prod": "gulp build-prod",
+        "build-qa": "gulp build-qa"
+      }
+
 Production:
-  To compile the site, minify CSS/JS, validate links, and insert the Google Analytics tracking code:
+  To compile the site, minify CSS/JS, validate links, insert the Google Analytics tracking code, and build domain-specific canonical links and feed.xml links:
 
     gulp build-prod
 
@@ -43,10 +55,21 @@ Production:
 */
 
 /*
-* Compile the site. Executes the built-in "jekyll build" shell command with the "JEKYLL_ENV=production" parameter set to insert the Google Analytics tracking code in the HTML.
+* Compile the production site. Executes the built-in "jekyll build" shell command with the "JEKYLL_ENV=production" parameter set to insert the Google Analytics tracking code in the HTML.
 */
-gulp.task('make', function (cb) {
+gulp.task('make-prod', function (cb) {
  exec('JEKYLL_ENV=production jekyll build', function (err, stdout, stderr) {
+   gutil.log(gutil.colors.white(stdout));
+   gutil.log(gutil.colors.red(stderr));
+   cb(err);
+ });
+});
+
+/*
+* Compile the QA site. Executes the built-in "jekyll build" shell command with the "JEKYLL_ENV=qa" parameter set to build canonical links and feed.xml links correctly.
+*/
+gulp.task('make-qa', function (cb) {
+ exec('JEKYLL_ENV=qa jekyll build', function (err, stdout, stderr) {
    gutil.log(gutil.colors.white(stdout));
    gutil.log(gutil.colors.red(stderr));
    cb(err);
@@ -116,21 +139,10 @@ gulp.task('minify-css', function(){
 * Delete .css and .js files after concatenating in minify-css, minify-js, concat-js, and concat-searchjs.
 */
 gulp.task('clean', function(done) {
- del(['_site/css/materialize.css', '_site/css/style.css', '_site/css/jquery.tocify.css', '_site/css/highlightJS.css', '_site/js/materialize.js', '_site/js/jquery.tocify.js', '_site/js/search.js', '_site/js/lunr.js']).then(paths => {
+ del(['_site/css/materialize.css', '_site/css/style.css', '_site/css/jquery.tocify.css', '_site/css/highlightJS.css', '_site/js/search.js', '_site/js/lunr.js']).then(paths => {
     gutil.log(gutil.colors.yellow('Deleted files and folders:\n', paths.join('\n')));
  });
  done();
-});
-
-/*
-* Concatenate all .js files into a single scripts.js file in the _site/js directory.
-*/
-gulp.task('concat-js', function(){
-  return gulp.src(['_site/js/materialize.js', '_site/js/jquery.tocify.js'])
-    //Concatenates all files in _site/js/
-    .pipe(concat('scripts.js'))
-    .pipe(gulp.dest('_site/js/'))
-    .on('error', gutil.log);
 });
 
 /*
@@ -220,16 +232,25 @@ gulp.task('htmlproofer', function (cb) {
 });
 
 /*
-* Compile the site, but don't serve or watch files. Required for Jenkins build.
+* Compile the site for production, but don't serve or watch files. Required for Jenkins build.
 */
-gulp.task('build-prod', gulp.series('make', 'insert-analytics', 'concat-js', 'concat-searchjs', 'minify', 'clean', 'htmlproofer', function(done) {
+gulp.task('build-prod', gulp.series('make-prod', 'insert-analytics', 'concat-searchjs', 'minify', 'clean', 'htmlproofer', function(done) {
+  done();
+}));
+
+/*
+* Compile the site for QA, but don't serve or watch files. We added this task to make sure jekyll creates domain-specific URLs for canonical and feed.xml links. Required for Jenkins build. See the following files for template logic that passes in either a "qa" or "production" environment variable:
+  - feed.xml
+  - _includes/head.html
+*/
+gulp.task('build-qa', gulp.series('make-qa', 'insert-analytics', 'concat-searchjs', 'minify', 'clean', 'htmlproofer', function(done) {
   done();
 }));
 
 /*
 * Recompile the site after changing, adding, or removing a file. Used for local development.
 */
-gulp.task('jekyll-rebuild', gulp.series('jekyll-build', 'minify-html', 'minify-css', 'concat-js', 'concat-searchjs', 'minify-js', 'clean', 'reload', function(done) {
+gulp.task('jekyll-rebuild', gulp.series('jekyll-build', 'minify-html', 'minify-css', 'concat-searchjs', 'minify-js', 'clean', 'reload', function(done) {
   done();
 }));
 
@@ -243,7 +264,7 @@ gulp.task('run-tests', gulp.series('jekyll-build', 'htmlproofer', function(done)
 /*
 * Debug ad-hoc tasks
 */
-gulp.task('test', gulp.series('jekyll-build', 'minify-css', 'concat-js', 'concat-searchjs', 'minify-js', 'clean', 'serve', function(done) {
+gulp.task('test', gulp.series('jekyll-build', 'minify-css', 'concat-searchjs', 'minify-js', 'clean', 'serve', function(done) {
  done();
 }));
 
@@ -267,6 +288,6 @@ gulp.task('watch', function(done) {
 /*
 * Compile the site, launch BrowserSync, and watch files for changes. Used for local development.
 */
-gulp.task('build-dev', gulp.series('jekyll-build', 'concat-js', 'concat-searchjs', 'minify-js', 'minify-css', 'minify-html', 'clean', 'watch', 'browser-sync', function(done) {
+gulp.task('build-dev', gulp.series('jekyll-build', 'concat-searchjs', 'minify-js', 'minify-css', 'minify-html', 'clean', 'watch', 'browser-sync', function(done) {
  done();
 }));

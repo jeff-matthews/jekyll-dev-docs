@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "test",
-    "build": "gulp build-prod"
+    "build-prod": "gulp build-prod",
+    "build-qa": "gulp build-qa"
   },
   "repository": {
     "type": "git",

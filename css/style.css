@@ -56,3 +56,9 @@ p {
 footer.page-footer {
   margin: 0;
 }
+
+.icon-info {
+  height: 17px;
+  padding-left: 8px;
+  padding-right: 6px;
+}

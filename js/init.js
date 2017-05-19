@@ -1,6 +1,4 @@
 $(document).ready(function(){
-  //The jquery.tocify.js plugin needs this to dynamically generate the API reference TOC.
-  $("#toc").tocify({ selectors: "h1, h2, h3, h4" }).data("toc-tocify"),
   $(".scrollspy").scrollSpy(),
   $(".dropdown-button").dropdown(),
   //Enable the parallax effect on the landing page graphic.
@@ -16,13 +14,6 @@ $(document).ready(function(){
 }),
 (function($){})(jQuery);
 
-// Preloading animation for the API reference page layout. Wait until tocify generates the TOC before showing page content.
-document.addEventListener("DOMContentLoaded", function(){
-  $('.preloader-background').delay(350).fadeOut('slow');
-  $('.preloader-wrapper')
-    .delay(350)
-    .fadeOut();
-  });
 /* scrollspy.js
 * Enables scrollspy on topic pages by:
 * 1) wrapping h2s in a div
@@ -63,12 +54,6 @@ $('li').click(function(event) {
 //Enable li.level3 links by removing active class from ul.li.level2 parent
 $('ul#toc.collapsible.collapsible-accordion li.level3').on('click', function() {
     $('ul#toc.collapsible.collapsible-accordion li.level2').removeClass('active');
-});
-
-// openMobileNav.js
-//Show the TOC for API referencetopics after clicking the mobile-nav hamburger menu
-$("#mobile-nav").click(function() {
-  $(".tocify-wrapper").toggleClass("open");
 });
 
 /*hide the TOC when clicking outside of TOC element; instead of stopping event propogation and potentially breaking something else (https://css-tricks.com/dangers-stopping-event-propagation/)

@@ -1727,6 +1727,7 @@
     bottom: 0;
     padding-top: 15px;
     padding-left: 10px;
+    border-right: solid 1px #ddd;
 }
 /* uncss:ignore */
 @media only screen and (max-width: 600px) {
@@ -2366,8 +2367,6 @@ a.side-nav {
 	border-right: 1px solid rgba(221,221,221,0.5);
 	background-color: #fff;
 	z-index: 5000;
-	padding-bottom: 30px;
-
 }
 /* uncss:ignore */
 @media (max-width: 930px) {
@@ -5214,12 +5213,12 @@ footer.page-footer .footer-copyright {
 }
 /* uncss:ignore */
 .material-tooltip {
-    padding: 10px 8px;
-    font-size: 1rem;
+    padding: 10px;
+    font-size: 15px;
     z-index: 2000;
     background-color: transparent;
     border-radius: 2px;
-    color: #fff;
+    color: #333333;
     min-height: 36px;
     line-height: 120%;
     opacity: 0;
@@ -5231,6 +5230,7 @@ footer.page-footer .footer-copyright {
     left: 0;
     top: 0;
     pointer-events: none;
+    box-shadow: -2px 2px 4px #595959;
     will-change: top, left;
 }
 /* uncss:ignore */
@@ -5241,7 +5241,7 @@ footer.page-footer .footer-copyright {
     height: 7px;
     width: 14px;
     border-radius: 0 0 14px 14px;
-    background-color: #323232;
+    background-color: #f5f7f9;
     z-index: -1;
     -webkit-transform-origin: 50% 10%;
     transform-origin: 50% 10%;
@@ -5902,7 +5902,7 @@ input[type=search],
 textarea.materialize-textarea {
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid #9e9e9e;
+    /*border-bottom: 1px solid #9e9e9e;*/
     border-radius: 0;
     outline: none;
     height: 3rem;

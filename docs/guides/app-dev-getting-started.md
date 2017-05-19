@@ -3,7 +3,7 @@ layout: default
 title: "Application Development"
 permalink: /guides/app-dev-getting-started.html
 ---
-This guide is intended for AffiniPay partners developing payment integrations for existing commercial software applications (e.g., practice management software).
+This guide is intended for AffiniPay partners developing payment integrations for existing commercial software applications (e.g., practice management software). Before getting started, consider reviewing our [Best Practices](../resources/integration-best-practices.html) guide.
 
 {{site.data.notes.note.partner-apps-description}}
 
@@ -28,7 +28,7 @@ Before proceeding with this guide, make sure you can log in to the <a href="http
 
 Follow these steps to configure your application and retrieve your client ID and secret:
 
- 1. Log in to <a href="https://secure.affinipay.com/login" target="&#95;blank">https://secure.affinipay.com/login</a>.<i class="fa fa-info-circle superscript tooltipped" data-position="top" data-delay="50" data-tooltip="LawPay users should go to https://secure.lawpay.com/login"></i>
+ 1. Log in to <a href="https://secure.affinipay.com/login" target="&#95;blank">https://secure.affinipay.com/login</a>.<image style="cursor:pointer" class="icon-info tooltipped" src="../images/icn_information.svg" data-position="top" data-delay="50" data-tooltip="LawPay users should go to https://secure.lawpay.com/login">
  2. Click your name in the upper-right corner to open the drop-down menu and click **Developers**.
  3. The **My Partner Applications** section on the right lists your OAuth applications. Locate the application whose client ID and secret you want to retrieve and click **Edit**.
   <img width="70%" src="../images/clientIDandSecret.png">

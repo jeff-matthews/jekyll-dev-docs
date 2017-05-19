@@ -15,7 +15,7 @@ AffiniPay uses the industry standard <a href="http://oauth.net/2/" target="&#95;
 
 Each of your merchant users must go through the OAuth 2.0 Web Server Authentication flow at least once before your application can perform operations on their behalf.
 
-<span class="panel-warning"><b>Caution:</b> We recommend using an existing OAuth client rather than attempting to implement the OAuth 2.0 specification yourself. You can likely find a client for your preferred language <a href="http://oauth.net/code/" target="&#95;blank">here</a> or you can use our <a href="https://github.com/affinipay/affinipay-oauth-client-php-slim" target="&#95;blank">PHP client</a>.</span>
+<span class="panel-warning"><b>Caution:</b> We recommend using an existing OAuth client rather than attempting to implement the OAuth 2.0 specification yourself. You can likely find a client for your preferred language at [https://oauth.net/code/](https://oauth.net/code/){:target="&#95;blank"}.</span>
 
 See the following diagram for a high-level description of the OAuth Web Server Authentication flow as it relates to AffiniPay:
 

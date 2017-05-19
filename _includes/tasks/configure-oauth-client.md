@@ -1,4 +1,4 @@
-We recommend using an existing OAuth client as opposed to attempting to implement the OAuth specification yourself. You can likely find a client for your preferred language <a href="http://oauth.net/code/" target="&#95;blank">here</a> or you can use AffiniPay's <a href="https://github.com/affinipay/affinipay-oauth-client-php-slim" target="&#95;blank">PHP client</a>.
+We recommend using an existing OAuth client as opposed to attempting to implement the OAuth specification yourself. You can likely find a client for your preferred language at <a href="https://oauth.net/code/" target="&#95;blank">https://oauth.net/code/</a>.
 
 Minimally, configuring an OAuth client requires the client ID, client secret, and redirect URI specified in your OAuth Partner Application. You may also need the following:
 

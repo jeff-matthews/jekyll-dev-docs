@@ -6,8 +6,8 @@ layout: null
   <channel>
     <title>{{ site.title | xml_escape }}</title>
     <description>{{ site.description | xml_escape }}</description>
-    <link>{{ site.url }}{{ site.baseurl }}/</link>
-    <atom:link href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml"/>
+    <link>{% if jekyll.environment == 'qa' %}{{ site.qa_url}}{% else %}{{ site.production_url }}{% endif %}/</link>
+    <atom:link href="{% if jekyll.environment == 'qa' %}{{ "/feed.xml" | prepend: site.qa_url }}{% else %}{{ "/feed.xml" | prepend: site.production_url }}{% endif %}" rel="self" type="application/rss+xml"/>
     <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
     <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
     <generator>Jekyll v{{ jekyll.version }}</generator>
@@ -16,8 +16,8 @@ layout: null
         <item>
           <title>{{ page.title | xml_escape }}</title>
           <description>{{ page.content | xml_escape }}</description>
-          <link>{{ page.url | prepend: site.url }}</link>
-          <guid isPermaLink="true">{{ page.url | prepend: site.url }}</guid>
+          <link>{% if jekyll.environment == 'qa' %}{{ page.url | prepend: site.qa_url }}{% else %}{{ page.url | prepend: site.production_url }}{% endif %}</link>
+          <guid isPermaLink="true">{% if jekyll.environment == 'qa' %}{{ page.url | prepend: site.qa_url }}{% else %}{{ page.url | prepend: site.production_url }}{% endif %}</guid>
         </item>
       {% endunless %}
     {% endfor %}
